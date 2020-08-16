@@ -53,7 +53,7 @@ typedef struct _pid_data {
 	volatile uint8_t mode;
 
 	/* PID being streamed */
-	volatile uint8_t pid;
+	volatile uint16_t pid;
 
 	/* Units of the PID @PID_UNITS */
 	volatile uint8_t pid_unit;
