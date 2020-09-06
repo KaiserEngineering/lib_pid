@@ -91,9 +91,6 @@ typedef struct _obdii_pid {
 #define C 2
 #define D 3
 
-#define MODE01_OBDII                                    (uint8_t)01
-#define MODE22_OBDII                                    (uint8_t)22
-
 #define MODE1_CALCULATED_ENGINE_LOAD_VALUE              (uint16_t)0x04   // Calculated engine load value
 #define MODE1_CALCULATED_ENGINE_LOAD_VALUE_LEN          (uint8_t)0x1     // Calculated engine load value
 
@@ -133,8 +130,14 @@ typedef struct _obdii_pid {
 #define MODE1_AMBIENT_AIR_TEMPERATURE                   (uint16_t)0x46   // Ambient air temperature
 #define MODE1_AMBIENT_AIR_TEMPERATURE_LEN               (uint8_t)0x1     // Ambient air temperature
 
-#define MODE1_INTAKE_AIR_TEMPERATURE_SENSOR             (uint16_t)0x68   // Intake air temperature sensor
-#define MODE1_INTAKE_AIR_TEMPERATURE_SENSOR_LEN         (uint8_t)0x1     // Intake air temperature sensor
+#define MODE1_REL_ACCELERATOR_PEDAL_POS                 (uint16_t)0x5A   // Relative accelerator pedal position
+#define MODE1_REL_ACCELERATOR_PEDAL_POS_LEN             (uint8_t)0x1     // Relative accelerator pedal position
+
+#define MODE1_ENGINE_OIL_TEMPERATURE                    (uint16_t)0x5C   // Engine oil temperature
+#define MODE1_ENGINE_OIL_TEMPERATURE_LEN                (uint8_t)0x1     // Engine oil temperature
+
+#define MODE1_TURBO_INLET_PRESSURE                      (uint16_t)0x6F   // Turbocharger compressor inlet pressure
+#define MODE1_TURBO_INLET_PRESSURE_LEN                  (uint8_t)0x3     // Turbocharger compressor inlet pressure
 
 #define MODE22_INTAKE_AIR_TEMPERATURE                   (uint16_t)0xF40F // Intake air temperature
 #define MODE22_INTAKE_AIR_TEMPERATURE_LEN               (uint8_t)0x1     // Intake air temperature
