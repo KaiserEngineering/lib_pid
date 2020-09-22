@@ -91,6 +91,10 @@ typedef struct _obdii_pid {
 #define C 2
 #define D 3
 
+#define MODE1                                           (uint8_t)0x01    // Show current data
+#define MODE2                                           (uint8_t)0x02    // Show freeze frame data
+#define MODE22                                          (uint8_t)0x22    // Enhanced data
+
 #define MODE1_CALCULATED_ENGINE_LOAD_VALUE              (uint16_t)0x04   // Calculated engine load value
 #define MODE1_CALCULATED_ENGINE_LOAD_VALUE_LEN          (uint8_t)0x1     // Calculated engine load value
 
