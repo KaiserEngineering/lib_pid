@@ -89,6 +89,7 @@ typedef struct _obdii_pid {
 
 } OBDII_PID, *POBDII_PID;
 
+PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 
 #define A 0
 #define B 1
