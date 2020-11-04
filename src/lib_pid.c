@@ -40,6 +40,9 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID )
                 case MODE1_AMBIENT_AIR_TEMPERATURE:
                     return MODE1_AMBIENT_AIR_TEMPERATURE_UNITS;
 
+                case MODE1_TURBO_INLET_PRESSURE:
+                    return MODE1_TURBO_INLET_PRESSURE_UNITS;
+
                 default:
                     return 0x00;
             }
