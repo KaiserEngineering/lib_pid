@@ -25,7 +25,7 @@ typedef enum _pid_compare {
 typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 
 typedef enum _pid_units {
-    PID_UNITS_RESERVED,
+    PID_UNITS_NOT_APPLICABLE,
     PID_UNITS_PERCENT,
     PID_UNITS_CELCIUS,
     PID_UNITS_FAHRENHEIT,
@@ -36,6 +36,12 @@ typedef enum _pid_units {
     PID_UNITS_MPH,
     PID_UNITS_GRAMSEC,
     PID_UNITS_DEGREES,
+    PID_UNITS_VOLTS,
+    PID_UNITS_KM,
+    PID_UNITS_MILES,
+    PID_UNITS_SECONDS,
+    PID_UNITS_RATIO,
+    PID_UNITS_LPH,
 } PID_UNITS, *PPID_UNITS;
 
 #define PID_UNASSIGNED             0x00
