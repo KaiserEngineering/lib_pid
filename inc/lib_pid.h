@@ -110,79 +110,79 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 
 #define MODE1_CALCULATED_ENGINE_LOAD_VALUE              (uint16_t)0x04   // Calculated engine load value
 #define MODE1_CALCULATED_ENGINE_LOAD_VALUE_LEN          (uint8_t)0x1     // Calculated engine load value
-#define MODE1_CALCULATED_ENGINE_LOAD_UNITS              PID_UNITS_PERCENT
+#define MODE1_CALCULATED_ENGINE_LOAD_UNITS              (uint8_t)PID_UNITS_PERCENT
 
 #define MODE1_ENGINE_COOLANT_TEMPERATURE                (uint16_t)0x05   // Engine coolant temperature
 #define MODE1_ENGINE_COOLANT_TEMPERATURE_LEN            (uint8_t)0x1     // Engine coolant temperature
-#define MODE1_ENGINE_COOLANT_TEMPERATURE_UNITS          PID_UNITS_CELCIUS
+#define MODE1_ENGINE_COOLANT_TEMPERATURE_UNITS          (uint8_t)PID_UNITS_CELCIUS
 
 #define MODE1_FUEL_PRESSURE                             (uint16_t)0x0A   // Fuel pressure
 #define MODE1_FUEL_PRESSURE_LEN                         (uint8_t)0x1     // Fuel pressure
-#define MODE1_FUEL_PRESSURE_UNITS                       PID_UNITS_KPA
+#define MODE1_FUEL_PRESSURE_UNITS                       (uint8_t)PID_UNITS_KPA
 
 #define MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE         (uint16_t)0x0B   // Intake manifold absolute pressure
 #define MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_LEN     (uint8_t)0x1     // Intake manifold absolute pressure
-#define MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_UNITS   PID_UNITS_KPA
+#define MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_UNITS   (uint8_t)PID_UNITS_KPA
 
 #define MODE1_ENGINE_RPM                                (uint16_t)0x0C   // Engine RPM
 #define MODE1_ENGINE_RPM_LEN                            (uint8_t)0x2     // Engine RPM
-#define MODE1_ENGINE_RPM_UNITS                          PID_UNITS_RPM
+#define MODE1_ENGINE_RPM_UNITS                          (uint8_t)PID_UNITS_RPM
 
 #define MODE1_VEHICLE_SPEED                             (uint16_t)0x0D   // Vehicle speed
 #define MODE1_VEHICLE_SPEED_LEN                         (uint8_t)0x1     // Vehicle speed
-#define MODE1_VEHICLE_SPEED_UNITS                       PID_UNITS_KMH
+#define MODE1_VEHICLE_SPEED_UNITS                       (uint8_t)PID_UNITS_KMH
 
 #define MODE1_TIMING_ADVANCE                            (uint16_t)0x0E   // Timing advance
 #define MODE1_TIMING_ADVANCE_LEN                        (uint8_t)0x1     // Timing advance
-#define MODE1_TIMING_ADVANCE_UNITS                      PID_UNITS_DEGREES
+#define MODE1_TIMING_ADVANCE_UNITS                      (uint8_t)PID_UNITS_DEGREES
 
 #define MODE1_INTAKE_AIR_TEMPERATURE                    (uint16_t)0x0F   // Intake air temperature
 #define MODE1_INTAKE_AIR_TEMPERATURE_LEN                (uint8_t)0x1     // Intake air temperature
-#define MODE1_INTAKE_AIR_TEMPERATURE_UNITS              PID_UNITS_CELCIUS
+#define MODE1_INTAKE_AIR_TEMPERATURE_UNITS              (uint8_t)PID_UNITS_CELCIUS
 
 #define MODE1_MAF_AIR_FLOW_RATE                         (uint16_t)0x10   // MAF air flow rate
 #define MODE1_MAF_AIR_FLOW_RATE_LEN                     (uint8_t)0x2     // MAF air flow rate
-#define MODE1_MAF_AIR_FLOW_RATE_UNITS                   PID_UNITS_GRAMSEC
+#define MODE1_MAF_AIR_FLOW_RATE_UNITS                   (uint8_t)PID_UNITS_GRAMSEC
 
 #define MODE1_THROTTLE_POSITION                         (uint16_t)0x11   // Throttle position
 #define MODE1_THROTTLE_POSITION_LEN                     (uint8_t)0x1     // Throttle position
-#define MODE1_THROTTLE_POSITION_UNITS                   PID_UNITS_PERCENT
+#define MODE1_THROTTLE_POSITION_UNITS                   (uint8_t)PID_UNITS_PERCENT
 
 #define MODE1_BAROMETRIC_PRESSURE                       (uint16_t)0x33   // Barometric pressure
 #define MODE1_BAROMETRIC_PRESSURE_LEN                   (uint8_t)0x1     // Barometric pressure
-#define MODE1_BAROMETRIC_PRESSURE_UNITS                 PID_UNITS_KPA
+#define MODE1_BAROMETRIC_PRESSURE_UNITS                 (uint8_t)PID_UNITS_KPA
 
 #define MODE1_ABSOLUTE_LOAD_VALUE                       (uint16_t)0x43   // Absolute load value
 #define MODE1_ABSOLUTE_LOAD_VALUE_LEN                   (uint8_t)0x2     // Absolute load value
-#define MODE1_ABSOLUTE_LOAD_VALUE_UNITS                 PID_UNITS_PERCENT
+#define MODE1_ABSOLUTE_LOAD_VALUE_UNITS                 (uint8_t)PID_UNITS_PERCENT
 
 #define MODE1_AMBIENT_AIR_TEMPERATURE                   (uint16_t)0x46   // Ambient air temperature
 #define MODE1_AMBIENT_AIR_TEMPERATURE_LEN               (uint8_t)0x1     // Ambient air temperature
-#define MODE1_AMBIENT_AIR_TEMPERATURE_UNITS             PID_UNITS_CELCIUS
+#define MODE1_AMBIENT_AIR_TEMPERATURE_UNITS             (uint8_t)PID_UNITS_CELCIUS
 
 #define MODE1_REL_ACCELERATOR_PEDAL_POS                 (uint16_t)0x5A   // Relative accelerator pedal position
 #define MODE1_REL_ACCELERATOR_PEDAL_POS_LEN             (uint8_t)0x1     // Relative accelerator pedal position
-#define MODE1_REL_ACCELERATOR_PEDAL_POS_UNITS           PID_UNITS_PERCENT
+#define MODE1_REL_ACCELERATOR_PEDAL_POS_UNITS           (uint8_t)PID_UNITS_PERCENT
 
 #define MODE1_ENGINE_OIL_TEMPERATURE                    (uint16_t)0x5C   // Engine oil temperature
 #define MODE1_ENGINE_OIL_TEMPERATURE_LEN                (uint8_t)0x1     // Engine oil temperature
-#define MODE1_ENGINE_OIL_TEMPERATURE_UNITS               PID_UNITS_CELCIUS
+#define MODE1_ENGINE_OIL_TEMPERATURE_UNITS              (uint8_t)PID_UNITS_CELCIUS
 
 #define MODE1_TURBO_INLET_PRESSURE                      (uint16_t)0x6F   // Turbocharger compressor inlet pressure
 #define MODE1_TURBO_INLET_PRESSURE_LEN                  (uint8_t)0x3     // Turbocharger compressor inlet pressure
-#define MODE1_TURBO_INLET_PRESSURE_UNITS                PID_UNITS_KPA
+#define MODE1_TURBO_INLET_PRESSURE_UNITS                (uint8_t)PID_UNITS_KPA
 
 #define MODE22_INTAKE_AIR_TEMPERATURE                   (uint16_t)0xF40F // Intake air temperature
 #define MODE22_INTAKE_AIR_TEMPERATURE_LEN               (uint8_t)0x1     // Intake air temperature
-#define MODE22_INTAKE_AIR_TEMPERATURE_UNITS             PID_UNITS_CELCIUS
+#define MODE22_INTAKE_AIR_TEMPERATURE_UNITS             (uint8_t)PID_UNITS_CELCIUS
 
 #define MODE22_CHARGE_AIR_TEMPERATURE                   (uint16_t)0x0461 // Charge air temperature
 #define MODE22_CHARGE_AIR_TEMPERATURE_LEN               (uint8_t)0x2     // Charge air temperature
-#define MODE22_CHARGE_AIR_TEMPERATURE_UNITS             PID_UNITS_CELCIUS
+#define MODE22_CHARGE_AIR_TEMPERATURE_UNITS             (uint8_t)PID_UNITS_CELCIUS
 
 #define DECODE_GAUGE_BRIGHTNESS                         (uint16_t)0x01C8 // Gauge brightness
 #define DECODE_GAUGE_BRIGHTNESS_LEN                     (uint8_t)0x0     // Gauge brightness
-#define DECODE_GAUGE_BRIGHTNESS_UNITS                   PID_UNITS_PERCENT
+#define DECODE_GAUGE_BRIGHTNESS_UNITS                   (uint8_t)PID_UNITS_PERCENT
 
 
 #endif /* PID_H_ */
