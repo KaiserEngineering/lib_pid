@@ -105,6 +105,8 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #define MODE1                                           (uint8_t)0x01    // Show current data
 #define MODE2                                           (uint8_t)0x02    // Show freeze frame data
 #define MODE22                                          (uint8_t)0x22    // Enhanced data
+#define DECODE                                          (uint8_t)0xDE    // Data extracted from sniffing the CAN bus
+
 
 #define MODE1_CALCULATED_ENGINE_LOAD_VALUE              (uint16_t)0x04   // Calculated engine load value
 #define MODE1_CALCULATED_ENGINE_LOAD_VALUE_LEN          (uint8_t)0x1     // Calculated engine load value
@@ -177,6 +179,10 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #define MODE22_CHARGE_AIR_TEMPERATURE                   (uint16_t)0x0461 // Charge air temperature
 #define MODE22_CHARGE_AIR_TEMPERATURE_LEN               (uint8_t)0x2     // Charge air temperature
 #define MODE22_CHARGE_AIR_TEMPERATURE_UNITS             PID_UNITS_CELCIUS
+
+#define DECODE_GAUGE_BRIGHTNESS                         (uint16_t)0x01C8 // Gauge brightness
+#define DECODE_GAUGE_BRIGHTNESS_LEN                     (uint8_t)0x0     // Gauge brightness
+#define DECODE_GAUGE_BRIGHTNESS_UNITS                   PID_UNITS_PERCENT
 
 
 #endif /* PID_H_ */
