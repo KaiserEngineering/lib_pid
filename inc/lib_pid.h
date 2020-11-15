@@ -68,6 +68,9 @@ typedef struct _pid_data {
 	/* Units of the PID @PID_UNITS */
 	volatile uint8_t pid_unit;
 
+	/* Units the PID was reported in @PID_UNITS */
+	volatile uint8_t base_unit;
+
 	/* Last captured value of the PID */
 	volatile float pid_value;
 
