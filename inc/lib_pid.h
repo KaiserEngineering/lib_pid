@@ -45,9 +45,6 @@ typedef enum _pid_compare {
 	PID_MATCH,
 } PID_COMPARE, *PTR_PID_COMPARE;
 
-#define USE_LIB_OBDII          1
-#define USE_LIB_CAN_BUS_DECODE 1
-
 typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 
 typedef enum _pid_units {
