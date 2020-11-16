@@ -225,6 +225,14 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #define MODE1_TURBO_INLET_PRESSURE_UNITS                (uint8_t)PID_UNITS_KPA
 
 /**
+ * Transmission Actual Gear , this can only be sniffed from the CAN bus as
+ * of right now.
+ */
+#define MODE1_TRANS_ACTUAL_GEAR                         (uint16_t)0x6F
+#define MODE1_TRANS_ACTUAL_GEAR_LEN                     (uint8_t)0x4
+#define MODE1_TRANS_ACTUAL_GEAR_UNITS                   (uint8_t)PID_UNITS_NOT_APPLICABLE
+
+/**
  * Intake air temperature expressed in Celcius.
  */
 #define MODE22_INTAKE_AIR_TEMPERATURE                   (uint16_t)0xF40F
@@ -245,6 +253,16 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #define DECODE_GAUGE_BRIGHTNESS                         (uint16_t)0x01C8
 #define DECODE_GAUGE_BRIGHTNESS_LEN                     (uint8_t)0x0
 #define DECODE_GAUGE_BRIGHTNESS_UNITS                   (uint8_t)PID_UNITS_PERCENT
+
+/**
+ * Clutch position expressed in percent, this can only be sniffed from the CAN bus
+ * as of right now.
+ */
+#define DECODE_CLUTCH_POSITION                          (uint16_t)0x1138
+#define DECODE_CLUTCH_POSITION_LEN                      (uint8_t)0x0
+#define DECODE_CLUTCH_POSITION_UNITS                    (uint8_t)PID_UNITS_PERCENT
+
+
 
 
 #endif /* PID_H_ */
