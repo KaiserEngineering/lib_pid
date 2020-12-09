@@ -85,6 +85,11 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID )
                     return MODE22_CHARGE_AIR_TEMPERATURE_UNITS;
                 #endif
 
+                #ifdef MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED
+                case MODE22_AMBIENT_AIR_TEMPERATURE:
+                    return MODE22_AMBIENT_AIR_TEMPERATURE_UNITS;
+                #endif
+
                 default:
                     return 0;
             }
