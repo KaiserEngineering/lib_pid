@@ -308,6 +308,15 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #endif
 
 /**
+ * Ambient Air Temperature
+ */
+#ifdef MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED
+#define MODE22_AMBIENT_AIR_TEMPERATURE                  (uint16_t)0x057D
+#define MODE22_AMBIENT_AIR_TEMPERATURE_LEN              (uint8_t)0x1
+#define MODE22_AMBIENT_AIR_TEMPERATURE_UNITS            (uint8_t)PID_UNITS_CELCIUS
+#endif
+
+/**
  * Gauge Brightness expressed in percent, this can only be sniffed from the CAN bus
  * as of right now.
  */
