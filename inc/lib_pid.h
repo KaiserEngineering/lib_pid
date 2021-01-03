@@ -36,8 +36,8 @@
 #define MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED
 #define MODE22_CHARGE_AIR_TEMPERATURE_SUPPORTED
 #define MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED
-#define DECODE_GAUGE_BRIGHTNESS_SUPPORTED
-#define DECODE_CLUTCH_POSITION_SUPPORTED
+#define SNIFF_GAUGE_BRIGHTNESS_SUPPORTED
+#define SNIFF_CLUTCH_POSITION_SUPPORTED
 #endif
 
 
@@ -132,7 +132,7 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #define MODE1                                           (uint8_t)0x01    // Show current data
 #define MODE2                                           (uint8_t)0x02    // Show freeze frame data
 #define MODE22                                          (uint8_t)0x22    // Enhanced data
-#define DECODE                                          (uint8_t)0xDE    // Data extracted from sniffing the CAN bus
+#define SNIFF                                          (uint8_t)0xDE    // Data extracted from sniffing the CAN bus
 
 /**
  * Calculated engine load value expressed in Percent.
@@ -321,20 +321,20 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
  * Gauge Brightness expressed in percent, this can only be sniffed from the CAN bus
  * as of right now.
  */
-#ifdef DECODE_GAUGE_BRIGHTNESS_SUPPORTED
-#define DECODE_GAUGE_BRIGHTNESS                         (uint16_t)0x01C8
-#define DECODE_GAUGE_BRIGHTNESS_LEN                     (uint8_t)0x0
-#define DECODE_GAUGE_BRIGHTNESS_UNITS                   (uint8_t)PID_UNITS_PERCENT
+#ifdef SNIFF_GAUGE_BRIGHTNESS_SUPPORTED
+#define SNIFF_GAUGE_BRIGHTNESS                         (uint16_t)0x01C8
+#define SNIFF_GAUGE_BRIGHTNESS_LEN                     (uint8_t)0x0
+#define SNIFF_GAUGE_BRIGHTNESS_UNITS                   (uint8_t)PID_UNITS_PERCENT
 #endif
 
 /**
  * Clutch position expressed in percent, this can only be sniffed from the CAN bus
  * as of right now.
  */
-#ifdef DECODE_CLUTCH_POSITION_SUPPORTED
-#define DECODE_CLUTCH_POSITION                          (uint16_t)0x1138
-#define DECODE_CLUTCH_POSITION_LEN                      (uint8_t)0x0
-#define DECODE_CLUTCH_POSITION_UNITS                    (uint8_t)PID_UNITS_PERCENT
+#ifdef SNIFF_CLUTCH_POSITION_SUPPORTED
+#define SNIFF_CLUTCH_POSITION                          (uint16_t)0x1138
+#define SNIFF_CLUTCH_POSITION_LEN                      (uint8_t)0x0
+#define SNIFF_CLUTCH_POSITION_UNITS                    (uint8_t)PID_UNITS_PERCENT
 #endif
 
 
