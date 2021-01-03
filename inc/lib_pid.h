@@ -76,8 +76,8 @@ typedef enum _pid_units {
 #endif
 
 /* Decode CAN bus data stream */
-#ifdef USE_LIB_CAN_BUS_DECODE
-#define PID_ASSIGNED_TO_CAN_DECODE 0x02
+#ifdef USE_LIB_CAN_BUS_SNIFFER
+#define PID_ASSIGNED_TO_CAN_SNIFFER 0x02
 #endif
 
 
