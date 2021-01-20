@@ -132,7 +132,7 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #define MODE1                                           (uint8_t)0x01    // Show current data
 #define MODE2                                           (uint8_t)0x02    // Show freeze frame data
 #define MODE22                                          (uint8_t)0x22    // Enhanced data
-#define SNIFF                                          (uint8_t)0xDE    // Data extracted from sniffing the CAN bus
+#define SNIFF                                           (uint8_t)0xDE    // Data extracted from sniffing the CAN bus
 
 /**
  * Calculated engine load value expressed in Percent.
