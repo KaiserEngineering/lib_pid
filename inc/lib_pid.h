@@ -122,6 +122,8 @@ typedef struct _obdii_pid {
 
 } OBDII_PID, *POBDII_PID;
 
+float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] );
+uint8_t lookup_payload_length( uint8_t mode, uint16_t PID );
 PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 
 #define A 0
