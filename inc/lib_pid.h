@@ -111,6 +111,7 @@ typedef struct _pid_data {
 
 
 typedef PTR_PID_DATA (*request_pid_data)( PTR_PID_DATA pid );
+typedef int (*clear_pid_request)( PTR_PID_DATA pid );
 
 
 typedef struct _obdii_pid {
@@ -122,6 +123,7 @@ typedef struct _obdii_pid {
 
 } OBDII_PID, *POBDII_PID;
 
+void lib_pid_clear_PID( PTR_PID_DATA ptr_pid );
 float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] );
 uint8_t lookup_payload_length( uint8_t mode, uint16_t PID );
 PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );

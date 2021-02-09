@@ -1,5 +1,16 @@
 #include "lib_pid.h"
 
+void lib_pid_clear_PID( PTR_PID_DATA ptr_pid )
+{
+    ptr_pid->pid = 0x00;
+    ptr_pid->pid_unit = PID_UNITS_NOT_APPLICABLE;
+    ptr_pid->base_unit = PID_UNITS_NOT_APPLICABLE;
+    ptr_pid->acquisition_type = PID_UNASSIGNED;
+    ptr_pid->pid_value = 0;
+    ptr_pid->timestamp = 0;
+    ptr_pid->devices = 0;
+}
+
 float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 {
     switch( mode )
