@@ -2,7 +2,7 @@
 
 void lib_pid_clear_PID( PTR_PID_DATA ptr_pid )
 {
-    ptr_pid->pid = 0x00;
+    ptr_pid->mode = PID_UNASSIGNED;
     ptr_pid->pid = PID_UNASSIGNED;
     ptr_pid->pid_unit = PID_UNITS_NOT_APPLICABLE;
     ptr_pid->base_unit = PID_UNITS_NOT_APPLICABLE;
