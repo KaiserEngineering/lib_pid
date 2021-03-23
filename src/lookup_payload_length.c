@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Mar-13-2021
+ * File Auto-Generated Mar-23-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -103,6 +103,11 @@ uint8_t lookup_payload_length( uint8_t mode, uint16_t pid )
         case MODE22:
             switch( pid )
             {
+                #ifdef MODE22_IGNITION_CORRECTION_CYLINDER_1_SUPPORTED
+                case MODE22_IGNITION_CORRECTION_CYLINDER_1:
+                    return MODE22_IGNITION_CORRECTION_CYLINDER_1_LEN;
+                #endif
+
                 #ifdef MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED
                 case MODE22_INTAKE_AIR_TEMPERATURE:
                     return MODE22_INTAKE_AIR_TEMPERATURE_LEN;

@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Mar-13-2021
+ * File Auto-Generated Mar-23-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -155,6 +155,17 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
         case MODE22:
             switch( pid )
             {
+                #ifdef MODE22_IGNITION_CORRECTION_CYLINDER_1_SUPPORTED
+                    #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512
+                    #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512
+                    #endif
+                    case MODE22_IGNITION_CORRECTION_CYLINDER_1:
+                #endif
+
+                #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512
+                    return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)-512;
+                #endif
+
                 #ifdef MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED
                     #ifndef MODE22_A_MINUS_40
                     #define MODE22_A_MINUS_40

@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Mar-13-2021
+ * File Auto-Generated Mar-23-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -132,6 +132,15 @@
 #define MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE          (uint16_t)0x6F
 #define MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_LEN      (uint8_t)0x1
 #define MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UNITS    (uint16_t)PID_UNITS_KPA
+#endif
+
+/**
+ * Ignition Correction Cylinder 1 expressed in PID_UNITS_DEGREES
+ */
+#if defined(MODE22_IGNITION_CORRECTION_CYLINDER_1_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE22_IGNITION_CORRECTION_CYLINDER_1                  (uint16_t)0x03EC
+#define MODE22_IGNITION_CORRECTION_CYLINDER_1_LEN              (uint8_t)0x1
+#define MODE22_IGNITION_CORRECTION_CYLINDER_1_UNITS            (uint16_t)PID_UNITS_DEGREES
 #endif
 
 /**
