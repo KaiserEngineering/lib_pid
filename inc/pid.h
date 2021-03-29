@@ -166,7 +166,7 @@
  */
 #if defined(MODE22_IGNITION_CORRECTION_CYLINDER_1_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE22_IGNITION_CORRECTION_CYLINDER_1                       (uint16_t)0x03EC
-#define MODE22_IGNITION_CORRECTION_CYLINDER_1_LEN                   (uint8_t)0x1
+#define MODE22_IGNITION_CORRECTION_CYLINDER_1_LEN                   (uint8_t)0x2
 #define MODE22_IGNITION_CORRECTION_CYLINDER_1_UNITS                 (uint16_t)PID_UNITS_DEGREES
 #endif
 
