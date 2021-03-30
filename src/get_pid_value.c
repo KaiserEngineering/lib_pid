@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Mar-28-2021
+ * File Auto-Generated Mar-29-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -175,17 +175,6 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
                     return (((float)256 * (float)(data[A]) ) + (float)data[B] ) / (float)327.68;
-                #endif
-
-                #if defined(MODE22_COMMANDED_LAMBDA_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_32768
-                    #define MODE22_256_TIMES_A_PLUS_B_OVER_32768
-                    #endif
-                    case MODE22_COMMANDED_LAMBDA:
-                #endif
-
-                #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_32768
-                    return (((float)256 * (float)(data[A]) ) + (float)data[B] ) / (float)32768;
                 #endif
 
                 #if defined(MODE22_IGNITION_CORRECTION_CYLINDER_1_SUPPORTED) || !defined(LIMIT_PIDS)

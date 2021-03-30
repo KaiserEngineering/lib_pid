@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Mar-28-2021
+ * File Auto-Generated Mar-29-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -111,11 +111,6 @@ uint8_t lookup_payload_length( uint8_t mode, uint16_t pid )
                 #if defined(MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE:
                     return MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_LEN;
-                #endif
-
-                #if defined(MODE22_COMMANDED_LAMBDA_SUPPORTED) || !defined(LIMIT_PIDS)
-                case MODE22_COMMANDED_LAMBDA:
-                    return MODE22_COMMANDED_LAMBDA_LEN;
                 #endif
 
                 #if defined(MODE22_IGNITION_CORRECTION_CYLINDER_1_SUPPORTED) || !defined(LIMIT_PIDS)
