@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Mar-29-2021
+ * File Auto-Generated Apr-05-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,6 +42,42 @@
 #define MODE1_ENGINE_COOLANT_TEMPERATURE                           (uint16_t)0x05
 #define MODE1_ENGINE_COOLANT_TEMPERATURE_LEN                       (uint8_t)0x1
 #define MODE1_ENGINE_COOLANT_TEMPERATURE_UNITS                     (uint16_t)PID_UNITS_CELCIUS
+#endif
+
+/**
+ * Short term fuel trim - Bank 1 expressed in PID_UNITS_PERCENT
+ */
+#if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_SHORT_TERM_FUEL_TRIM__BANK_1                        (uint16_t)0x06
+#define MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_LEN                    (uint8_t)0x1
+#define MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_UNITS                  (uint16_t)PID_UNITS_PERCENT
+#endif
+
+/**
+ * Long term fuel trim - Bank 1 expressed in PID_UNITS_PERCENT
+ */
+#if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_LONG_TERM_FUEL_TRIM__BANK_1                         (uint16_t)0x07
+#define MODE1_LONG_TERM_FUEL_TRIM__BANK_1_LEN                     (uint8_t)0x1
+#define MODE1_LONG_TERM_FUEL_TRIM__BANK_1_UNITS                   (uint16_t)PID_UNITS_PERCENT
+#endif
+
+/**
+ * Short term fuel trim - Bank 2 expressed in PID_UNITS_PERCENT
+ */
+#if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_SHORT_TERM_FUEL_TRIM__BANK_2                        (uint16_t)0x08
+#define MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_LEN                    (uint8_t)0x1
+#define MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_UNITS                  (uint16_t)PID_UNITS_PERCENT
+#endif
+
+/**
+ * Long term fuel trim - Bank 2 expressed in PID_UNITS_PERCENT
+ */
+#if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_LONG_TERM_FUEL_TRIM__BANK_2                         (uint16_t)0x09
+#define MODE1_LONG_TERM_FUEL_TRIM__BANK_2_LEN                     (uint8_t)0x1
+#define MODE1_LONG_TERM_FUEL_TRIM__BANK_2_UNITS                   (uint16_t)PID_UNITS_PERCENT
 #endif
 
 /**
@@ -96,6 +132,33 @@
 #define MODE1_INTAKE_AIR_TEMPERATURE                               (uint16_t)0x0F
 #define MODE1_INTAKE_AIR_TEMPERATURE_LEN                           (uint8_t)0x1
 #define MODE1_INTAKE_AIR_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELCIUS
+#endif
+
+/**
+ * Mass air flow sensor air flow rate expressed in PID_UNITS_GRAMSEC
+ */
+#if defined(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE                   (uint16_t)0x10
+#define MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_LEN               (uint8_t)0x1
+#define MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_UNITS             (uint16_t)PID_UNITS_GRAMSEC
+#endif
+
+/**
+ * Throttle position expressed in PID_UNITS_PERCENT
+ */
+#if defined(MODE1_THROTTLE_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_THROTTLE_POSITION                                    (uint16_t)0x11
+#define MODE1_THROTTLE_POSITION_LEN                                (uint8_t)0x1
+#define MODE1_THROTTLE_POSITION_UNITS                              (uint16_t)PID_UNITS_PERCENT
+#endif
+
+/**
+ * Oxygen Sensor 1 Voltage expressed in PID_UNITS_VOLTS
+ */
+#if defined(MODE1_OXYGEN_SENSOR_1_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_OXYGEN_SENSOR_1_VOLTAGE                              (uint16_t)0x14
+#define MODE1_OXYGEN_SENSOR_1_VOLTAGE_LEN                          (uint8_t)0x2
+#define MODE1_OXYGEN_SENSOR_1_VOLTAGE_UNITS                        (uint16_t)PID_UNITS_VOLTS
 #endif
 
 /**

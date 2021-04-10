@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Mar-29-2021
+ * File Auto-Generated Apr-05-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,6 +42,13 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case MODE1_CALCULATED_ENGINE_LOAD:
                 #endif
 
+                #if defined(MODE1_THROTTLE_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_100_TIMES_A_OVER_255
+                    #define MODE1_100_TIMES_A_OVER_255
+                    #endif
+                    case MODE1_THROTTLE_POSITION:
+                #endif
+
                 #if defined(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_100_TIMES_A_OVER_255
                     #define MODE1_100_TIMES_A_OVER_255
@@ -67,6 +74,13 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case MODE1_INTAKE_AIR_TEMPERATURE:
                 #endif
 
+                #if defined(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_A_MINUS_40
+                    #define MODE1_A_MINUS_40
+                    #endif
+                    case MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE:
+                #endif
+
                 #if defined(MODE1_ENGINE_OIL_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_A_MINUS_40
                     #define MODE1_A_MINUS_40
@@ -76,6 +90,38 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE1_A_MINUS_40
                     return ((float)data[A] - (float)40);
+                #endif
+
+                #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    #define MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    #endif
+                    case MODE1_SHORT_TERM_FUEL_TRIM__BANK_1:
+                #endif
+
+                #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    #define MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    #endif
+                    case MODE1_LONG_TERM_FUEL_TRIM__BANK_1:
+                #endif
+
+                #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    #define MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    #endif
+                    case MODE1_SHORT_TERM_FUEL_TRIM__BANK_2:
+                #endif
+
+                #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    #define MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    #endif
+                    case MODE1_LONG_TERM_FUEL_TRIM__BANK_2:
+                #endif
+
+                #ifdef MODE1_100_OVER_128_TIMES_A_MINUS_100
+                    return (((float)100 / (float)128) * (float)(data[A])) - (float)100;
                 #endif
 
                 #if defined(MODE1_FUEL_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -115,13 +161,13 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                 #endif
 
                 #if defined(MODE1_ENGINE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE1_256_TIMES_A_PLUS_B_OVER_255
-                    #define MODE1_256_TIMES_A_PLUS_B_OVER_255
+                    #ifndef MODE1_256_TIMES_A_PLUS_B_OVER_4
+                    #define MODE1_256_TIMES_A_PLUS_B_OVER_4
                     #endif
                     case MODE1_ENGINE_SPEED:
                 #endif
 
-                #ifdef MODE1_256_TIMES_A_PLUS_B_OVER_255
+                #ifdef MODE1_256_TIMES_A_PLUS_B_OVER_4
                     return (((float)256 * (float)data[A] ) + (float)data[B] ) / (float)4;
                 #endif
 
@@ -134,6 +180,17 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE1_A_OVER_2_MINUS_64
                     return ((float)data[A] / (float)2) - (float)64;
+                #endif
+
+                #if defined(MODE1_OXYGEN_SENSOR_1_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_A_OVER_200
+                    #define MODE1_A_OVER_200
+                    #endif
+                    case MODE1_OXYGEN_SENSOR_1_VOLTAGE:
+                #endif
+
+                #ifdef MODE1_A_OVER_200
+                    return (float)data[A] / (float)255;
                 #endif
 
                 #if defined(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)

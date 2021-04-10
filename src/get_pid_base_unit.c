@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Mar-29-2021
+ * File Auto-Generated Apr-05-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -45,6 +45,26 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                     return MODE1_ENGINE_COOLANT_TEMPERATURE_UNITS;
                 #endif
 
+                #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_SHORT_TERM_FUEL_TRIM__BANK_1:
+                    return MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_UNITS;
+                #endif
+
+                #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_LONG_TERM_FUEL_TRIM__BANK_1:
+                    return MODE1_LONG_TERM_FUEL_TRIM__BANK_1_UNITS;
+                #endif
+
+                #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_SHORT_TERM_FUEL_TRIM__BANK_2:
+                    return MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_UNITS;
+                #endif
+
+                #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_LONG_TERM_FUEL_TRIM__BANK_2:
+                    return MODE1_LONG_TERM_FUEL_TRIM__BANK_2_UNITS;
+                #endif
+
                 #if defined(MODE1_FUEL_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE1_FUEL_PRESSURE:
                     return MODE1_FUEL_PRESSURE_UNITS;
@@ -73,6 +93,21 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                 #if defined(MODE1_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE1_INTAKE_AIR_TEMPERATURE:
                     return MODE1_INTAKE_AIR_TEMPERATURE_UNITS;
+                #endif
+
+                #if defined(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE:
+                    return MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_UNITS;
+                #endif
+
+                #if defined(MODE1_THROTTLE_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_THROTTLE_POSITION:
+                    return MODE1_THROTTLE_POSITION_UNITS;
+                #endif
+
+                #if defined(MODE1_OXYGEN_SENSOR_1_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_OXYGEN_SENSOR_1_VOLTAGE:
+                    return MODE1_OXYGEN_SENSOR_1_VOLTAGE_UNITS;
                 #endif
 
                 #if defined(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
