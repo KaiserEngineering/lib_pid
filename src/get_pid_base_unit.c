@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Apr-05-2021
+ * File Auto-Generated Apr-21-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -153,6 +153,16 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                     return MODE22_IGNITION_CORRECTION_CYLINDER_1_UNITS;
                 #endif
 
+                #if defined(MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE:
+                    return MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE_UNITS;
+                #endif
+
+                #if defined(MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE:
+                    return MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_UNITS;
+                #endif
+
                 #if defined(MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE22_INTAKE_AIR_TEMPERATURE:
                     return MODE22_INTAKE_AIR_TEMPERATURE_UNITS;
@@ -163,9 +173,24 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                     return MODE22_CHARGE_AIR_TEMPERATURE_UNITS;
                 #endif
 
+                #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_MANIFOLD_CHARGE_TEMPERATURE:
+                    return MODE22_MANIFOLD_CHARGE_TEMPERATURE_UNITS;
+                #endif
+
+                #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_OCTANE_ADJUST_RATIO:
+                    return MODE22_OCTANE_ADJUST_RATIO_UNITS;
+                #endif
+
                 #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE22_AMBIENT_AIR_TEMPERATURE:
                     return MODE22_AMBIENT_AIR_TEMPERATURE_UNITS;
+                #endif
+
+                #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_ENGINE_LOAD_PERCENTAGE:
+                    return MODE22_ENGINE_LOAD_PERCENTAGE_UNITS;
                 #endif
 
                 default:

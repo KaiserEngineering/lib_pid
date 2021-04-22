@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Apr-05-2021
+ * File Auto-Generated Apr-21-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -225,6 +225,24 @@
 #endif
 
 /**
+ * VCT Intake Cam Solenoid Duty Cycle expressed in PID_UNITS_PERCENT
+ */
+#if defined(MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE                   (uint16_t)0x0316
+#define MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE_LEN               (uint8_t)0x2
+#define MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE_UNITS             (uint16_t)PID_UNITS_PERCENT
+#endif
+
+/**
+ * VCT Exhaust Cam Solenoid Duty Cycle expressed in PID_UNITS_PERCENT
+ */
+#if defined(MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE                  (uint16_t)0x0317
+#define MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_LEN              (uint8_t)0x2
+#define MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_UNITS            (uint16_t)PID_UNITS_PERCENT
+#endif
+
+/**
  * Intake air temperature expressed in PID_UNITS_CELCIUS
  */
 #if defined(MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -243,12 +261,39 @@
 #endif
 
 /**
+ * Manifold charge temperature expressed in PID_UNITS_CELCIUS
+ */
+#if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE22_MANIFOLD_CHARGE_TEMPERATURE                          (uint16_t)0x03CA
+#define MODE22_MANIFOLD_CHARGE_TEMPERATURE_LEN                      (uint8_t)0x1
+#define MODE22_MANIFOLD_CHARGE_TEMPERATURE_UNITS                    (uint16_t)PID_UNITS_CELCIUS
+#endif
+
+/**
+ * Octane Adjust Ratio expressed in PID_UNITS_RATIO
+ */
+#if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE22_OCTANE_ADJUST_RATIO                                  (uint16_t)0x03E8
+#define MODE22_OCTANE_ADJUST_RATIO_LEN                              (uint8_t)0x2
+#define MODE22_OCTANE_ADJUST_RATIO_UNITS                            (uint16_t)PID_UNITS_RATIO
+#endif
+
+/**
  * Ambient air temperature expressed in PID_UNITS_CELCIUS
  */
 #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE22_AMBIENT_AIR_TEMPERATURE                              (uint16_t)0x057D
 #define MODE22_AMBIENT_AIR_TEMPERATURE_LEN                          (uint8_t)0x1
 #define MODE22_AMBIENT_AIR_TEMPERATURE_UNITS                        (uint16_t)PID_UNITS_CELCIUS
+#endif
+
+/**
+ * Engine load percentage expressed in PID_UNITS_PERCENT
+ */
+#if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE22_ENGINE_LOAD_PERCENTAGE                               (uint16_t)0xF404
+#define MODE22_ENGINE_LOAD_PERCENTAGE_LEN                           (uint8_t)0x1
+#define MODE22_ENGINE_LOAD_PERCENTAGE_UNITS                         (uint16_t)PID_UNITS_PERCENT
 #endif
 
 /**

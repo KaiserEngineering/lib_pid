@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Apr-05-2021
+ * File Auto-Generated Apr-21-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -230,6 +230,20 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE:
                 #endif
 
+                #if defined(MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
+                    #define MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
+                    #endif
+                    case MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE:
+                #endif
+
+                #if defined(MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
+                    #define MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
+                    #endif
+                    case MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE:
+                #endif
+
                 #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
                     return (((float)256 * (float)(data[A]) ) + (float)data[B] ) / (float)327.68;
                 #endif
@@ -272,6 +286,39 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_64
                     return (((float)256 * (float)data[A] ) + (float)data[B] ) / (float)64;
+                #endif
+
+                #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_A
+                    #define MODE22_A
+                    #endif
+                    case MODE22_MANIFOLD_CHARGE_TEMPERATURE:
+                #endif
+
+                #ifdef MODE22_A
+                    return (float)data[A];
+                #endif
+
+                #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
+                    #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
+                    #endif
+                    case MODE22_OCTANE_ADJUST_RATIO:
+                #endif
+
+                #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
+                    return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)16384;
+                #endif
+
+                #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_100_TIMES_A_OVER_255
+                    #define MODE22_100_TIMES_A_OVER_255
+                    #endif
+                    case MODE22_ENGINE_LOAD_PERCENTAGE:
+                #endif
+
+                #ifdef MODE22_100_TIMES_A_OVER_255
+                    return (((float)data[A]) * (float)100) / (float)255;
                 #endif
 
                 default:
