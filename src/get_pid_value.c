@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Apr-21-2021
+ * File Auto-Generated Apr-27-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -266,13 +266,6 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case MODE22_INTAKE_AIR_TEMPERATURE:
                 #endif
 
-                #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_A_MINUS_40
-                    #define MODE22_A_MINUS_40
-                    #endif
-                    case MODE22_AMBIENT_AIR_TEMPERATURE:
-                #endif
-
                 #ifdef MODE22_A_MINUS_40
                     return ((float)data[A] - (float)40);
                 #endif
@@ -308,6 +301,17 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
                     return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)16384;
+                #endif
+
+                #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_A_OVER_3_MINUS_40
+                    #define MODE22_A_OVER_3_MINUS_40
+                    #endif
+                    case MODE22_AMBIENT_AIR_TEMPERATURE:
+                #endif
+
+                #ifdef MODE22_A_OVER_3_MINUS_40
+                    return ((float)data[A] / (float)3) - (float)40;
                 #endif
 
                 #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
