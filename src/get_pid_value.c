@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Apr-27-2021
+ * File Auto-Generated May-04-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -338,6 +338,13 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #define SNIFF_UNDEFINED
                     #endif
                     case SNIFF_GAUGE_BRIGHTNESS:
+                #endif
+
+                #if defined(SNIFF_VEHICLE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_VEHICLE_STATUS:
                 #endif
 
                 #ifdef SNIFF_UNDEFINED

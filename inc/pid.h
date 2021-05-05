@@ -305,3 +305,12 @@
 #define SNIFF_GAUGE_BRIGHTNESS_UNITS                               (uint16_t)PID_UNITS_PERCENT
 #endif
 
+/**
+ * Vehicle Status expressed in PID_UNITS_NOT_APPLICABLE
+ */
+#if defined(SNIFF_VEHICLE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+#define SNIFF_VEHICLE_STATUS                                       (uint16_t)0x1260
+#define SNIFF_VEHICLE_STATUS_LEN                                   (uint8_t)0x0
+#define SNIFF_VEHICLE_STATUS_UNITS                                 (uint16_t)PID_UNITS_NOT_APPLICABLE
+#endif
+
