@@ -45,6 +45,7 @@ typedef enum _pid_units {
     PID_UNITS_SECONDS,
     PID_UNITS_RATIO,
     PID_UNITS_LPH,
+    PID_UNITS_BAR,
 } PID_UNITS, *PPID_UNITS;
 
 #define PID_UNASSIGNED             0x00
