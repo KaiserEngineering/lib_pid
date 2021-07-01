@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated May-04-2021
+ * File Auto-Generated Jun-21-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -344,6 +344,25 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                 #endif
 
                 #ifdef SNIFF_UNDEFINED
+                    return 0;
+                #endif
+
+                default:
+                    return 0;
+            }
+        break;
+
+        case CALC1:
+            switch( pid )
+            {
+                #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef CALC1_UNDEFINED
+                    #define CALC1_UNDEFINED
+                    #endif
+                    case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE:
+                #endif
+
+                #ifdef CALC1_UNDEFINED
                     return 0;
                 #endif
 

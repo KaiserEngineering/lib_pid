@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Apr-27-2021
+ * File Auto-Generated Jun-21-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -312,5 +312,14 @@
 #define SNIFF_VEHICLE_STATUS                                       (uint16_t)0x1260
 #define SNIFF_VEHICLE_STATUS_LEN                                   (uint8_t)0x0
 #define SNIFF_VEHICLE_STATUS_UNITS                                 (uint16_t)PID_UNITS_NOT_APPLICABLE
+#endif
+
+/**
+ * Turbocharger compressor inlet pressure expressed in PID_UNITS_KPA
+ */
+#if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE               (uint16_t)0x6F
+#define CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_LEN           (uint8_t)0x0
+#define CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UNITS         (uint16_t)PID_UNITS_KPA
 #endif
 
