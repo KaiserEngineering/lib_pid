@@ -300,14 +300,14 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                 #endif
 
                 #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_A_OVER_3_MINUS_40
-                    #define MODE22_A_OVER_3_MINUS_40
+                    #ifndef MODE22_A_OVER_2_MINUS_40
+                    #define MODE22_A_OVER_2_MINUS_40
                     #endif
                     case MODE22_AMBIENT_AIR_TEMPERATURE:
                 #endif
 
-                #ifdef MODE22_A_OVER_3_MINUS_40
-                    return ((float)data[A] / (float)3) - (float)40;
+                #ifdef MODE22_A_OVER_2_MINUS_40
+                    return ((float)data[A] / (float)2) - (float)40;
                 #endif
 
                 #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
