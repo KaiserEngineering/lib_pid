@@ -266,6 +266,13 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case MODE22_INTAKE_AIR_TEMPERATURE:
                 #endif
 
+                #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_A_MINUS_40
+                    #define MODE22_A_MINUS_40
+                    #endif
+                    case MODE22_MANIFOLD_CHARGE_TEMPERATURE:
+                #endif
+
                 #ifdef MODE22_A_MINUS_40
                     return ((float)data[A] - (float)40);
                 #endif
@@ -279,17 +286,6 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_64
                     return (((float)256 * (float)data[A] ) + (float)data[B] ) / (float)64;
-                #endif
-
-                #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_A
-                    #define MODE22_A
-                    #endif
-                    case MODE22_MANIFOLD_CHARGE_TEMPERATURE:
-                #endif
-
-                #ifdef MODE22_A
-                    return (float)data[A];
                 #endif
 
                 #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
