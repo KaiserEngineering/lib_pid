@@ -30,7 +30,7 @@ typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 typedef enum _pid_units {
     PID_UNITS_NOT_APPLICABLE,
     PID_UNITS_PERCENT,
-    PID_UNITS_CELCIUS,
+    PID_UNITS_CELSIUS,
     PID_UNITS_FAHRENHEIT,
     PID_UNITS_KPA,
     PID_UNITS_PSI,

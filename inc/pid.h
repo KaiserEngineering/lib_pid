@@ -36,12 +36,12 @@
 #endif
 
 /**
- * Engine coolant temperature expressed in PID_UNITS_CELCIUS
+ * Engine coolant temperature expressed in PID_UNITS_CELSIUS
  */
 #if defined(MODE1_ENGINE_COOLANT_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE1_ENGINE_COOLANT_TEMPERATURE                           (uint16_t)0x05
 #define MODE1_ENGINE_COOLANT_TEMPERATURE_LEN                       (uint8_t)0x1
-#define MODE1_ENGINE_COOLANT_TEMPERATURE_UNITS                     (uint16_t)PID_UNITS_CELCIUS
+#define MODE1_ENGINE_COOLANT_TEMPERATURE_UNITS                     (uint16_t)PID_UNITS_CELSIUS
 #endif
 
 /**
@@ -126,12 +126,12 @@
 #endif
 
 /**
- * Intake air temperature expressed in PID_UNITS_CELCIUS
+ * Intake air temperature expressed in PID_UNITS_CELSIUS
  */
 #if defined(MODE1_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE1_INTAKE_AIR_TEMPERATURE                               (uint16_t)0x0F
 #define MODE1_INTAKE_AIR_TEMPERATURE_LEN                           (uint8_t)0x1
-#define MODE1_INTAKE_AIR_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELCIUS
+#define MODE1_INTAKE_AIR_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELSIUS
 #endif
 
 /**
@@ -180,12 +180,12 @@
 #endif
 
 /**
- * Engine oil temperature expressed in PID_UNITS_CELCIUS
+ * Engine oil temperature expressed in PID_UNITS_CELSIUS
  */
 #if defined(MODE1_ENGINE_OIL_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE1_ENGINE_OIL_TEMPERATURE                               (uint16_t)0x5C
 #define MODE1_ENGINE_OIL_TEMPERATURE_LEN                           (uint8_t)0x1
-#define MODE1_ENGINE_OIL_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELCIUS
+#define MODE1_ENGINE_OIL_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELSIUS
 #endif
 
 /**
@@ -243,30 +243,30 @@
 #endif
 
 /**
- * Intake air temperature expressed in PID_UNITS_CELCIUS
+ * Intake air temperature expressed in PID_UNITS_CELSIUS
  */
 #if defined(MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE22_INTAKE_AIR_TEMPERATURE                               (uint16_t)0xF40F
 #define MODE22_INTAKE_AIR_TEMPERATURE_LEN                           (uint8_t)0x1
-#define MODE22_INTAKE_AIR_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELCIUS
+#define MODE22_INTAKE_AIR_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELSIUS
 #endif
 
 /**
- * Charge air temperature expressed in PID_UNITS_CELCIUS
+ * Charge air temperature expressed in PID_UNITS_CELSIUS
  */
 #if defined(MODE22_CHARGE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE22_CHARGE_AIR_TEMPERATURE                               (uint16_t)0x0461
 #define MODE22_CHARGE_AIR_TEMPERATURE_LEN                           (uint8_t)0x2
-#define MODE22_CHARGE_AIR_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELCIUS
+#define MODE22_CHARGE_AIR_TEMPERATURE_UNITS                         (uint16_t)PID_UNITS_CELSIUS
 #endif
 
 /**
- * Manifold charge temperature expressed in PID_UNITS_CELCIUS
+ * Manifold charge temperature expressed in PID_UNITS_CELSIUS
  */
 #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE22_MANIFOLD_CHARGE_TEMPERATURE                          (uint16_t)0x03CA
 #define MODE22_MANIFOLD_CHARGE_TEMPERATURE_LEN                      (uint8_t)0x1
-#define MODE22_MANIFOLD_CHARGE_TEMPERATURE_UNITS                    (uint16_t)PID_UNITS_CELCIUS
+#define MODE22_MANIFOLD_CHARGE_TEMPERATURE_UNITS                    (uint16_t)PID_UNITS_CELSIUS
 #endif
 
 /**
@@ -279,12 +279,12 @@
 #endif
 
 /**
- * Ambient air temperature expressed in PID_UNITS_CELCIUS
+ * Ambient air temperature expressed in PID_UNITS_CELSIUS
  */
 #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE22_AMBIENT_AIR_TEMPERATURE                              (uint16_t)0x057D
 #define MODE22_AMBIENT_AIR_TEMPERATURE_LEN                          (uint8_t)0x1
-#define MODE22_AMBIENT_AIR_TEMPERATURE_UNITS                        (uint16_t)PID_UNITS_CELCIUS
+#define MODE22_AMBIENT_AIR_TEMPERATURE_UNITS                        (uint16_t)PID_UNITS_CELSIUS
 #endif
 
 /**
