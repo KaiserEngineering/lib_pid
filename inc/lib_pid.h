@@ -60,6 +60,10 @@ typedef enum _pid_units {
 #define PID_ASSIGNED_TO_CAN_SNIFFER 0x02
 #endif
 
+#ifdef USE_LIB_VEHICLE_DATA
+#define PID_ASSIGNED_TO_VEHICLE_DATA 0x03
+#endif
+
 
 typedef struct _pid_data {
 
@@ -117,5 +121,6 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #define MODE2                                           (uint8_t)0x02    // Show freeze frame data
 #define MODE22                                          (uint8_t)0x22    // Enhanced data
 #define SNIFF                                           (uint8_t)0xDE    // Data extracted from sniffing the CAN bus
+#define CALC1                                           (uint8_t)0xC1    // Data calculated using other PIDs
 
 #endif /* PID_H_ */
