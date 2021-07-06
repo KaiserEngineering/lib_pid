@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Jun-21-2021
+ * File Auto-Generated Jul-05-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -341,6 +341,69 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #define SNIFF_UNDEFINED
                     #endif
                     case SNIFF_VEHICLE_STATUS:
+                #endif
+
+                #if defined(SNIFF_BRAKE_PEDAL_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_BRAKE_PEDAL_STATUS:
+                #endif
+
+                #if defined(SNIFF_EMERGENCY_BRAKE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_EMERGENCY_BRAKE_STATUS:
+                #endif
+
+                #if defined(SNIFF_REVERSE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_REVERSE_STATUS:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_ON_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_ON_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_OFF_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_OFF_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_RES_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_RES_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_CAN_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_CAN_BUTTON:
                 #endif
 
                 #ifdef SNIFF_UNDEFINED

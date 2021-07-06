@@ -3,7 +3,7 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Jun-21-2021
+ * File Auto-Generated Jul-05-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -209,6 +209,51 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                 #if defined(SNIFF_VEHICLE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
                 case SNIFF_VEHICLE_STATUS:
                     return SNIFF_VEHICLE_STATUS_UNITS;
+                #endif
+
+                #if defined(SNIFF_BRAKE_PEDAL_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_BRAKE_PEDAL_STATUS:
+                    return SNIFF_BRAKE_PEDAL_STATUS_UNITS;
+                #endif
+
+                #if defined(SNIFF_EMERGENCY_BRAKE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_EMERGENCY_BRAKE_STATUS:
+                    return SNIFF_EMERGENCY_BRAKE_STATUS_UNITS;
+                #endif
+
+                #if defined(SNIFF_REVERSE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_REVERSE_STATUS:
+                    return SNIFF_REVERSE_STATUS_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_ON_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_ON_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_ON_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_OFF_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_OFF_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_OFF_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_RES_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_RES_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_RES_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_CAN_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_CAN_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_CAN_BUTTON_UNITS;
                 #endif
 
                 default:
