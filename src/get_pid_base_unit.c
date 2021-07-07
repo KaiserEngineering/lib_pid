@@ -3,7 +3,6 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated Jul-05-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
