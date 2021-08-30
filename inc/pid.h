@@ -376,103 +376,103 @@
 #endif
 
 /**
- * Vehicle Status expressed in PID_UNITS_NOT_APPLICABLE
+ * Vehicle Status expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_VEHICLE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_VEHICLE_STATUS_HEADER                                    (uint16_t)0x7E0
 #define SNIFF_VEHICLE_STATUS                                           (uint16_t)0x1260
 #define SNIFF_VEHICLE_STATUS_LEN                                       (uint8_t)0x0
-#define SNIFF_VEHICLE_STATUS_UNITS                                     (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_VEHICLE_STATUS_UNITS                                     (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Brake Pedal Status expressed in PID_UNITS_NOT_APPLICABLE
+ * Brake Pedal Status expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_BRAKE_PEDAL_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_BRAKE_PEDAL_STATUS_HEADER                                (uint16_t)0x7E0
 #define SNIFF_BRAKE_PEDAL_STATUS                                       (uint16_t)0x0802
 #define SNIFF_BRAKE_PEDAL_STATUS_LEN                                   (uint8_t)0x0
-#define SNIFF_BRAKE_PEDAL_STATUS_UNITS                                 (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_BRAKE_PEDAL_STATUS_UNITS                                 (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Emergency Brake Status expressed in PID_UNITS_NOT_APPLICABLE
+ * Emergency Brake Status expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_EMERGENCY_BRAKE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_EMERGENCY_BRAKE_STATUS_HEADER                            (uint16_t)0x7E0
 #define SNIFF_EMERGENCY_BRAKE_STATUS                                   (uint16_t)0x0C82
 #define SNIFF_EMERGENCY_BRAKE_STATUS_LEN                               (uint8_t)0x0
-#define SNIFF_EMERGENCY_BRAKE_STATUS_UNITS                             (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_EMERGENCY_BRAKE_STATUS_UNITS                             (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Reverse Status expressed in PID_UNITS_NOT_APPLICABLE
+ * Reverse Status expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_REVERSE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_REVERSE_STATUS_HEADER                                    (uint16_t)0x7E0
 #define SNIFF_REVERSE_STATUS                                           (uint16_t)0x0803
 #define SNIFF_REVERSE_STATUS_LEN                                       (uint8_t)0x0
-#define SNIFF_REVERSE_STATUS_UNITS                                     (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_REVERSE_STATUS_UNITS                                     (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Cruise Control ON button expressed in PID_UNITS_NOT_APPLICABLE
+ * Cruise Control ON button expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_CRUISE_CONTROL_ON_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_CRUISE_CONTROL_ON_BUTTON_HEADER                          (uint16_t)0x7E0
 #define SNIFF_CRUISE_CONTROL_ON_BUTTON                                 (uint16_t)0x0301
 #define SNIFF_CRUISE_CONTROL_ON_BUTTON_LEN                             (uint8_t)0x0
-#define SNIFF_CRUISE_CONTROL_ON_BUTTON_UNITS                           (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_CRUISE_CONTROL_ON_BUTTON_UNITS                           (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Cruise Control OFF button expressed in PID_UNITS_NOT_APPLICABLE
+ * Cruise Control OFF button expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_CRUISE_CONTROL_OFF_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_CRUISE_CONTROL_OFF_BUTTON_HEADER                         (uint16_t)0x7E0
 #define SNIFF_CRUISE_CONTROL_OFF_BUTTON                                (uint16_t)0x0302
 #define SNIFF_CRUISE_CONTROL_OFF_BUTTON_LEN                            (uint8_t)0x0
-#define SNIFF_CRUISE_CONTROL_OFF_BUTTON_UNITS                          (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_CRUISE_CONTROL_OFF_BUTTON_UNITS                          (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Cruise Control SET plus button expressed in PID_UNITS_NOT_APPLICABLE
+ * Cruise Control SET plus button expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_HEADER                    (uint16_t)0x7E0
 #define SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON                           (uint16_t)0x0303
 #define SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_LEN                       (uint8_t)0x0
-#define SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_UNITS                     (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_UNITS                     (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Cruise Control SET minus button expressed in PID_UNITS_NOT_APPLICABLE
+ * Cruise Control SET minus button expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_HEADER                   (uint16_t)0x7E0
 #define SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON                          (uint16_t)0x0304
 #define SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_LEN                      (uint8_t)0x0
-#define SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_UNITS                    (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_UNITS                    (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Cruise Control RES button expressed in PID_UNITS_NOT_APPLICABLE
+ * Cruise Control RES button expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_CRUISE_CONTROL_RES_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_CRUISE_CONTROL_RES_BUTTON_HEADER                         (uint16_t)0x7E0
 #define SNIFF_CRUISE_CONTROL_RES_BUTTON                                (uint16_t)0x0305
 #define SNIFF_CRUISE_CONTROL_RES_BUTTON_LEN                            (uint8_t)0x0
-#define SNIFF_CRUISE_CONTROL_RES_BUTTON_UNITS                          (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_CRUISE_CONTROL_RES_BUTTON_UNITS                          (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
- * Cruise Control CAN button expressed in PID_UNITS_NOT_APPLICABLE
+ * Cruise Control CAN button expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_CRUISE_CONTROL_CAN_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_CRUISE_CONTROL_CAN_BUTTON_HEADER                         (uint16_t)0x7E0
 #define SNIFF_CRUISE_CONTROL_CAN_BUTTON                                (uint16_t)0x0306
 #define SNIFF_CRUISE_CONTROL_CAN_BUTTON_LEN                            (uint8_t)0x0
-#define SNIFF_CRUISE_CONTROL_CAN_BUTTON_UNITS                          (uint16_t)PID_UNITS_NOT_APPLICABLE
+#define SNIFF_CRUISE_CONTROL_CAN_BUTTON_UNITS                          (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
