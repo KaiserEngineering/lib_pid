@@ -46,6 +46,7 @@ typedef enum _pid_units {
     PID_UNITS_RATIO,
     PID_UNITS_LPH,
     PID_UNITS_BAR,
+    PID_UNITS_G_FORCE,
 } PID_UNITS, *PPID_UNITS;
 
 #define PID_UNASSIGNED             0x00
@@ -66,6 +67,9 @@ typedef enum _pid_units {
 
 
 typedef struct _pid_data {
+
+    /* Header of the PID */
+    volatile uint16_t header;
 
 	/* Mode of the PID being streamed */
 	volatile uint8_t mode;
@@ -111,6 +115,7 @@ void lib_pid_clear_PID( PTR_PID_DATA ptr_pid );
 float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] );
 uint8_t lookup_payload_length( uint8_t mode, uint16_t PID );
 PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
+uint16_t get_pid_header( uint8_t mode, uint16_t pid );
 
 #define A 0
 #define B 1

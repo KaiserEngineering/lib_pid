@@ -104,14 +104,24 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                     return MODE1_THROTTLE_POSITION_UNITS;
                 #endif
 
-                #if defined(MODE1_OXYGEN_SENSOR_1_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
-                case MODE1_OXYGEN_SENSOR_1_VOLTAGE:
-                    return MODE1_OXYGEN_SENSOR_1_VOLTAGE_UNITS;
+                #if defined(MODE1_OXYGEN_SENSOR_2_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_OXYGEN_SENSOR_2_VOLTAGE:
+                    return MODE1_OXYGEN_SENSOR_2_VOLTAGE_UNITS;
+                #endif
+
+                #if defined(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM:
+                    return MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_UNITS;
                 #endif
 
                 #if defined(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE1_ABSOLUTE_BAROMETRIC_PRESSURE:
                     return MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_UNITS;
+                #endif
+
+                #if defined(MODE1_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_OXYGEN_SENSOR_1:
+                    return MODE1_OXYGEN_SENSOR_1_UNITS;
                 #endif
 
                 #if defined(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -137,6 +147,16 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
         case MODE22:
             switch( pid )
             {
+                #if defined(MODE22_LATERAL_G_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_LATERAL_G:
+                    return MODE22_LATERAL_G_UNITS;
+                #endif
+
+                #if defined(MODE22_LONGITUDE_G_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_LONGITUDE_G:
+                    return MODE22_LONGITUDE_G_UNITS;
+                #endif
+
                 #if defined(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1:
                     return MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_UNITS;
@@ -190,6 +210,16 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                 #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE22_ENGINE_LOAD_PERCENTAGE:
                     return MODE22_ENGINE_LOAD_PERCENTAGE_UNITS;
+                #endif
+
+                #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_BATTERY_CHARGE:
+                    return MODE22_BATTERY_CHARGE_UNITS;
+                #endif
+
+                #if defined(MODE22_TIRE_PRESSURE_LF_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_TIRE_PRESSURE_LF:
+                    return MODE22_TIRE_PRESSURE_LF_UNITS;
                 #endif
 
                 default:

@@ -181,15 +181,37 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     return ((float)data[A] / (float)2) - (float)64;
                 #endif
 
-                #if defined(MODE1_OXYGEN_SENSOR_1_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                #if defined(MODE1_OXYGEN_SENSOR_2_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_A_OVER_200
                     #define MODE1_A_OVER_200
                     #endif
-                    case MODE1_OXYGEN_SENSOR_1_VOLTAGE:
+                    case MODE1_OXYGEN_SENSOR_2_VOLTAGE:
                 #endif
 
                 #ifdef MODE1_A_OVER_200
                     return (float)data[A] / (float)255;
+                #endif
+
+                #if defined(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
+                    #define MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
+                    #endif
+                    case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM:
+                #endif
+
+                #ifdef MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
+                    return ((float)0.079 * (((float)256 * (float)data[A]) + (float)data[B]));
+                #endif
+
+                #if defined(MODE1_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES
+                    #define MODE1_256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES
+                    #endif
+                    case MODE1_OXYGEN_SENSOR_1:
+                #endif
+
+                #ifdef MODE1_256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES
+                    return ((((float)256 * (float)(data[A])) + (float)(data[B]) * (float)2) / (float)65536);
                 #endif
 
                 #if defined(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -211,6 +233,24 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
         case MODE22:
             switch( pid )
             {
+                #if defined(MODE22_LATERAL_G_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    #define MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    #endif
+                    case MODE22_LATERAL_G:
+                #endif
+
+                #if defined(MODE22_LONGITUDE_G_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    #define MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    #endif
+                    case MODE22_LONGITUDE_G:
+                #endif
+
+                #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) * (float)0.002;
+                #endif
+
                 #if defined(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_1024
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_1024
@@ -318,6 +358,28 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE22_100_TIMES_A_OVER_255
                     return (((float)data[A]) * (float)100) / (float)255;
+                #endif
+
+                #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_A
+                    #define MODE22_A
+                    #endif
+                    case MODE22_BATTERY_CHARGE:
+                #endif
+
+                #ifdef MODE22_A
+                    return (float)data[A];
+                #endif
+
+                #if defined(MODE22_TIRE_PRESSURE_LF_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
+                    #define MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
+                    #endif
+                    case MODE22_TIRE_PRESSURE_LF:
+                #endif
+
+                #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
+                    return ((((float)256 *(float)data[A]) + (float)data[B]) + ((float)22 / (float)3));
                 #endif
 
                 default:
