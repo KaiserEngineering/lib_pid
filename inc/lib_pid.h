@@ -30,7 +30,7 @@ typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 typedef enum _pid_units {
     PID_UNITS_NOT_APPLICABLE,
     PID_UNITS_PERCENT,
-    PID_UNITS_CELCIUS,
+    PID_UNITS_CELSIUS,
     PID_UNITS_FAHRENHEIT,
     PID_UNITS_KPA,
     PID_UNITS_PSI,
@@ -46,6 +46,7 @@ typedef enum _pid_units {
     PID_UNITS_RATIO,
     PID_UNITS_LPH,
     PID_UNITS_BAR,
+    PID_UNITS_G_FORCE,
 } PID_UNITS, *PPID_UNITS;
 
 #define PID_UNASSIGNED             0x00
@@ -60,8 +61,15 @@ typedef enum _pid_units {
 #define PID_ASSIGNED_TO_CAN_SNIFFER 0x02
 #endif
 
+#ifdef USE_LIB_VEHICLE_DATA
+#define PID_ASSIGNED_TO_VEHICLE_DATA 0x03
+#endif
+
 
 typedef struct _pid_data {
+
+    /* Header of the PID */
+    volatile uint16_t header;
 
 	/* Mode of the PID being streamed */
 	volatile uint8_t mode;
@@ -107,6 +115,7 @@ void lib_pid_clear_PID( PTR_PID_DATA ptr_pid );
 float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] );
 uint8_t lookup_payload_length( uint8_t mode, uint16_t PID );
 PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
+uint16_t get_pid_header( uint8_t mode, uint16_t pid );
 
 #define A 0
 #define B 1
@@ -117,5 +126,6 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 #define MODE2                                           (uint8_t)0x02    // Show freeze frame data
 #define MODE22                                          (uint8_t)0x22    // Enhanced data
 #define SNIFF                                           (uint8_t)0xDE    // Data extracted from sniffing the CAN bus
+#define CALC1                                           (uint8_t)0xC1    // Data calculated using other PIDs
 
 #endif /* PID_H_ */

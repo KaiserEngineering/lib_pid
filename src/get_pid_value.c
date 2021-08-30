@@ -3,7 +3,6 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated May-04-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -182,15 +181,37 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     return ((float)data[A] / (float)2) - (float)64;
                 #endif
 
-                #if defined(MODE1_OXYGEN_SENSOR_1_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                #if defined(MODE1_OXYGEN_SENSOR_2_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_A_OVER_200
                     #define MODE1_A_OVER_200
                     #endif
-                    case MODE1_OXYGEN_SENSOR_1_VOLTAGE:
+                    case MODE1_OXYGEN_SENSOR_2_VOLTAGE:
                 #endif
 
                 #ifdef MODE1_A_OVER_200
                     return (float)data[A] / (float)255;
+                #endif
+
+                #if defined(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
+                    #define MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
+                    #endif
+                    case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM:
+                #endif
+
+                #ifdef MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
+                    return ((float)0.079 * (((float)256 * (float)data[A]) + (float)data[B]));
+                #endif
+
+                #if defined(MODE1_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE1_256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES
+                    #define MODE1_256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES
+                    #endif
+                    case MODE1_OXYGEN_SENSOR_1:
+                #endif
+
+                #ifdef MODE1_256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES
+                    return ((((float)256 * (float)(data[A])) + (float)(data[B]) * (float)2) / (float)65536);
                 #endif
 
                 #if defined(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -212,6 +233,24 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
         case MODE22:
             switch( pid )
             {
+                #if defined(MODE22_LATERAL_G_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    #define MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    #endif
+                    case MODE22_LATERAL_G:
+                #endif
+
+                #if defined(MODE22_LONGITUDE_G_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    #define MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    #endif
+                    case MODE22_LONGITUDE_G:
+                #endif
+
+                #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
+                    return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) * (float)0.002;
+                #endif
+
                 #if defined(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_1024
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_1024
@@ -266,6 +305,13 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case MODE22_INTAKE_AIR_TEMPERATURE:
                 #endif
 
+                #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_A_MINUS_40
+                    #define MODE22_A_MINUS_40
+                    #endif
+                    case MODE22_MANIFOLD_CHARGE_TEMPERATURE:
+                #endif
+
                 #ifdef MODE22_A_MINUS_40
                     return ((float)data[A] - (float)40);
                 #endif
@@ -281,17 +327,6 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     return (((float)256 * (float)data[A] ) + (float)data[B] ) / (float)64;
                 #endif
 
-                #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_A
-                    #define MODE22_A
-                    #endif
-                    case MODE22_MANIFOLD_CHARGE_TEMPERATURE:
-                #endif
-
-                #ifdef MODE22_A
-                    return (float)data[A];
-                #endif
-
                 #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
@@ -304,14 +339,14 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                 #endif
 
                 #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_A_OVER_3_MINUS_40
-                    #define MODE22_A_OVER_3_MINUS_40
+                    #ifndef MODE22_A_OVER_2_MINUS_40
+                    #define MODE22_A_OVER_2_MINUS_40
                     #endif
                     case MODE22_AMBIENT_AIR_TEMPERATURE:
                 #endif
 
-                #ifdef MODE22_A_OVER_3_MINUS_40
-                    return ((float)data[A] / (float)3) - (float)40;
+                #ifdef MODE22_A_OVER_2_MINUS_40
+                    return ((float)data[A] / (float)2) - (float)40;
                 #endif
 
                 #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -323,6 +358,28 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE22_100_TIMES_A_OVER_255
                     return (((float)data[A]) * (float)100) / (float)255;
+                #endif
+
+                #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_A
+                    #define MODE22_A
+                    #endif
+                    case MODE22_BATTERY_CHARGE:
+                #endif
+
+                #ifdef MODE22_A
+                    return (float)data[A];
+                #endif
+
+                #if defined(MODE22_TIRE_PRESSURE_LF_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
+                    #define MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
+                    #endif
+                    case MODE22_TIRE_PRESSURE_LF:
+                #endif
+
+                #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
+                    return ((((float)256 *(float)data[A]) + (float)data[B]) + ((float)22 / (float)3));
                 #endif
 
                 default:
@@ -347,7 +404,89 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case SNIFF_VEHICLE_STATUS:
                 #endif
 
+                #if defined(SNIFF_BRAKE_PEDAL_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_BRAKE_PEDAL_STATUS:
+                #endif
+
+                #if defined(SNIFF_EMERGENCY_BRAKE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_EMERGENCY_BRAKE_STATUS:
+                #endif
+
+                #if defined(SNIFF_REVERSE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_REVERSE_STATUS:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_ON_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_ON_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_OFF_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_OFF_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_RES_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_RES_BUTTON:
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_CAN_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_CRUISE_CONTROL_CAN_BUTTON:
+                #endif
+
                 #ifdef SNIFF_UNDEFINED
+                    return 0;
+                #endif
+
+                default:
+                    return 0;
+            }
+        break;
+
+        case CALC1:
+            switch( pid )
+            {
+                #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef CALC1_UNDEFINED
+                    #define CALC1_UNDEFINED
+                    #endif
+                    case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE:
+                #endif
+
+                #ifdef CALC1_UNDEFINED
                     return 0;
                 #endif
 

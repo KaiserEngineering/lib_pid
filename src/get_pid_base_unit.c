@@ -3,7 +3,6 @@
  * 
  * Copyright (c) 2021 KaiserEngineering, LLC
  * Author Matthew Kaiser 
- * File Auto-Generated May-04-2021
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -105,14 +104,24 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                     return MODE1_THROTTLE_POSITION_UNITS;
                 #endif
 
-                #if defined(MODE1_OXYGEN_SENSOR_1_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
-                case MODE1_OXYGEN_SENSOR_1_VOLTAGE:
-                    return MODE1_OXYGEN_SENSOR_1_VOLTAGE_UNITS;
+                #if defined(MODE1_OXYGEN_SENSOR_2_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_OXYGEN_SENSOR_2_VOLTAGE:
+                    return MODE1_OXYGEN_SENSOR_2_VOLTAGE_UNITS;
+                #endif
+
+                #if defined(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM:
+                    return MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_UNITS;
                 #endif
 
                 #if defined(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE1_ABSOLUTE_BAROMETRIC_PRESSURE:
                     return MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_UNITS;
+                #endif
+
+                #if defined(MODE1_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_OXYGEN_SENSOR_1:
+                    return MODE1_OXYGEN_SENSOR_1_UNITS;
                 #endif
 
                 #if defined(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -138,6 +147,16 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
         case MODE22:
             switch( pid )
             {
+                #if defined(MODE22_LATERAL_G_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_LATERAL_G:
+                    return MODE22_LATERAL_G_UNITS;
+                #endif
+
+                #if defined(MODE22_LONGITUDE_G_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_LONGITUDE_G:
+                    return MODE22_LONGITUDE_G_UNITS;
+                #endif
+
                 #if defined(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1:
                     return MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_UNITS;
@@ -193,6 +212,16 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                     return MODE22_ENGINE_LOAD_PERCENTAGE_UNITS;
                 #endif
 
+                #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_BATTERY_CHARGE:
+                    return MODE22_BATTERY_CHARGE_UNITS;
+                #endif
+
+                #if defined(MODE22_TIRE_PRESSURE_LF_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_TIRE_PRESSURE_LF:
+                    return MODE22_TIRE_PRESSURE_LF_UNITS;
+                #endif
+
                 default:
                     return 0;
             }
@@ -209,6 +238,64 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                 #if defined(SNIFF_VEHICLE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
                 case SNIFF_VEHICLE_STATUS:
                     return SNIFF_VEHICLE_STATUS_UNITS;
+                #endif
+
+                #if defined(SNIFF_BRAKE_PEDAL_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_BRAKE_PEDAL_STATUS:
+                    return SNIFF_BRAKE_PEDAL_STATUS_UNITS;
+                #endif
+
+                #if defined(SNIFF_EMERGENCY_BRAKE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_EMERGENCY_BRAKE_STATUS:
+                    return SNIFF_EMERGENCY_BRAKE_STATUS_UNITS;
+                #endif
+
+                #if defined(SNIFF_REVERSE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_REVERSE_STATUS:
+                    return SNIFF_REVERSE_STATUS_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_ON_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_ON_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_ON_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_OFF_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_OFF_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_OFF_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_RES_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_RES_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_RES_BUTTON_UNITS;
+                #endif
+
+                #if defined(SNIFF_CRUISE_CONTROL_CAN_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_CRUISE_CONTROL_CAN_BUTTON:
+                    return SNIFF_CRUISE_CONTROL_CAN_BUTTON_UNITS;
+                #endif
+
+                default:
+                    return 0;
+            }
+        break;
+
+        case CALC1:
+            switch( pid )
+            {
+                #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE:
+                    return CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UNITS;
                 #endif
 
                 default:
