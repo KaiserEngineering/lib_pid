@@ -211,7 +211,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                 #endif
 
                 #ifdef MODE1_256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES
-                    return ((((float)256 * (float)(data[A])) + (float)(data[B]) * (float)2) / (float)65536);
+                    return (((((float)256 * (float)(data[A])) + (float)(data[B])) * (float)2) / (float)65536);
                 #endif
 
                 #if defined(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
