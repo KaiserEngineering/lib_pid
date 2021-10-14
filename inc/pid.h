@@ -366,13 +366,13 @@
 #endif
 
 /**
- * Gauge Brightness expressed in PID_UNITS_PERCENT
+ * Gauge Brightness expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_GAUGE_BRIGHTNESS_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_GAUGE_BRIGHTNESS_HEADER                                  (uint16_t)0x7E0
 #define SNIFF_GAUGE_BRIGHTNESS                                         (uint16_t)0x01C8
 #define SNIFF_GAUGE_BRIGHTNESS_LEN                                     (uint8_t)0x0
-#define SNIFF_GAUGE_BRIGHTNESS_UNITS                                   (uint16_t)PID_UNITS_PERCENT
+#define SNIFF_GAUGE_BRIGHTNESS_UNITS                                   (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
