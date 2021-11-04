@@ -505,3 +505,23 @@
 #define MODE22_TIRE_PRESSURE_LF_UNITS                                   (uint16_t)PID_UNITS_KPA
 #endif
 
+/**
+ * Lateral Acceleration expressed in PID_UNITS_G_FORCE
+ */
+#if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+#define SNIFF_LATERAL_ACCELERATION_HEADER                              (uint16_t)0x180
+#define SNIFF_LATERAL_ACCELERATION                                     (uint16_t)0x1802
+#define SNIFF_LATERAL_ACCELERATION_LEN                                 (uint8_t)0x0
+#define SNIFF_LATERAL_ACCELERATION_UNITS                               (uint16_t)PID_UNITS_G_FORCE
+#endif
+
+/**
+ * Longitudinal Acceleration expressed in PID_UNITS_G_FORCE
+ */
+#if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+#define SNIFF_LONGITUDINAL_ACCELERATION_HEADER                         (uint16_t)0x160
+#define SNIFF_LONGITUDINAL_ACCELERATION                                (uint16_t)0x1602
+#define SNIFF_LONGITUDINAL_ACCELERATION_LEN                            (uint8_t)0x0
+#define SNIFF_LONGITUDINAL_ACCELERATION_UNITS                          (uint16_t)PID_UNITS_G_FORCE
+#endif
+

@@ -285,6 +285,16 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                     return SNIFF_CRUISE_CONTROL_CAN_BUTTON_UNITS;
                 #endif
 
+                #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_LATERAL_ACCELERATION:
+                    return SNIFF_LATERAL_ACCELERATION_UNITS;
+                #endif
+
+                #if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_LONGITUDINAL_ACCELERATION:
+                    return SNIFF_LONGITUDINAL_ACCELERATION_UNITS;
+                #endif
+
                 default:
                     return 0;
             }

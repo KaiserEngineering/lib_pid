@@ -285,6 +285,16 @@ uint8_t lookup_payload_length( uint8_t mode, uint16_t pid )
                     return SNIFF_CRUISE_CONTROL_CAN_BUTTON_LEN;
                 #endif
 
+                #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_LATERAL_ACCELERATION:
+                    return SNIFF_LATERAL_ACCELERATION_LEN;
+                #endif
+
+                #if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+                case SNIFF_LONGITUDINAL_ACCELERATION:
+                    return SNIFF_LONGITUDINAL_ACCELERATION_LEN;
+                #endif
+
                 default:
                     return 0;
             }

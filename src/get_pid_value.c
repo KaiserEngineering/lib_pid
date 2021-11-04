@@ -467,6 +467,20 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case SNIFF_CRUISE_CONTROL_CAN_BUTTON:
                 #endif
 
+                #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_LATERAL_ACCELERATION:
+                #endif
+
+                #if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_LONGITUDINAL_ACCELERATION:
+                #endif
+
                 #ifdef SNIFF_UNDEFINED
                     return 0;
                 #endif
