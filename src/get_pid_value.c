@@ -493,6 +493,13 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
         case CALC1:
             switch( pid )
             {
+                #if defined(CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef CALC1_UNDEFINED
+                    #define CALC1_UNDEFINED
+                    #endif
+                    case CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE:
+                #endif
+
                 #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef CALC1_UNDEFINED
                     #define CALC1_UNDEFINED

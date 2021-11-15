@@ -436,6 +436,16 @@
 #endif
 
 /**
+ * Cruise Control OFF button Toggle expressed in PID_UNITS_NONE
+ */
+#if defined(CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_HEADER                  (uint16_t)0x7E0
+#define CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE                         (uint16_t)0x0302
+#define CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_LEN                     (uint8_t)0x0
+#define CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_UNITS                   (uint16_t)PID_UNITS_NONE
+#endif
+
+/**
  * Cruise Control SET plus button expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)

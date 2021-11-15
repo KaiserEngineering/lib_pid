@@ -303,6 +303,11 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
         case CALC1:
             switch( pid )
             {
+                #if defined(CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE:
+                    return CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_UNITS;
+                #endif
+
                 #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE:
                     return CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UNITS;
