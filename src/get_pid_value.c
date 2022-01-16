@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2021 KaiserEngineering, LLC
+ * Copyright (c) 2022 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -324,7 +324,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                 #endif
 
                 #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
-                    return (((float)256 * (float)((int8_t)data[A] )) + (float)data[B] ) / (float)64;
+                    return (((float)256 * (float)(int8_t)data[A] ) + (float)data[B] ) / (float)64;
                 #endif
 
                 #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
