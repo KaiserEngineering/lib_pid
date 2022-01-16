@@ -317,14 +317,14 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                 #endif
 
                 #if defined(MODE22_CHARGE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_64
-                    #define MODE22_256_TIMES_A_PLUS_B_OVER_64
+                    #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
+                    #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
                     #endif
                     case MODE22_CHARGE_AIR_TEMPERATURE:
                 #endif
 
-                #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_64
-                    return (((float)256 * (float)data[A] ) + (float)data[B] ) / (float)64;
+                #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
+                    return (((float)256 * (float)((int8_t)data[A] )) + (float)data[B] ) / (float)64;
                 #endif
 
                 #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
