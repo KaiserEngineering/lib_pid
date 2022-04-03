@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2021 KaiserEngineering, LLC
+ * Copyright (c) 2022 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -317,14 +317,14 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                 #endif
 
                 #if defined(MODE22_CHARGE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_64
-                    #define MODE22_256_TIMES_A_PLUS_B_OVER_64
+                    #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
+                    #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
                     #endif
                     case MODE22_CHARGE_AIR_TEMPERATURE:
                 #endif
 
-                #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_64
-                    return (((float)256 * (float)data[A] ) + (float)data[B] ) / (float)64;
+                #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
+                    return (((float)256 * (float)(int8_t)data[A] ) + (float)data[B] ) / (float)64;
                 #endif
 
                 #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -467,6 +467,20 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     case SNIFF_CRUISE_CONTROL_CAN_BUTTON:
                 #endif
 
+                #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_LATERAL_ACCELERATION:
+                #endif
+
+                #if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef SNIFF_UNDEFINED
+                    #define SNIFF_UNDEFINED
+                    #endif
+                    case SNIFF_LONGITUDINAL_ACCELERATION:
+                #endif
+
                 #ifdef SNIFF_UNDEFINED
                     return 0;
                 #endif
@@ -479,6 +493,13 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
         case CALC1:
             switch( pid )
             {
+                #if defined(CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef CALC1_UNDEFINED
+                    #define CALC1_UNDEFINED
+                    #endif
+                    case CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE:
+                #endif
+
                 #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef CALC1_UNDEFINED
                     #define CALC1_UNDEFINED

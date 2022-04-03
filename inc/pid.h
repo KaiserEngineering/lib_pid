@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2021 KaiserEngineering, LLC
+ * Copyright (c) 2022 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -366,13 +366,13 @@
 #endif
 
 /**
- * Gauge Brightness expressed in PID_UNITS_PERCENT
+ * Gauge Brightness expressed in PID_UNITS_NONE
  */
 #if defined(SNIFF_GAUGE_BRIGHTNESS_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_GAUGE_BRIGHTNESS_HEADER                                  (uint16_t)0x7E0
 #define SNIFF_GAUGE_BRIGHTNESS                                         (uint16_t)0x01C8
 #define SNIFF_GAUGE_BRIGHTNESS_LEN                                     (uint8_t)0x0
-#define SNIFF_GAUGE_BRIGHTNESS_UNITS                                   (uint16_t)PID_UNITS_PERCENT
+#define SNIFF_GAUGE_BRIGHTNESS_UNITS                                   (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
@@ -433,6 +433,16 @@
 #define SNIFF_CRUISE_CONTROL_OFF_BUTTON                                (uint16_t)0x0302
 #define SNIFF_CRUISE_CONTROL_OFF_BUTTON_LEN                            (uint8_t)0x0
 #define SNIFF_CRUISE_CONTROL_OFF_BUTTON_UNITS                          (uint16_t)PID_UNITS_NONE
+#endif
+
+/**
+ * Cruise Control OFF button Toggle expressed in PID_UNITS_NONE
+ */
+#if defined(CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_HEADER                  (uint16_t)0x7E0
+#define CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE                         (uint16_t)0x0302
+#define CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_LEN                     (uint8_t)0x0
+#define CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_UNITS                   (uint16_t)PID_UNITS_NONE
 #endif
 
 /**
@@ -503,5 +513,25 @@
 #define MODE22_TIRE_PRESSURE_LF                                         (uint16_t)0x2813
 #define MODE22_TIRE_PRESSURE_LF_LEN                                     (uint8_t)0x2
 #define MODE22_TIRE_PRESSURE_LF_UNITS                                   (uint16_t)PID_UNITS_KPA
+#endif
+
+/**
+ * Lateral Acceleration expressed in PID_UNITS_G_FORCE
+ */
+#if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+#define SNIFF_LATERAL_ACCELERATION_HEADER                              (uint16_t)0x180
+#define SNIFF_LATERAL_ACCELERATION                                     (uint16_t)0x1802
+#define SNIFF_LATERAL_ACCELERATION_LEN                                 (uint8_t)0x0
+#define SNIFF_LATERAL_ACCELERATION_UNITS                               (uint16_t)PID_UNITS_G_FORCE
+#endif
+
+/**
+ * Longitudinal Acceleration expressed in PID_UNITS_G_FORCE
+ */
+#if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+#define SNIFF_LONGITUDINAL_ACCELERATION_HEADER                         (uint16_t)0x160
+#define SNIFF_LONGITUDINAL_ACCELERATION                                (uint16_t)0x1602
+#define SNIFF_LONGITUDINAL_ACCELERATION_LEN                            (uint8_t)0x0
+#define SNIFF_LONGITUDINAL_ACCELERATION_UNITS                          (uint16_t)PID_UNITS_G_FORCE
 #endif
 
