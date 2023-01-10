@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2022 KaiserEngineering, LLC
+ * Copyright (c) 2023 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -210,6 +210,11 @@ uint16_t get_pid_header( uint8_t mode, uint16_t pid )
                 #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE22_ENGINE_LOAD_PERCENTAGE:
                     return MODE22_ENGINE_LOAD_PERCENTAGE_HEADER;
+                #endif
+
+                #if defined(MODE22_CATALYTIC_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE22_CATALYTIC_TEMPERATURE:
+                    return MODE22_CATALYTIC_TEMPERATURE_HEADER;
                 #endif
 
                 #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)

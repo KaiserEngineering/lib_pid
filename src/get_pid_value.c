@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2022 KaiserEngineering, LLC
+ * Copyright (c) 2023 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -358,6 +358,17 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
 
                 #ifdef MODE22_100_TIMES_A_OVER_255
                     return (((float)data[A]) * (float)100) / (float)255;
+                #endif
+
+                #if defined(MODE22_CATALYTIC_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_10_MINUS_40
+                    #define MODE22_256_TIMES_A_PLUS_B_OVER_10_MINUS_40
+                    #endif
+                    case MODE22_CATALYTIC_TEMPERATURE:
+                #endif
+
+                #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_10_MINUS_40
+                    return ((((float)256 * (float)data[A] ) + (float)data[B] ) / (float)10)-(float)40;
                 #endif
 
                 #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)

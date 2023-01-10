@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2022 KaiserEngineering, LLC
+ * Copyright (c) 2023 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -363,6 +363,16 @@
 #define MODE22_ENGINE_LOAD_PERCENTAGE                                   (uint16_t)0xF404
 #define MODE22_ENGINE_LOAD_PERCENTAGE_LEN                               (uint8_t)0x1
 #define MODE22_ENGINE_LOAD_PERCENTAGE_UNITS                             (uint16_t)PID_UNITS_PERCENT
+#endif
+
+/**
+ * Catalytic Temperature expressed in PID_UNITS_CELSIUS
+ */
+#if defined(MODE22_CATALYTIC_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE22_CATALYTIC_TEMPERATURE_HEADER                             (uint16_t)0x7E0
+#define MODE22_CATALYTIC_TEMPERATURE                                    (uint16_t)0xF43C
+#define MODE22_CATALYTIC_TEMPERATURE_LEN                                (uint8_t)0x1
+#define MODE22_CATALYTIC_TEMPERATURE_UNITS                              (uint16_t)PID_UNITS_CELSIUS
 #endif
 
 /**
