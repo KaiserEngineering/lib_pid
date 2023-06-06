@@ -371,7 +371,7 @@
 #if defined(MODE22_CATALYTIC_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
 #define MODE22_CATALYTIC_TEMPERATURE_HEADER                             (uint16_t)0x7E0
 #define MODE22_CATALYTIC_TEMPERATURE                                    (uint16_t)0xF43C
-#define MODE22_CATALYTIC_TEMPERATURE_LEN                                (uint8_t)0x1
+#define MODE22_CATALYTIC_TEMPERATURE_LEN                                (uint8_t)0x2
 #define MODE22_CATALYTIC_TEMPERATURE_UNITS                              (uint16_t)PID_UNITS_CELSIUS
 #endif
 
