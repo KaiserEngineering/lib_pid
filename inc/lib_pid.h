@@ -12,6 +12,7 @@
 #include <var.h>
 #endif
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 #ifdef LIMIT_PIDS
 #include <pids_supported.h>

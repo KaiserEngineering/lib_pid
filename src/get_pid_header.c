@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2023 KaiserEngineering, LLC
+ * Copyright (c) 2024 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,6 +34,11 @@ uint16_t get_pid_header( uint8_t mode, uint16_t pid )
         case MODE1:
             switch( pid )
             {
+                #if defined(MODE1_COMMANDED_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_COMMANDED_AIR_TO_FUEL_RATIO:
+                    return MODE1_COMMANDED_AIR_TO_FUEL_RATIO_HEADER;
+                #endif
+
                 #if defined(MODE1_CALCULATED_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
                 case MODE1_CALCULATED_ENGINE_LOAD:
                     return MODE1_CALCULATED_ENGINE_LOAD_HEADER;
@@ -119,9 +124,9 @@ uint16_t get_pid_header( uint8_t mode, uint16_t pid )
                     return MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_HEADER;
                 #endif
 
-                #if defined(MODE1_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
-                case MODE1_OXYGEN_SENSOR_1:
-                    return MODE1_OXYGEN_SENSOR_1_HEADER;
+                #if defined(MODE1_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+                case MODE1_AIR_TO_FUEL_RATIO:
+                    return MODE1_AIR_TO_FUEL_RATIO_HEADER;
                 #endif
 
                 #if defined(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)

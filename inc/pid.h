@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2023 KaiserEngineering, LLC
+ * Copyright (c) 2024 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,16 @@
  *
  ******************************************************************************
  */
+
+/**
+ * Commanded Air to Fuel Ratio expressed in PID_UNITS_RATIO
+ */
+#if defined(MODE1_COMMANDED_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_COMMANDED_AIR_TO_FUEL_RATIO_HEADER                       (uint16_t)0x7E0
+#define MODE1_COMMANDED_AIR_TO_FUEL_RATIO                              (uint16_t)0x44
+#define MODE1_COMMANDED_AIR_TO_FUEL_RATIO_LEN                          (uint8_t)0x2
+#define MODE1_COMMANDED_AIR_TO_FUEL_RATIO_UNITS                        (uint16_t)PID_UNITS_RATIO
+#endif
 
 /**
  * Calculated engine load expressed in PID_UNITS_PERCENT
@@ -196,13 +206,13 @@
 #endif
 
 /**
- * Oxygen Sensor 1 expressed in PID_UNITS_RATIO
+ * Air to Fuel Ratio expressed in PID_UNITS_RATIO
  */
-#if defined(MODE1_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
-#define MODE1_OXYGEN_SENSOR_1_HEADER                                   (uint16_t)0x7E0
-#define MODE1_OXYGEN_SENSOR_1                                          (uint16_t)0x34
-#define MODE1_OXYGEN_SENSOR_1_LEN                                      (uint8_t)0x4
-#define MODE1_OXYGEN_SENSOR_1_UNITS                                    (uint16_t)PID_UNITS_RATIO
+#if defined(MODE1_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+#define MODE1_AIR_TO_FUEL_RATIO_HEADER                                 (uint16_t)0x7E0
+#define MODE1_AIR_TO_FUEL_RATIO                                        (uint16_t)0x34
+#define MODE1_AIR_TO_FUEL_RATIO_LEN                                    (uint8_t)0x4
+#define MODE1_AIR_TO_FUEL_RATIO_UNITS                                  (uint16_t)PID_UNITS_RATIO
 #endif
 
 /**
