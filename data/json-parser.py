@@ -315,27 +315,46 @@ get_pid_header.close()
 ############################################
 #               readme.md                  #
 ############################################
+# Open the readme file for writing
 readme = open("../readme.md", "w")
 
+# Write the table headers to the readme
 readme.write("| Parameter | Type | Description |\n")
 readme.write("| :-- | :--: | :-- |\n")
 
+# Open the JSON file and load the data
 with open('digital-dash-firmware.json') as f:
-  data = json.load(f)
+    data = json.load(f)
 
+# Create a list to store PIDs
+pid_list = []
+
+# Iterate over the PIDs and process them
 for pid in data["Ford_Focus_STRS_2013_2018"]:
+    if pid["vehicles"][0] == "Ford_Focus_STRS_2013_2018":
+        # Determine the mode description
+        if pid["mode"] == "MODE1":
+            mode = "Mode 1"
+        elif pid["mode"] == "MODE22":
+            mode = "Mode 22"
+        elif pid["mode"] == "SNIFF":
+            mode = "Sniff"
+        elif pid["mode"] == "CALC1":
+            mode = "Custom"
 
-  if pid["vehicles"][0] == "Ford_Focus_STRS_2013_2018":
-    if pid["mode"] == "MODE1":
-      mode = "Mode 1"
-    elif pid["mode"] == "MODE22":
-      mode = "Mode 22"
-    elif pid["mode"] == "SNIFF":
-      mode = "Sniff"
-    elif pid["mode"] == "CALC1":
-      mode = "Custom"
+        # Add the PID data to the list
+        pid_list.append({
+            "shortDesc": pid["shortDesc"],
+            "mode": mode,
+            "desc": pid["desc"]
+        })
 
-    readme.write("| " + pid["shortDesc"] + " | " + mode + " | " + pid["desc"] + " |\n")
+# Sort the list by "shortDesc"
+pid_list.sort(key=lambda x: x["shortDesc"])
 
+# Write the sorted PIDs to the readme file
+for pid in pid_list:
+    readme.write("| " + pid["shortDesc"] + " | " + pid["mode"] + " | " + pid["desc"] + " |\n")
 
+# Close the readme file
 readme.close()
