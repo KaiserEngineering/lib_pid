@@ -1,0 +1,1397 @@
+{
+	"Ford_Focus_STRS_2013_2018": [
+		{
+			"desc": "Commanded Air to Fuel Ratio",
+			"shortName": "Cmd AFR",
+			"shortDesc": "Commanded Air-Fuel Ratio",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "44",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_RATIO"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				29.4
+			],
+			"decimals": [
+				2
+			],
+			"formula": "29D4_OVER_65536_TIMES_256_A_PLUS_B",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Calculated engine load",
+			"shortName": "Load",
+			"shortDesc": "Calc Load",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "04",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				100
+			],
+			"decimals": [
+				1
+			],
+			"formula": "100_TIMES_A_OVER_255",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Engine coolant temperature",
+			"shortName": "ECT",
+			"shortDesc": "Coolant Temp",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "05",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_CELSIUS",
+				"PID_UNITS_FAHRENHEIT"
+			],
+			"min": [
+				-40,
+				-40
+			],
+			"max": [
+				215,
+				400
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A_MINUS_40",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Short term fuel trim - Bank 1",
+			"shortName": "STFT1",
+			"shortDesc": "Short Fuel Trim 1",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "06",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				-100
+			],
+			"max": [
+				99.2
+			],
+			"decimals": [
+				1
+			],
+			"formula": "100_OVER_128_TIMES_A_MINUS_100",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Long term fuel trim - Bank 1",
+			"shortName": "LTFT1",
+			"shortDesc": "Long Fuel Trim 1",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "07",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				-100
+			],
+			"max": [
+				99.2
+			],
+			"decimals": [
+				1
+			],
+			"formula": "100_OVER_128_TIMES_A_MINUS_100",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Short term fuel trim - Bank 2",
+			"shortName": "STFT2",
+			"shortDesc": "Short Fuel Trim 2",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "08",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				-100
+			],
+			"max": [
+				99.2
+			],
+			"decimals": [
+				0
+			],
+			"formula": "100_OVER_128_TIMES_A_MINUS_100",
+			"vehicles": [
+				"None"
+			]
+		},
+		{
+			"desc": "Long term fuel trim - Bank 2",
+			"shortName": "LTFT2",
+			"shortDesc": "Long Fuel Trim 2",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "09",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				-100
+			],
+			"max": [
+				99.2
+			],
+			"decimals": [
+				0
+			],
+			"formula": "100_OVER_128_TIMES_A_MINUS_100",
+			"vehicles": [
+				"None"
+			]
+		},
+		{
+			"desc": "Fuel Pressure",
+			"shortName": "Fuel",
+			"shortDesc": "Fuel Pressure",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "0A",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_KPA",
+				"PID_UNITS_PSI"
+			],
+			"min": [
+				0,
+				0
+			],
+			"max": [
+				765,
+				110
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A_TIMES_3",
+			"vehicles": [
+				"None"
+			]
+		},
+		{
+			"desc": "Intake manifold absolute pressure",
+			"shortName": "MAP",
+			"shortDesc": "Manifold Abs Press",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "0B",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_KPA",
+				"PID_UNITS_PSI"
+			],
+			"min": [
+				0,
+				0
+			],
+			"max": [
+				255,
+				36
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Engine speed",
+			"shortName": "RPM",
+			"shortDesc": "Engine speed",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "0C",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_RPM"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				8000
+			],
+			"decimals": [
+				0
+			],
+			"formula": "256_TIMES_A_PLUS_B_OVER_4",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Vehicle speed",
+			"shortName": "Speed",
+			"shortDesc": "Speed",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "0D",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_KMH",
+				"PID_UNITS_MPH"
+			],
+			"min": [
+				0,
+				0
+			],
+			"max": [
+				270,
+				180
+			],
+			"decimals": [
+				0,
+				0
+			],
+			"formula": "A",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Timing advance",
+			"shortName": "Timing",
+			"shortDesc": "Timing Advance",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "0E",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_DEGREES"
+			],
+			"min": [
+				-64
+			],
+			"max": [
+				63.5
+			],
+			"decimals": [
+				1
+			],
+			"formula": "A_OVER_2_MINUS_64",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Intake air temperature",
+			"shortName": "IAT",
+			"shortDesc": "Intake Air Temp",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "0F",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_CELSIUS",
+				"PID_UNITS_FAHRENHEIT"
+			],
+			"min": [
+				-40,
+				-40
+			],
+			"max": [
+				200,
+				400
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A_MINUS_40",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Mass air flow sensor air flow rate",
+			"shortName": "MAF",
+			"shortDesc": "Mass Air Flow",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "10",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_GRAMSEC"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				655.35
+			],
+			"decimals": [
+				0
+			],
+			"formula": "A_MINUS_40",
+			"vehicles": [
+				"None"
+			]
+		},
+		{
+			"desc": "Throttle position",
+			"shortName": "Throttle",
+			"shortDesc": "Throttle",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "11",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				100
+			],
+			"decimals": [
+				1
+			],
+			"formula": "100_TIMES_A_OVER_255",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Oxygen Sensor 2 Voltage",
+			"shortName": "O2",
+			"shortDesc": "O2 Volts",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "15",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_VOLTS"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1.275
+			],
+			"decimals": [
+				2
+			],
+			"formula": "A_OVER_200",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Fuel Rail Pressure relative to manifold vacuum",
+			"shortName": "Fuel",
+			"shortDesc": "Fuel Rail Pressure",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "22",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_KPA",
+				"PID_UNITS_PSI"
+			],
+			"min": [
+				0,
+				0
+			],
+			"max": [
+				5177,
+				750
+			],
+			"decimals": [
+				0,
+				0
+			],
+			"formula": "ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Absolute barometric pressure",
+			"shortName": "Baro",
+			"shortDesc": "Barometric",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "33",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_KPA",
+				"PID_UNITS_PSI"
+			],
+			"min": [
+				0,
+				0
+			],
+			"max": [
+				255,
+				36
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Air to Fuel Ratio",
+			"shortName": "AFR",
+			"shortDesc": "Air-Fuel Ratio (Oxygen Sensor 1)",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "34",
+			"dataLen": 4,
+			"units": [
+				"PID_UNITS_RATIO"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				29.4
+			],
+			"decimals": [
+				2
+			],
+			"formula": "29D4_OVER_65536_TIMES_256_A_PLUS_B",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Relative accelerator pedal position",
+			"shortName": "APP",
+			"shortDesc": "Accel Pedal Pos",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "5A",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				100
+			],
+			"decimals": [
+				0
+			],
+			"formula": "100_TIMES_A_OVER_255",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Engine oil temperature",
+			"shortName": "Oil Temp",
+			"shortDesc": "Oil Temp",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "5C",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_CELSIUS",
+				"PID_UNITS_FAHRENHEIT"
+			],
+			"min": [
+				-40,
+				-40
+			],
+			"max": [
+				200,
+				400
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A_MINUS_40",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Turbocharger compressor inlet pressure",
+			"shortName": "Boost",
+			"shortDesc": "Boost",
+			"id": "7E0",
+			"mode": "MODE1",
+			"pid": "6F",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_KPA",
+				"PID_UNITS_PSI"
+			],
+			"min": [
+				0,
+				0
+			],
+			"max": [
+				255,
+				36
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Lateral G",
+			"shortName": "Lat G",
+			"shortDesc": "Lateral G",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "2B0C",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_G_FORCE"
+			],
+			"min": [
+				-1
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				2
+			],
+			"formula": "256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Longitude G",
+			"shortName": "Long G",
+			"shortDesc": "Longitude G",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "2B11",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_G_FORCE"
+			],
+			"min": [
+				-1
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				2
+			],
+			"formula": "256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Manifold Absolute Pressure Sensor Voltage 1",
+			"shortName": "MAP",
+			"shortDesc": "Manifold Abs Press (V)",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "0301",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_VOLTS"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				5
+			],
+			"decimals": [
+				2
+			],
+			"formula": "256_TIMES_A_SIGNED_PLUS_B_OVER_1024",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Low Pressure Fuel Pump Commanded Duty Cycle",
+			"shortName": "LPFP DC",
+			"shortDesc": "LP Fuel Duty Cycle",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "0307",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				100
+			],
+			"decimals": [
+				0
+			],
+			"formula": "256_TIMES_A_PLUS_B_OVER_327_DOT_68",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018?"
+			]
+		},
+		{
+			"desc": "Ignition Correction Cylinder 1",
+			"shortName": "IGN 1",
+			"shortDesc": "Ign Cor Cyl 1",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "03EC",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_DEGREES"
+			],
+			"min": [
+				-16
+			],
+			"max": [
+				16
+			],
+			"decimals": [
+				2
+			],
+			"formula": "256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018?"
+			]
+		},
+		{
+			"desc": "VCT Intake Cam Solenoid Duty Cycle",
+			"shortName": "VCT Int DC",
+			"shortDesc": "VCT Int DC",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "0316",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				100
+			],
+			"decimals": [
+				1
+			],
+			"formula": "256_TIMES_A_PLUS_B_OVER_327_DOT_68",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018?"
+			]
+		},
+		{
+			"desc": "VCT Exhaust Cam Solenoid Duty Cycle",
+			"shortName": "VCT Exh DC",
+			"shortDesc": "VCT Exh DC",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "0317",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				100
+			],
+			"decimals": [
+				1
+			],
+			"formula": "256_TIMES_A_PLUS_B_OVER_327_DOT_68",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018?"
+			]
+		},
+		{
+			"desc": "Intake air temperature",
+			"shortName": "IAT",
+			"shortDesc": "Intake Air Temp",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "F40F",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_CELSIUS",
+				"PID_UNITS_FAHRENHEIT"
+			],
+			"min": [
+				-40,
+				-40
+			],
+			"max": [
+				200,
+				400
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A_MINUS_40",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018?SAME_PRECISION"
+			]
+		},
+		{
+			"desc": "Charge air temperature",
+			"shortName": "CAT",
+			"shortDesc": "Charge Air Temp",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "0461",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_CELSIUS",
+				"PID_UNITS_FAHRENHEIT"
+			],
+			"min": [
+				-40,
+				-40
+			],
+			"max": [
+				200,
+				400
+			],
+			"decimals": [
+				1,
+				2
+			],
+			"formula": "256_TIMES_A_SIGNED_PLUS_B_OVER_64",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Manifold charge temperature",
+			"shortName": "MCT",
+			"shortDesc": "Manifold Charge Temp",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "03CA",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_CELSIUS",
+				"PID_UNITS_FAHRENHEIT"
+			],
+			"min": [
+				-40,
+				-40
+			],
+			"max": [
+				200,
+				400
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A_MINUS_40",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Octane Adjust Ratio",
+			"shortName": "OAR",
+			"shortDesc": "Octane Adjust Ratio",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "03E8",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_RATIO"
+			],
+			"min": [
+				-1
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				2
+			],
+			"formula": "256_TIMES_A_SIGNED_PLUS_B_OVER_16384",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Ambient air temperature",
+			"shortName": "AAT",
+			"shortDesc": "Ambient Air Temp",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "057D",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_CELSIUS",
+				"PID_UNITS_FAHRENHEIT"
+			],
+			"min": [
+				-40,
+				-40
+			],
+			"max": [
+				200,
+				400
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "A_OVER_2_MINUS_40",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Engine load percentage",
+			"shortName": "Load",
+			"shortDesc": "Engine Load",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "F404",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				100
+			],
+			"decimals": [
+				1
+			],
+			"formula": "100_TIMES_A_OVER_255",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018?SAME_PRECISION"
+			]
+		},
+		{
+			"desc": "Catalytic Temperature",
+			"shortName": "Cat Temp",
+			"shortDesc": "Catalytic Temperature",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "F43C",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_CELSIUS",
+				"PID_UNITS_FAHRENHEIT"
+			],
+			"min": [
+				0,
+				0
+			],
+			"max": [
+				1000,
+				2000
+			],
+			"decimals": [
+				0,
+				0
+			],
+			"formula": "256_TIMES_A_PLUS_B_OVER_10_MINUS_40",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Gauge Brightness",
+			"shortName": "Brightness",
+			"shortDesc": "Gauge Illum Level",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "01C8",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				31
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Vehicle Status",
+			"shortName": "Status",
+			"shortDesc": "Vehicle Status",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "1260",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018?INCLUDE"
+			]
+		},
+		{
+			"desc": "Brake Pedal Status",
+			"shortName": "Brake Pedal",
+			"shortDesc": "Brake Pedal",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0802",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Emergency Brake Status",
+			"shortName": "E-Brake",
+			"shortDesc": "E-Brake",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0C82",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Reverse Status",
+			"shortName": "Reverse",
+			"shortDesc": "Reverse",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0803",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Cruise Control ON button",
+			"shortName": "ON Button",
+			"shortDesc": "ON Button",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0301",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Cruise Control OFF button",
+			"shortName": "OFF Button",
+			"shortDesc": "OFF Button",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0302",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Cruise Control OFF button Toggle",
+			"shortName": "OFF Button",
+			"shortDesc": "OFF Button",
+			"id": "7E0",
+			"mode": "CALC1",
+			"pid": "0302",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Cruise Control SET plus button",
+			"shortName": "SET+ Button",
+			"shortDesc": "SET+ Button",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0303",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Cruise Control SET minus button",
+			"shortName": "SET- Button",
+			"shortDesc": "SET- Button",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0304",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Cruise Control RES button",
+			"shortName": "RES Button",
+			"shortDesc": "RES Button",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0305",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Cruise Control CAN button",
+			"shortName": "CAN Button",
+			"shortDesc": "CAN Button",
+			"id": "7E0",
+			"mode": "SNIFF",
+			"pid": "0306",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_NONE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				1
+			],
+			"decimals": [
+				0
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Turbocharger compressor inlet pressure",
+			"shortName": "Boost",
+			"shortDesc": "Boost/Vacuum",
+			"id": "7E0",
+			"mode": "CALC1",
+			"pid": "6F",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_KPA",
+				"PID_UNITS_PSI"
+			],
+			"min": [
+				-82,
+				-12
+			],
+			"max": [
+				170,
+				24
+			],
+			"decimals": [
+				0,
+				1
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Battery charge",
+			"shortName": "Battery",
+			"shortDesc": "Battery Charge",
+			"id": "7E0",
+			"mode": "MODE22",
+			"pid": "4028",
+			"dataLen": 1,
+			"units": [
+				"PID_UNITS_PERCENT"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				100
+			],
+			"decimals": [
+				0
+			],
+			"formula": "A",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Tire pressure LF",
+			"shortName": "LF TP",
+			"shortDesc": "Tire Pressure LF",
+			"id": "726",
+			"mode": "MODE22",
+			"pid": "2813",
+			"dataLen": 2,
+			"units": [
+				"PID_UNITS_KPA",
+				"PID_UNITS_PSI",
+				"PID_UNITS_BAR"
+			],
+			"min": [
+				0,
+				0,
+				0
+			],
+			"max": [
+				480,
+				70,
+				4.80
+			],
+			"decimals": [
+				0,
+				1,
+				2
+			],
+			"formula": "256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Lateral Acceleration",
+			"shortName": "Lat Accel",
+			"shortDesc": "Lateral Acceleration",
+			"id": "180",
+			"mode": "SNIFF",
+			"pid": "1802",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_G_FORCE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				2
+			],
+			"decimals": [
+				2
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"desc": "Longitudinal Acceleration",
+			"shortName": "Long Accel",
+			"shortDesc": "Longitudinal Acceleration",
+			"id": "160",
+			"mode": "SNIFF",
+			"pid": "1602",
+			"dataLen": 0,
+			"units": [
+				"PID_UNITS_G_FORCE"
+			],
+			"min": [
+				0
+			],
+			"max": [
+				2
+			],
+			"decimals": [
+				2
+			],
+			"formula": "UNDEFINED",
+			"vehicles": [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		}
+	]
+}
