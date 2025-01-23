@@ -13,6 +13,31 @@ void tearDown(void)
 {
 }
 
+void test_lookup_payload_length_mode1_invalid(void)
+{
+    TEST_ASSERT_EQUAL_INT(0, lookup_payload_length(MODE1, 0xFFFF));
+}
+
+void test_lookup_payload_length_mode22_invalid(void)
+{
+    TEST_ASSERT_EQUAL_INT(0, lookup_payload_length(MODE22, 0xFFFF));
+}
+
+void test_lookup_payload_length_sniff_invalid(void)
+{
+    TEST_ASSERT_EQUAL_INT(0, lookup_payload_length(SNIFF, 0xFFFF));
+}
+
+void test_lookup_payload_length_calc1_invalid(void)
+{
+    TEST_ASSERT_EQUAL_INT(0, lookup_payload_length(CALC1, 0xFFFF));
+}
+
+void test_lookup_payload_length_invalid_mode(void)
+{
+    TEST_ASSERT_EQUAL_INT(0, lookup_payload_length(0xFF, 0xFFFF));
+}
+
 void test_lookup_payload_length_mode1_commanded_air_to_fuel_ratio(void)
 {
     TEST_ASSERT_EQUAL_INT(2, lookup_payload_length(MODE1, 0x44));

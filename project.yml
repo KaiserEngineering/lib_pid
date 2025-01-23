@@ -240,8 +240,8 @@
     #- ReportGenerator # Use ReportGenerator to create the specified reports.
   :reports: # Specify one or more reports to generate.
     # Make an HTML summary report.
-    - HtmlBasic
-    # - HtmlDetailed
+    # - HtmlBasic
+    - HtmlDetailed
     # - Text
     # - Cobertura
     # - SonarQube
