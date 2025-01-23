@@ -37,7 +37,7 @@ C_FORMULAS = {
 with open('digital-dash-firmware.json') as f:
   data = json.load(f)
 
-header = open("..\inc\pid.h", "w")
+header = open("..\src\pid.h", "w")
 
 length = 0
 
