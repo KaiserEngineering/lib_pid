@@ -1,0 +1,30 @@
+name: Ceedling Test Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3.6'  # Use the Ruby version you prefer
+
+    - name: Install dependencies
+      run: |
+        gem install ceedling
+
+    - name: Run Ceedling tests
+      run: |
+        ceedling test:all  # Run all tests using Ceedling

@@ -8,9 +8,6 @@
 #ifndef PID_H_
 #define PID_H_
 
-#if TEST
-#include <var.h>
-#endif
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
