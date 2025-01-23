@@ -3,10 +3,12 @@ name: Ceedling Test Workflow
 on:
   push:
     branches:
-      - main
+      - master
+      - development
   pull_request:
     branches:
-      - main
+      - master
+      - development
 
 jobs:
   test:
