@@ -25,7 +25,7 @@
  ******************************************************************************
  */
 
-#include "lib_pid.h"
+#include "lookup_payload_length.h"
 
 uint8_t lookup_payload_length( uint8_t mode, uint16_t pid )
 {

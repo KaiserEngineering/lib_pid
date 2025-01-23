@@ -358,3 +358,31 @@ for pid in pid_list:
 
 # Close the readme file
 readme.close()
+
+############################################
+#      test_lookup_payload_length.c        #
+############################################
+test_lookup_payload_length = open("../test/test_lookup_payload_length.c", "w")
+
+
+test_lookup_payload_length.write("\n#ifdef TEST\n\n")
+
+test_lookup_payload_length.write("#include \"unity.h\"\n\n")
+
+test_lookup_payload_length.write("#include \"lib_pid.h\"\n\n")
+
+test_lookup_payload_length.write("void setUp(void)\n{\n}\n\n")
+
+test_lookup_payload_length.write("void tearDown(void)\n{\n}\n\n")
+
+# Iterate through all PIDs
+for pid in data["Ford_Focus_STRS_2013_2018"]:
+
+  test_lookup_payload_length.write("void test_lookup_payload_length_" + pid["mode"].lower() + "_" + pid["desc"].replace(' ', '_').replace('-', '').lower() + "(void)\n")
+  test_lookup_payload_length.write("{\n")
+  test_lookup_payload_length.write("    TEST_ASSERT_EQUAL_INT(" + str(pid["dataLen"]) + ", lookup_payload_length(" + pid["mode"] + ", 0x" + pid["pid"].upper() + "));\n")
+  test_lookup_payload_length.write("}\n\n")
+
+test_lookup_payload_length.write("#endif")
+
+test_lookup_payload_length.close
