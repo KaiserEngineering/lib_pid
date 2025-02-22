@@ -25,6 +25,26 @@ typedef enum _pid_compare {
 
 typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 
+#define PID_UNITS_PERCENT_LABEL "%"
+#define PID_UNITS_CELSIUS_LABEL "°C"
+#define PID_UNITS_FAHRENHEIT_LABEL "°F"
+#define PID_UNITS_KPA_LABEL "kPa"
+#define PID_UNITS_PSI_LABEL "psi"
+#define PID_UNITS_RPM_LABEL "rpm"
+#define PID_UNITS_KMH_LABEL "kmh"
+#define PID_UNITS_MPH_LABEL "mph"
+#define PID_UNITS_GRAMSEC_LABEL "g/s"
+#define PID_UNITS_DEGREES_LABEL "°"
+#define PID_UNITS_VOLTS_LABEL "V"
+#define PID_UNITS_KM_LABEL "km"
+#define PID_UNITS_MILES_LABEL "mi"
+#define PID_UNITS_SECONDS_LABEL "s"
+#define PID_UNITS_RATIO_LABEL ":1"
+#define PID_UNITS_LPM_LABEL "lpm"
+#define PID_UNITS_BAR_LABEL "bar"
+#define PID_UNITS_G_FORCE_LABEL "G"
+#define PID_UNITS_NONE_LABEL ""
+
 typedef enum _pid_units {
     PID_UNITS_RESERVED,
     PID_UNITS_PERCENT,
@@ -42,7 +62,7 @@ typedef enum _pid_units {
     PID_UNITS_MILES,
     PID_UNITS_SECONDS,
     PID_UNITS_RATIO,
-    PID_UNITS_LPH,
+    PID_UNITS_LPM,
     PID_UNITS_BAR,
     PID_UNITS_G_FORCE,
     PID_UNITS_NONE,
@@ -64,8 +84,16 @@ typedef enum _pid_units {
 #define PID_ASSIGNED_TO_VEHICLE_DATA 0x03
 #endif
 
+#define LABEL_MAX_CHAR 16
+
 
 typedef struct _pid_data {
+
+	/* Label for the PID */
+	char label[LABEL_MAX_CHAR];
+
+	/* Unit label for the PID */
+	char unit_label[LABEL_MAX_CHAR];
 
     /* Header of the PID */
     volatile uint16_t header;
