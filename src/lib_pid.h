@@ -95,6 +95,12 @@ typedef struct _pid_data {
 	/* Unit label for the PID */
 	char unit_label[LABEL_MAX_CHAR];
 
+	/* The lower limit of what will/could be displayed */
+	volatile float lower_limit;
+
+	/* The upper limit of what will/could be displayed */
+	volatile float upper_limit;
+
     /* Header of the PID */
     volatile uint16_t header;
 
@@ -113,7 +119,13 @@ typedef struct _pid_data {
 	/* Last captured value of the PID */
 	volatile float pid_value;
 
-	/* When the data was aquired */
+	/* min value of the PID for this session */
+	volatile float pid_min;
+
+	/* max value of the PID for this session */
+	volatile float pid_max;
+
+	/* When the data was acquired */
 	volatile uint32_t timestamp;
 
 	/* How the data was acquired */
