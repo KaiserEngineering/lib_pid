@@ -95,6 +95,9 @@ typedef struct _pid_data {
 	/* Unit label for the PID */
 	char unit_label[LABEL_MAX_CHAR];
 
+	/* Number of decimal places */
+	uint8_t precision;
+
 	/* The lower limit of what will/could be displayed */
 	volatile float lower_limit;
 
