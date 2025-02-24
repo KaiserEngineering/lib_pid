@@ -30,7 +30,7 @@ typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 #define PID_UNITS_FAHRENHEIT_LABEL "°F"
 #define PID_UNITS_KPA_LABEL "kPa"
 #define PID_UNITS_PSI_LABEL "psi"
-#define PID_UNITS_RPM_LABEL "rpm"
+#define PID_UNITS_RPM_LABEL ""
 #define PID_UNITS_KMH_LABEL "kmh"
 #define PID_UNITS_MPH_LABEL "mph"
 #define PID_UNITS_GRAMSEC_LABEL "g/s"
