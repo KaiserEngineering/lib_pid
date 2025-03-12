@@ -16,7 +16,7 @@
 #endif
 
 #include "pid.h"
-
+#include "../ke_conf.h"
 
 typedef enum _pid_compare {
 	PID_NO_MATCH,
