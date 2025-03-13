@@ -8,11 +8,11 @@
 #ifndef PID_H_
 #define PID_H_
 
-#include <stdio.h>
-#include <stdint.h>
-#include <string.h>
+#include "stdio.h"
+#include "stdint.h"
+#include "string.h"
 #ifdef LIMIT_PIDS
-#include <pids_supported.h>
+#include "pids_supported.h"
 #endif
 
 #include "pid.h"
