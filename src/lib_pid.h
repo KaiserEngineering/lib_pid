@@ -155,6 +155,7 @@ typedef struct _obdii_pid {
 
 void lib_pid_clear_PID( PTR_PID_DATA ptr_pid );
 float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] );
+uint8_t lookup_payload_length( uint8_t mode, uint16_t PID );
 PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 uint16_t get_pid_header( uint8_t mode, uint16_t pid );
 
