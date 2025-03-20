@@ -222,16 +222,6 @@ uint8_t lookup_payload_length( uint8_t mode, uint16_t pid )
                     return MODE22_CATALYTIC_TEMPERATURE_LEN;
                 #endif
 
-                #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)
-                case MODE22_BATTERY_CHARGE:
-                    return MODE22_BATTERY_CHARGE_LEN;
-                #endif
-
-                #if defined(MODE22_TIRE_PRESSURE_LF_SUPPORTED) || !defined(LIMIT_PIDS)
-                case MODE22_TIRE_PRESSURE_LF:
-                    return MODE22_TIRE_PRESSURE_LF_LEN;
-                #endif
-
                 default:
                     return 0;
             }

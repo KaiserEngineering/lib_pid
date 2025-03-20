@@ -222,16 +222,6 @@ PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t pid )
                     return MODE22_CATALYTIC_TEMPERATURE_UNITS;
                 #endif
 
-                #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)
-                case MODE22_BATTERY_CHARGE:
-                    return MODE22_BATTERY_CHARGE_UNITS;
-                #endif
-
-                #if defined(MODE22_TIRE_PRESSURE_LF_SUPPORTED) || !defined(LIMIT_PIDS)
-                case MODE22_TIRE_PRESSURE_LF:
-                    return MODE22_TIRE_PRESSURE_LF_UNITS;
-                #endif
-
                 default:
                     return 0;
             }

@@ -378,28 +378,6 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     return ((((float)256 * (float)data[A] ) + (float)data[B] ) / (float)10)-(float)40;
                 #endif
 
-                #if defined(MODE22_BATTERY_CHARGE_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_A
-                    #define MODE22_A
-                    #endif
-                    case MODE22_BATTERY_CHARGE:
-                #endif
-
-                #ifdef MODE22_A
-                    return (float)data[A];
-                #endif
-
-                #if defined(MODE22_TIRE_PRESSURE_LF_SUPPORTED) || !defined(LIMIT_PIDS)
-                    #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
-                    #define MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
-                    #endif
-                    case MODE22_TIRE_PRESSURE_LF:
-                #endif
-
-                #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3
-                    return ((((float)256 *(float)data[A]) + (float)data[B]) + ((float)22 / (float)3));
-                #endif
-
                 default:
                     return 0;
             }
