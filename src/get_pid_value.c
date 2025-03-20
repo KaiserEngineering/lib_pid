@@ -38,14 +38,14 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_29D4_OVER_65536_TIMES_256_A_PLUS_B
                     #define MODE1_29D4_OVER_65536_TIMES_256_A_PLUS_B
                     #endif
-                    case MODE1_COMMANDED_AIR_TO_FUEL_RATIO:
+                    case MODE1_COMMANDED_AIR_TO_FUEL_RATIO_PID:
                 #endif
 
                 #if defined(MODE1_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_29D4_OVER_65536_TIMES_256_A_PLUS_B
                     #define MODE1_29D4_OVER_65536_TIMES_256_A_PLUS_B
                     #endif
-                    case MODE1_AIR_TO_FUEL_RATIO:
+                    case MODE1_AIR_TO_FUEL_RATIO_PID:
                 #endif
 
                 #ifdef MODE1_29D4_OVER_65536_TIMES_256_A_PLUS_B
@@ -56,21 +56,21 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_100_TIMES_A_OVER_255
                     #define MODE1_100_TIMES_A_OVER_255
                     #endif
-                    case MODE1_CALCULATED_ENGINE_LOAD:
+                    case MODE1_CALCULATED_ENGINE_LOAD_PID:
                 #endif
 
                 #if defined(MODE1_THROTTLE_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_100_TIMES_A_OVER_255
                     #define MODE1_100_TIMES_A_OVER_255
                     #endif
-                    case MODE1_THROTTLE_POSITION:
+                    case MODE1_THROTTLE_POSITION_PID:
                 #endif
 
                 #if defined(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_100_TIMES_A_OVER_255
                     #define MODE1_100_TIMES_A_OVER_255
                     #endif
-                    case MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION:
+                    case MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_PID:
                 #endif
 
                 #ifdef MODE1_100_TIMES_A_OVER_255
@@ -81,28 +81,28 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_A_MINUS_40
                     #define MODE1_A_MINUS_40
                     #endif
-                    case MODE1_ENGINE_COOLANT_TEMPERATURE:
+                    case MODE1_ENGINE_COOLANT_TEMPERATURE_PID:
                 #endif
 
                 #if defined(MODE1_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_A_MINUS_40
                     #define MODE1_A_MINUS_40
                     #endif
-                    case MODE1_INTAKE_AIR_TEMPERATURE:
+                    case MODE1_INTAKE_AIR_TEMPERATURE_PID:
                 #endif
 
                 #if defined(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_A_MINUS_40
                     #define MODE1_A_MINUS_40
                     #endif
-                    case MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE:
+                    case MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_PID:
                 #endif
 
                 #if defined(MODE1_ENGINE_OIL_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_A_MINUS_40
                     #define MODE1_A_MINUS_40
                     #endif
-                    case MODE1_ENGINE_OIL_TEMPERATURE:
+                    case MODE1_ENGINE_OIL_TEMPERATURE_PID:
                 #endif
 
                 #ifdef MODE1_A_MINUS_40
@@ -113,28 +113,28 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_100_OVER_128_TIMES_A_MINUS_100
                     #define MODE1_100_OVER_128_TIMES_A_MINUS_100
                     #endif
-                    case MODE1_SHORT_TERM_FUEL_TRIM__BANK_1:
+                    case MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_PID:
                 #endif
 
                 #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_100_OVER_128_TIMES_A_MINUS_100
                     #define MODE1_100_OVER_128_TIMES_A_MINUS_100
                     #endif
-                    case MODE1_LONG_TERM_FUEL_TRIM__BANK_1:
+                    case MODE1_LONG_TERM_FUEL_TRIM__BANK_1_PID:
                 #endif
 
                 #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_100_OVER_128_TIMES_A_MINUS_100
                     #define MODE1_100_OVER_128_TIMES_A_MINUS_100
                     #endif
-                    case MODE1_SHORT_TERM_FUEL_TRIM__BANK_2:
+                    case MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_PID:
                 #endif
 
                 #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_100_OVER_128_TIMES_A_MINUS_100
                     #define MODE1_100_OVER_128_TIMES_A_MINUS_100
                     #endif
-                    case MODE1_LONG_TERM_FUEL_TRIM__BANK_2:
+                    case MODE1_LONG_TERM_FUEL_TRIM__BANK_2_PID:
                 #endif
 
                 #ifdef MODE1_100_OVER_128_TIMES_A_MINUS_100
@@ -145,7 +145,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_A_TIMES_3
                     #define MODE1_A_TIMES_3
                     #endif
-                    case MODE1_FUEL_PRESSURE:
+                    case MODE1_FUEL_PRESSURE_PID:
                 #endif
 
                 #ifdef MODE1_A_TIMES_3
@@ -156,21 +156,21 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_A
                     #define MODE1_A
                     #endif
-                    case MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE:
+                    case MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_PID:
                 #endif
 
                 #if defined(MODE1_VEHICLE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_A
                     #define MODE1_A
                     #endif
-                    case MODE1_VEHICLE_SPEED:
+                    case MODE1_VEHICLE_SPEED_PID:
                 #endif
 
                 #if defined(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE1_A
                     #define MODE1_A
                     #endif
-                    case MODE1_ABSOLUTE_BAROMETRIC_PRESSURE:
+                    case MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_PID:
                 #endif
 
                 #ifdef MODE1_A
@@ -181,7 +181,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_256_TIMES_A_PLUS_B_OVER_4
                     #define MODE1_256_TIMES_A_PLUS_B_OVER_4
                     #endif
-                    case MODE1_ENGINE_SPEED:
+                    case MODE1_ENGINE_SPEED_PID:
                 #endif
 
                 #ifdef MODE1_256_TIMES_A_PLUS_B_OVER_4
@@ -192,7 +192,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_A_OVER_2_MINUS_64
                     #define MODE1_A_OVER_2_MINUS_64
                     #endif
-                    case MODE1_TIMING_ADVANCE:
+                    case MODE1_TIMING_ADVANCE_PID:
                 #endif
 
                 #ifdef MODE1_A_OVER_2_MINUS_64
@@ -203,7 +203,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_A_OVER_200
                     #define MODE1_A_OVER_200
                     #endif
-                    case MODE1_OXYGEN_SENSOR_2_VOLTAGE:
+                    case MODE1_OXYGEN_SENSOR_2_VOLTAGE_PID:
                 #endif
 
                 #ifdef MODE1_A_OVER_200
@@ -214,7 +214,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
                     #define MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
                     #endif
-                    case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM:
+                    case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_PID:
                 #endif
 
                 #ifdef MODE1_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
@@ -225,7 +225,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE1_UNDEFINED
                     #define MODE1_UNDEFINED
                     #endif
-                    case MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE:
+                    case MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_PID:
                 #endif
 
                 #ifdef MODE1_UNDEFINED
@@ -244,14 +244,14 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
                     #endif
-                    case MODE22_LATERAL_G:
+                    case MODE22_LATERAL_G_PID:
                 #endif
 
                 #if defined(MODE22_LONGITUDE_G_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
                     #endif
-                    case MODE22_LONGITUDE_G:
+                    case MODE22_LONGITUDE_G_PID:
                 #endif
 
                 #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
@@ -262,7 +262,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_1024
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_1024
                     #endif
-                    case MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1:
+                    case MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_PID:
                 #endif
 
                 #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_1024
@@ -273,21 +273,21 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
                     #define MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
                     #endif
-                    case MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE:
+                    case MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_PID:
                 #endif
 
                 #if defined(MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
                     #define MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
                     #endif
-                    case MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE:
+                    case MODE22_VCT_INTAKE_CAM_SOLENOID_DUTY_CYCLE_PID:
                 #endif
 
                 #if defined(MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
                     #define MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
                     #endif
-                    case MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE:
+                    case MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_PID:
                 #endif
 
                 #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_327_DOT_68
@@ -298,7 +298,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512
                     #endif
-                    case MODE22_IGNITION_CORRECTION_CYLINDER_1:
+                    case MODE22_IGNITION_CORRECTION_CYLINDER_1_PID:
                 #endif
 
                 #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512
@@ -309,14 +309,14 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_A_MINUS_40
                     #define MODE22_A_MINUS_40
                     #endif
-                    case MODE22_INTAKE_AIR_TEMPERATURE:
+                    case MODE22_INTAKE_AIR_TEMPERATURE_PID:
                 #endif
 
                 #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef MODE22_A_MINUS_40
                     #define MODE22_A_MINUS_40
                     #endif
-                    case MODE22_MANIFOLD_CHARGE_TEMPERATURE:
+                    case MODE22_MANIFOLD_CHARGE_TEMPERATURE_PID:
                 #endif
 
                 #ifdef MODE22_A_MINUS_40
@@ -327,7 +327,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
                     #endif
-                    case MODE22_CHARGE_AIR_TEMPERATURE:
+                    case MODE22_CHARGE_AIR_TEMPERATURE_PID:
                 #endif
 
                 #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_64
@@ -338,7 +338,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
                     #define MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
                     #endif
-                    case MODE22_OCTANE_ADJUST_RATIO:
+                    case MODE22_OCTANE_ADJUST_RATIO_PID:
                 #endif
 
                 #ifdef MODE22_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
@@ -349,7 +349,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_A_OVER_2_MINUS_40
                     #define MODE22_A_OVER_2_MINUS_40
                     #endif
-                    case MODE22_AMBIENT_AIR_TEMPERATURE:
+                    case MODE22_AMBIENT_AIR_TEMPERATURE_PID:
                 #endif
 
                 #ifdef MODE22_A_OVER_2_MINUS_40
@@ -360,7 +360,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_100_TIMES_A_OVER_255
                     #define MODE22_100_TIMES_A_OVER_255
                     #endif
-                    case MODE22_ENGINE_LOAD_PERCENTAGE:
+                    case MODE22_ENGINE_LOAD_PERCENTAGE_PID:
                 #endif
 
                 #ifdef MODE22_100_TIMES_A_OVER_255
@@ -371,7 +371,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef MODE22_256_TIMES_A_PLUS_B_OVER_10_MINUS_40
                     #define MODE22_256_TIMES_A_PLUS_B_OVER_10_MINUS_40
                     #endif
-                    case MODE22_CATALYTIC_TEMPERATURE:
+                    case MODE22_CATALYTIC_TEMPERATURE_PID:
                 #endif
 
                 #ifdef MODE22_256_TIMES_A_PLUS_B_OVER_10_MINUS_40
@@ -390,91 +390,91 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_GAUGE_BRIGHTNESS:
+                    case SNIFF_GAUGE_BRIGHTNESS_PID:
                 #endif
 
                 #if defined(SNIFF_VEHICLE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_VEHICLE_STATUS:
+                    case SNIFF_VEHICLE_STATUS_PID:
                 #endif
 
                 #if defined(SNIFF_BRAKE_PEDAL_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_BRAKE_PEDAL_STATUS:
+                    case SNIFF_BRAKE_PEDAL_STATUS_PID:
                 #endif
 
                 #if defined(SNIFF_EMERGENCY_BRAKE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_EMERGENCY_BRAKE_STATUS:
+                    case SNIFF_EMERGENCY_BRAKE_STATUS_PID:
                 #endif
 
                 #if defined(SNIFF_REVERSE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_REVERSE_STATUS:
+                    case SNIFF_REVERSE_STATUS_PID:
                 #endif
 
                 #if defined(SNIFF_CRUISE_CONTROL_ON_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_CRUISE_CONTROL_ON_BUTTON:
+                    case SNIFF_CRUISE_CONTROL_ON_BUTTON_PID:
                 #endif
 
                 #if defined(SNIFF_CRUISE_CONTROL_OFF_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_CRUISE_CONTROL_OFF_BUTTON:
+                    case SNIFF_CRUISE_CONTROL_OFF_BUTTON_PID:
                 #endif
 
                 #if defined(SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON:
+                    case SNIFF_CRUISE_CONTROL_SET_PLUS_BUTTON_PID:
                 #endif
 
                 #if defined(SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON:
+                    case SNIFF_CRUISE_CONTROL_SET_MINUS_BUTTON_PID:
                 #endif
 
                 #if defined(SNIFF_CRUISE_CONTROL_RES_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_CRUISE_CONTROL_RES_BUTTON:
+                    case SNIFF_CRUISE_CONTROL_RES_BUTTON_PID:
                 #endif
 
                 #if defined(SNIFF_CRUISE_CONTROL_CAN_BUTTON_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_CRUISE_CONTROL_CAN_BUTTON:
+                    case SNIFF_CRUISE_CONTROL_CAN_BUTTON_PID:
                 #endif
 
                 #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_LATERAL_ACCELERATION:
+                    case SNIFF_LATERAL_ACCELERATION_PID:
                 #endif
 
                 #if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef SNIFF_UNDEFINED
                     #define SNIFF_UNDEFINED
                     #endif
-                    case SNIFF_LONGITUDINAL_ACCELERATION:
+                    case SNIFF_LONGITUDINAL_ACCELERATION_PID:
                 #endif
 
                 #ifdef SNIFF_UNDEFINED
@@ -493,14 +493,14 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] )
                     #ifndef CALC1_UNDEFINED
                     #define CALC1_UNDEFINED
                     #endif
-                    case CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE:
+                    case CALC1_CRUISE_CONTROL_OFF_BUTTON_TOGGLE_PID:
                 #endif
 
                 #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
                     #ifndef CALC1_UNDEFINED
                     #define CALC1_UNDEFINED
                     #endif
-                    case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE:
+                    case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_PID:
                 #endif
 
                 #ifdef CALC1_UNDEFINED
