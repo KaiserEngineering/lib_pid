@@ -158,6 +158,7 @@ float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] );
 uint8_t lookup_payload_length( uint8_t mode, uint16_t PID );
 PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
 uint16_t get_pid_header( uint8_t mode, uint16_t pid );
+uint8_t get_pid_label( uint8_t mode, uint16_t pid, char* label );
 
 #define A 0
 #define B 1
