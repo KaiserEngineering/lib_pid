@@ -107,6 +107,9 @@ typedef struct _pid_data {
     /* Header of the PID */
     volatile uint16_t header;
 
+	/* Mode of the PID UUID being streamed */
+	volatile uint8_t pid_uuid;
+
 	/* Mode of the PID being streamed */
 	volatile uint8_t mode;
 
@@ -154,11 +157,11 @@ typedef struct _obdii_pid {
 } OBDII_PID, *POBDII_PID;
 
 void lib_pid_clear_PID( PTR_PID_DATA ptr_pid );
-float get_pid_value( uint8_t mode, uint16_t pid, uint8_t data[] );
-uint8_t lookup_payload_length( uint8_t mode, uint16_t PID );
-PID_UNITS get_pid_base_unit( uint8_t mode, uint16_t PID );
-uint16_t get_pid_header( uint8_t mode, uint16_t pid );
-uint8_t get_pid_label( uint8_t mode, uint16_t pid, char* label );
+float get_pid_value( uint32_t pid_uuid, uint8_t data[] );
+uint8_t lookup_payload_length( uint32_t pid_uuid );
+PID_UNITS get_pid_base_unit( uint32_t pid_uuid );
+uint16_t get_pid_header( uint32_t pid_uuid );
+uint8_t get_pid_label( uint32_t pid_uuid, char* label );
 uint8_t get_unit_label( PID_UNITS unit, char* label );
 
 #define A 0
