@@ -108,7 +108,7 @@ typedef struct _pid_data {
     volatile uint16_t header;
 
 	/* Mode of the PID UUID being streamed */
-	volatile uint8_t pid_uuid;
+	volatile uint32_t pid_uuid;
 
 	/* Mode of the PID being streamed */
 	volatile uint8_t mode;
@@ -163,6 +163,8 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid );
 uint16_t get_pid_header( uint32_t pid_uuid );
 uint8_t get_pid_label( uint32_t pid_uuid, char* label );
 uint8_t get_unit_label( PID_UNITS unit, char* label );
+uint8_t get_mode_by_uuid( uint32_t pid_uuid );
+uint16_t get_pid_by_uuid( uint32_t pid_uuid );
 
 #define A 0
 #define B 1

@@ -29,6 +29,9 @@
 
 uint8_t get_unit_label( PID_UNITS unit, char* label )
 {
+	for( uint8_t i = 0; i < LABEL_MAX_CHAR; i++ )
+		label[i] = '\0';
+
 	switch(unit)
 	{
 		case PID_UNITS_PERCENT:
