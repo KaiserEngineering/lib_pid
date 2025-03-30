@@ -23,6 +23,8 @@ typedef enum _pid_compare {
 	PID_MATCH,
 } PID_COMPARE, *PTR_PID_COMPARE;
 
+#define LIMIT_ERROR -5125.594 // Random number to indicate error
+
 typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 
 #define PID_UNITS_PERCENT_LABEL "%"
@@ -165,6 +167,7 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label );
 uint8_t get_unit_label( PID_UNITS unit, char* label );
 uint8_t get_mode_by_uuid( uint32_t pid_uuid );
 uint16_t get_pid_by_uuid( uint32_t pid_uuid );
+float get_pid_lower_limit( uint32_t pid_uuid, PID_UNITS unit );
 
 #define A 0
 #define B 1
