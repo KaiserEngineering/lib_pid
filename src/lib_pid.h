@@ -26,6 +26,8 @@ typedef enum _pid_compare {
 } PID_COMPARE, *PTR_PID_COMPARE;
 
 #define LIMIT_ERROR -5125.594 // Random number to indicate error
+#define INIT_MIN 99999
+#define INIT_MAX -99999
 
 typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 
