@@ -105,46 +105,46 @@ typedef struct _pid_data {
 	uint8_t precision;
 
 	/* The lower limit of what will/could be displayed */
-	volatile float lower_limit;
+	float lower_limit;
 
 	/* The upper limit of what will/could be displayed */
-	volatile float upper_limit;
+	float upper_limit;
 
     /* Header of the PID */
-    volatile uint16_t header;
+    uint16_t header;
 
 	/* Mode of the PID UUID being streamed */
-	volatile uint32_t pid_uuid;
+	uint32_t pid_uuid;
 
 	/* Mode of the PID being streamed */
-	volatile uint8_t mode;
+	uint8_t mode;
 
 	/* PID being streamed */
-	volatile uint16_t pid;
+	uint16_t pid;
 
 	/* Units of the PID @PID_UNITS */
-	volatile PID_UNITS pid_unit;
+	PID_UNITS pid_unit;
 
 	/* Units the PID was reported in @PID_UNITS */
-	volatile PID_UNITS base_unit;
+	PID_UNITS base_unit;
 
 	/* Last captured value of the PID */
-	volatile float pid_value;
+	float pid_value;
 
 	/* min value of the PID for this session */
-	volatile float pid_min;
+	float pid_min;
 
 	/* max value of the PID for this session */
-	volatile float pid_max;
+	float pid_max;
 
 	/* When the data was acquired */
-	volatile uint32_t timestamp;
+	uint32_t timestamp;
 
 	/* How the data was acquired */
-	volatile uint8_t acquisition_type;
+	uint8_t acquisition_type;
 
 	/* Number of attached devices */
-	volatile uint8_t devices;
+	uint8_t devices;
 
 } PID_DATA, *PTR_PID_DATA;
 
