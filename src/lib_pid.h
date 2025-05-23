@@ -116,12 +116,6 @@ typedef struct _pid_data {
 	/* Mode of the PID UUID being streamed */
 	uint32_t pid_uuid;
 
-	/* Mode of the PID being streamed */
-	uint8_t mode;
-
-	/* PID being streamed */
-	uint16_t pid;
-
 	/* Units of the PID @PID_UNITS */
 	PID_UNITS pid_unit;
 
@@ -171,6 +165,7 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label );
 uint8_t get_unit_label( PID_UNITS unit, char* label );
 uint8_t get_mode_by_uuid( uint32_t pid_uuid );
 uint16_t get_pid_by_uuid( uint32_t pid_uuid );
+uint8_t load_pid_data( PTR_PID_DATA pid );
 float get_pid_lower_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_precision( uint32_t pid_uuid, PID_UNITS unit );
