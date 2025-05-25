@@ -46,71 +46,71 @@ uint8_t get_unit_label( PID_UNITS unit, char* label )
 			memcpy(label, PID_UNITS_FAHRENHEIT_LABEL, sizeof(PID_UNITS_FAHRENHEIT_LABEL));
 		break;
 
-	case PID_UNITS_KPA:
-		memcpy(label, PID_UNITS_KPA_LABEL, sizeof(PID_UNITS_KPA_LABEL));
-		break;
+		case PID_UNITS_KPA:
+			memcpy(label, PID_UNITS_KPA_LABEL, sizeof(PID_UNITS_KPA_LABEL));
+			break;
 
-	case PID_UNITS_PSI:
-		memcpy(label, PID_UNITS_PSI_LABEL, sizeof(PID_UNITS_PSI_LABEL));
-		break;
+		case PID_UNITS_PSI:
+			memcpy(label, PID_UNITS_PSI_LABEL, sizeof(PID_UNITS_PSI_LABEL));
+			break;
 
-	case PID_UNITS_RPM:
-		memcpy(label, PID_UNITS_RPM_LABEL, sizeof(PID_UNITS_RPM_LABEL));
-		break;
+		case PID_UNITS_RPM:
+			memcpy(label, PID_UNITS_RPM_LABEL, sizeof(PID_UNITS_RPM_LABEL));
+			break;
 
-	case PID_UNITS_KMH:
-		memcpy(label, PID_UNITS_KMH_LABEL, sizeof(PID_UNITS_KMH_LABEL));
-		break;
+		case PID_UNITS_KMH:
+			memcpy(label, PID_UNITS_KMH_LABEL, sizeof(PID_UNITS_KMH_LABEL));
+			break;
 
-	case PID_UNITS_MPH:
-		memcpy(label, PID_UNITS_MPH_LABEL, sizeof(PID_UNITS_MPH_LABEL));
-		break;
+		case PID_UNITS_MPH:
+			memcpy(label, PID_UNITS_MPH_LABEL, sizeof(PID_UNITS_MPH_LABEL));
+			break;
 
-	case PID_UNITS_GRAMSEC:
-		memcpy(label, PID_UNITS_GRAMSEC_LABEL, sizeof(PID_UNITS_GRAMSEC_LABEL));
-		break;
+		case PID_UNITS_GRAMSEC:
+			memcpy(label, PID_UNITS_GRAMSEC_LABEL, sizeof(PID_UNITS_GRAMSEC_LABEL));
+			break;
 
-	case PID_UNITS_DEGREES:
-		memcpy(label, PID_UNITS_DEGREES_LABEL, sizeof(PID_UNITS_DEGREES_LABEL));
-		break;
+		case PID_UNITS_DEGREES:
+			memcpy(label, PID_UNITS_DEGREES_LABEL, sizeof(PID_UNITS_DEGREES_LABEL));
+			break;
 
-	case PID_UNITS_VOLTS:
-		memcpy(label, PID_UNITS_VOLTS_LABEL, sizeof(PID_UNITS_VOLTS_LABEL));
-		break;
+		case PID_UNITS_VOLTS:
+			memcpy(label, PID_UNITS_VOLTS_LABEL, sizeof(PID_UNITS_VOLTS_LABEL));
+			break;
 
-	case PID_UNITS_KM:
-		memcpy(label, PID_UNITS_KM_LABEL, sizeof(PID_UNITS_KM_LABEL));
-		break;
+		case PID_UNITS_KM:
+			memcpy(label, PID_UNITS_KM_LABEL, sizeof(PID_UNITS_KM_LABEL));
+			break;
 
-	case PID_UNITS_MILES:
-		memcpy(label, PID_UNITS_MILES_LABEL, sizeof(PID_UNITS_MILES_LABEL));
-		break;
+		case PID_UNITS_MILES:
+			memcpy(label, PID_UNITS_MILES_LABEL, sizeof(PID_UNITS_MILES_LABEL));
+			break;
 
-	case PID_UNITS_SECONDS:
-		memcpy(label, PID_UNITS_SECONDS_LABEL, sizeof(PID_UNITS_SECONDS_LABEL));
-		break;
+		case PID_UNITS_SECONDS:
+			memcpy(label, PID_UNITS_SECONDS_LABEL, sizeof(PID_UNITS_SECONDS_LABEL));
+			break;
 
-	case PID_UNITS_RATIO:
-		memcpy(label, PID_UNITS_RATIO_LABEL, sizeof(PID_UNITS_RATIO_LABEL));
-		break;
+		case PID_UNITS_RATIO:
+			memcpy(label, PID_UNITS_RATIO_LABEL, sizeof(PID_UNITS_RATIO_LABEL));
+			break;
 
-	case PID_UNITS_LPM:
-		memcpy(label, PID_UNITS_LPM_LABEL, sizeof(PID_UNITS_LPM_LABEL));
-		break;
+		case PID_UNITS_LPM:
+			memcpy(label, PID_UNITS_LPM_LABEL, sizeof(PID_UNITS_LPM_LABEL));
+			break;
 
-	case PID_UNITS_BAR:
-		memcpy(label, PID_UNITS_BAR_LABEL, sizeof(PID_UNITS_BAR_LABEL));
-		break;
+		case PID_UNITS_BAR:
+			memcpy(label, PID_UNITS_BAR_LABEL, sizeof(PID_UNITS_BAR_LABEL));
+			break;
 
-	case PID_UNITS_G_FORCE:
-		memcpy(label, PID_UNITS_G_FORCE_LABEL, sizeof(PID_UNITS_G_FORCE_LABEL));
-		break;
+		case PID_UNITS_G_FORCE:
+			memcpy(label, PID_UNITS_G_FORCE_LABEL, sizeof(PID_UNITS_G_FORCE_LABEL));
+			break;
 
-	case PID_UNITS_RESERVED:
-	case PID_UNITS_NONE:
-	default:
-		memcpy(label, PID_UNITS_NONE_LABEL, sizeof(PID_UNITS_NONE_LABEL));
-		break;
+		case PID_UNITS_RESERVED:
+		case PID_UNITS_NONE:
+		default:
+			memcpy(label, PID_UNITS_NONE_LABEL, sizeof(PID_UNITS_NONE_LABEL));
+			break;
 	}
 	return 1;
 }

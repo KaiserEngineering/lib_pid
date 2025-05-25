@@ -122,6 +122,12 @@ typedef struct _pid_data {
 	/* Units the PID was reported in @PID_UNITS */
 	PID_UNITS base_unit;
 
+	/* Supported units @PID_UNITS */
+	const PID_UNITS *supported_units;
+
+	/* Number of supported units @PID_UNITS */
+	uint8_t num_supported_units;
+
 	/* Last captured value of the PID */
 	float pid_value;
 
@@ -169,6 +175,7 @@ uint8_t load_pid_data( PTR_PID_DATA pid );
 float get_pid_lower_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_precision( uint32_t pid_uuid, PID_UNITS unit );
+uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units );
 
 #define A 0
 #define B 1

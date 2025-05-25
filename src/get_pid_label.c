@@ -29,8 +29,8 @@
 
 uint8_t get_pid_label( uint32_t pid_uuid, char* label )
 {
-	for( uint8_t i = 0; i < LABEL_MAX_CHAR; i++ )
-		label[i] = '\0';
+    for( uint8_t i = 0; i < LABEL_MAX_CHAR; i++ )
+        label[i] = '\0';
 
     switch( pid_uuid )
     {
