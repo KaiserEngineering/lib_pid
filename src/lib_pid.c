@@ -41,7 +41,7 @@ uint8_t load_pid_data( PTR_PID_DATA pid )
 	pid->base_unit = get_pid_base_unit(pid->pid_uuid);
 
 	// Load the list of supported units
-	pid->num_units_supported = get_pid_units(pid->pid_uuid, &pid->supported_units);
+	pid->num_supported_units = get_pid_units(pid->pid_uuid, &pid->supported_units);
 
 	// Get the value limits
 	pid->lower_limit = get_pid_lower_limit(pid->pid_uuid ,pid->pid_unit);
