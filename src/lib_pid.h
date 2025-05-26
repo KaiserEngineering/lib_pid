@@ -101,7 +101,7 @@ typedef struct _pid_data {
 	/* Unit label for the PID */
 	char unit_label[LABEL_MAX_CHAR];
 
-	/* Number of decimal places */
+	/* Number of decimal places to display */
 	uint8_t precision;
 
 	/* The lower limit of what will/could be displayed */
@@ -116,25 +116,25 @@ typedef struct _pid_data {
 	/* Mode of the PID UUID being streamed */
 	uint32_t pid_uuid;
 
-	/* Units of the PID @PID_UNITS */
+	/* Units of the PID that should be displayed */
 	PID_UNITS pid_unit;
 
-	/* Units the PID was reported in @PID_UNITS */
+	/* Units the PID was reported in from the vehicle */
 	PID_UNITS base_unit;
 
-	/* Supported units @PID_UNITS */
+	/* List of Supported units for particular PID */
 	const PID_UNITS *supported_units;
 
 	/* Number of supported units @PID_UNITS */
 	uint8_t num_supported_units;
 
-	/* Last captured value of the PID */
+	/* Most recent captured value of the PID */
 	float pid_value;
 
-	/* min value of the PID for this session */
+	/* Min value of the PID for this session */
 	float pid_min;
 
-	/* max value of the PID for this session */
+	/* Max value of the PID for this session */
 	float pid_max;
 
 	/* When the data was acquired */
