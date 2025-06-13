@@ -168,6 +168,7 @@ uint8_t lookup_payload_length( uint32_t pid_uuid );
 PID_UNITS get_pid_base_unit( uint32_t pid_uuid );
 uint16_t get_pid_header( uint32_t pid_uuid );
 uint8_t get_pid_label( uint32_t pid_uuid, char* label );
+uint8_t get_pid_desc( uint32_t pid_uuid, char* desc );
 uint8_t get_unit_label( PID_UNITS unit, char* label );
 uint8_t get_mode_by_uuid( uint32_t pid_uuid );
 uint16_t get_pid_by_uuid( uint32_t pid_uuid );
