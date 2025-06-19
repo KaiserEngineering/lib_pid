@@ -51,6 +51,27 @@ typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
 #define PID_UNITS_G_FORCE_LABEL "G"
 #define PID_UNITS_NONE_LABEL ""
 
+#define PID_UNITS_RESERVED_DESC "Reserved"
+#define PID_UNITS_PERCENT_DESC "Percent"
+#define PID_UNITS_CELSIUS_DESC "Celsius"
+#define PID_UNITS_FAHRENHEIT_DESC "Fahrenheit"
+#define PID_UNITS_KPA_DESC "kPa"
+#define PID_UNITS_PSI_DESC "PSI"
+#define PID_UNITS_RPM_DESC "RPM"
+#define PID_UNITS_KMH_DESC "km/h"
+#define PID_UNITS_MPH_DESC "mph"
+#define PID_UNITS_GRAMSEC_DESC "Grams/sec"
+#define PID_UNITS_DEGREES_DESC "Degrees"
+#define PID_UNITS_VOLTS_DESC "Volts"
+#define PID_UNITS_KM_DESC "Kilometers"
+#define PID_UNITS_MILES_DESC "Miles"
+#define PID_UNITS_SECONDS_DESC "Seconds"
+#define PID_UNITS_RATIO_DESC "Ratio"
+#define PID_UNITS_LPM_DESC "Liters/min"
+#define PID_UNITS_BAR_DESC "Bar"
+#define PID_UNITS_G_FORCE_DESC "G-Force"
+#define PID_UNITS_NONE_DESC "None"
+
 typedef enum _pid_units {
     PID_UNITS_RESERVED,
     PID_UNITS_PERCENT,
@@ -169,7 +190,10 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid );
 uint16_t get_pid_header( uint32_t pid_uuid );
 uint8_t get_pid_label( uint32_t pid_uuid, char* label );
 uint8_t get_pid_desc( uint32_t pid_uuid, char* desc );
+uint32_t get_pid_by_string(const char *str);
 uint8_t get_unit_label( PID_UNITS unit, char* label );
+uint8_t get_unit_desc( PID_UNITS unit, char* label );
+PID_UNITS get_unit_by_string(const char *str);
 uint8_t get_mode_by_uuid( uint32_t pid_uuid );
 uint16_t get_pid_by_uuid( uint32_t pid_uuid );
 uint8_t load_pid_data( PTR_PID_DATA pid );
