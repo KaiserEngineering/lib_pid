@@ -202,10 +202,10 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_precision( uint32_t pid_uuid, PID_UNITS unit );
 uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units );
 
-#define A 0
-#define B 1
-#define C 2
-#define D 3
+#define OBDII_BYTEA 0
+#define OBDII_BYTEB 1
+#define OBDII_BYTEC 2
+#define OBDII_BYTED 3
 
 #define MODE1                                           (uint8_t)0x01    // Show current data
 #define MODE2                                           (uint8_t)0x02    // Show freeze frame data

@@ -46,7 +46,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_29D4_OVER_65536_TIMES_256_A_PLUS_B
-            return ((((float)256 *(float)data[A]) + (float)data[B]) * (float)29.4) / (float)65536;
+            return ((((float)256 *(float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]) * (float)29.4) / (float)65536;
         #endif
 
         #if defined(MODE1_CALCULATED_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -78,7 +78,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_100_TIMES_A_OVER_255
-            return (((float)data[A]) * (float)100) / (float)255;
+            return (((float)data[OBDII_BYTEA]) * (float)100) / (float)255;
         #endif
 
         #if defined(MODE1_ENGINE_COOLANT_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -124,7 +124,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_A_MINUS_40
-            return ((float)data[A] - (float)40);
+            return ((float)data[OBDII_BYTEA] - (float)40);
         #endif
 
         #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -156,7 +156,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_100_OVER_128_TIMES_A_MINUS_100
-            return (((float)100 / (float)128) * (float)(data[A])) - (float)100;
+            return (((float)100 / (float)128) * (float)(data[OBDII_BYTEA])) - (float)100;
         #endif
 
         #if defined(MODE1_FUEL_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -167,7 +167,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_A_TIMES_3
-            return (float)data[A] * (float)3;
+            return (float)data[OBDII_BYTEA] * (float)3;
         #endif
 
         #if defined(MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -192,7 +192,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_A
-            return (float)data[A];
+            return (float)data[OBDII_BYTEA];
         #endif
 
         #if defined(MODE1_ENGINE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -203,7 +203,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_256_TIMES_A_PLUS_B_OVER_4
-            return (((float)256 * (float)data[A] ) + (float)data[B] ) / (float)4;
+            return (((float)256 * (float)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)4;
         #endif
 
         #if defined(MODE1_TIMING_ADVANCE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -214,7 +214,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_A_OVER_2_MINUS_64
-            return ((float)data[A] / (float)2) - (float)64;
+            return ((float)data[OBDII_BYTEA] / (float)2) - (float)64;
         #endif
 
         #if defined(MODE1_OXYGEN_SENSOR_2_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -225,7 +225,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_A_OVER_200
-            return (float)data[A] / (float)255;
+            return (float)data[OBDII_BYTEA] / (float)255;
         #endif
 
         #if defined(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -236,7 +236,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B
-            return ((float)0.079 * (((float)256 * (float)data[A]) + (float)data[B]));
+            return ((float)0.079 * (((float)256 * (float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]));
         #endif
 
         #if defined(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -370,7 +370,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
-            return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) * (float)0.002;
+            return (((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) * (float)0.002;
         #endif
 
         #if defined(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -381,7 +381,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_256_TIMES_A_SIGNED_PLUS_B_OVER_1024
-            return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)1024;
+            return (((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)1024;
         #endif
 
         #if defined(MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -406,7 +406,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_256_TIMES_A_PLUS_B_OVER_327_DOT_68
-            return (((float)256 * (float)(data[A]) ) + (float)data[B] ) / (float)327.68;
+            return (((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)327.68;
         #endif
 
         #if defined(MODE22_IGNITION_CORRECTION_CYLINDER_1_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -417,7 +417,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512
-            return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)-512;
+            return (((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)-512;
         #endif
 
         #if defined(MODE22_CHARGE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -428,7 +428,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_256_TIMES_A_SIGNED_PLUS_B_OVER_64
-            return (((float)256 * (float)(int8_t)data[A] ) + (float)data[B] ) / (float)64;
+            return (((float)256 * (float)(int8_t)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)64;
         #endif
 
         #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -439,7 +439,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_256_TIMES_A_SIGNED_PLUS_B_OVER_16384
-            return (((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)16384;
+            return (((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)16384;
         #endif
 
         #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -450,7 +450,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_A_OVER_2_MINUS_40
-            return ((float)data[A] / (float)2) - (float)40;
+            return ((float)data[OBDII_BYTEA] / (float)2) - (float)40;
         #endif
 
         #if defined(MODE22_CATALYTIC_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -461,7 +461,7 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
         #endif
 
         #ifdef FORMULA_256_TIMES_A_PLUS_B_OVER_10_MINUS_40
-            return ((((float)256 * (float)data[A] ) + (float)data[B] ) / (float)10)-(float)40;
+            return ((((float)256 * (float)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)10)-(float)40;
         #endif
 
         default:
