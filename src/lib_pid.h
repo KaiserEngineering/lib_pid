@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include "cJSON.h"
 #ifdef LIMIT_PIDS
 #include "pids_supported.h"
 #endif
@@ -112,12 +113,16 @@ typedef enum _pid_units {
 #endif
 
 #define LABEL_MAX_CHAR 16
+#define DESC_MAX_CHAR 64
 
 
 typedef struct _pid_data {
 
 	/* Label for the PID */
 	char label[LABEL_MAX_CHAR];
+
+	/* Description for the PID */
+	char desc[DESC_MAX_CHAR];
 
 	/* Unit label for the PID */
 	char unit_label[LABEL_MAX_CHAR];
@@ -203,6 +208,7 @@ float get_pid_precision( uint32_t pid_uuid, PID_UNITS unit );
 uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units );
 uint32_t get_pid_from_list(uint32_t idx);
 uint32_t get_pid_list_size(void);
+uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size);
 
 #define OBDII_BYTEA 0
 #define OBDII_BYTEB 1

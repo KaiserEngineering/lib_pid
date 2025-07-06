@@ -37,6 +37,9 @@ uint8_t load_pid_data( PTR_PID_DATA pid )
 	get_pid_label(pid->pid_uuid, pid->label);
 	get_unit_label(pid->pid_unit, pid->unit_label);
 
+	// Load the description
+	get_pid_desc(pid->pid_uuid, pid->desc);
+
 	// Load the base units
 	pid->base_unit = get_pid_base_unit(pid->pid_uuid);
 
@@ -49,4 +52,69 @@ uint8_t load_pid_data( PTR_PID_DATA pid )
 	pid->precision = get_pid_precision(pid->pid_uuid ,pid->pid_unit);
 
 	return 1;
+}
+
+uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size) {
+    cJSON *root = cJSON_CreateArray();  // Root is now an array
+
+    if (!root) return 0;
+
+    uint32_t pid_count = get_pid_list_size();
+    PID_DATA pid_json;
+
+    for (uint32_t i = 0; i < pid_count; i++) {
+        // Load the base PID data
+        pid_json.pid_uuid = get_pid_from_list(i);
+        pid_json.pid_unit = get_pid_base_unit(pid_json.pid_uuid);
+        load_pid_data(&pid_json);
+
+        // Create object for this PID
+        cJSON *entry = cJSON_CreateObject();
+        if (!entry) continue;
+
+        cJSON_AddStringToObject(entry, "desc", pid_json.desc);
+        cJSON_AddStringToObject(entry, "label", pid_json.label);
+
+        // Arrays
+        cJSON *units    = cJSON_CreateArray();
+        cJSON *min      = cJSON_CreateArray();
+        cJSON *max      = cJSON_CreateArray();
+        cJSON *decimals = cJSON_CreateArray();
+
+        // Get all supported units
+        pid_json.num_supported_units = get_pid_units(pid_json.pid_uuid, &pid_json.supported_units);
+
+        for (int u = 0; u < pid_json.num_supported_units; u++) {
+            pid_json.pid_unit = pid_json.supported_units[u];
+            load_pid_data(&pid_json);
+
+            cJSON_AddItemToArray(units, cJSON_CreateString(pid_json.unit_label));
+            cJSON_AddItemToArray(min, cJSON_CreateNumber(pid_json.lower_limit));
+            cJSON_AddItemToArray(max, cJSON_CreateNumber(pid_json.upper_limit));
+            cJSON_AddItemToArray(decimals, cJSON_CreateNumber(pid_json.precision));
+        }
+
+        cJSON_AddItemToObject(entry, "units",    units);
+        cJSON_AddItemToObject(entry, "min",      min);
+        cJSON_AddItemToObject(entry, "max",      max);
+        cJSON_AddItemToObject(entry, "decimals", decimals);
+
+        cJSON_AddItemToArray(root, entry);
+    }
+
+    // Serialize JSON
+    char *json = cJSON_PrintUnformatted(root);
+    uint32_t actual_len = 0;
+
+    if (json) {
+        size_t len = strlen(json);
+        if (len < buffer_size) {
+            memcpy(buffer, json, len + 1);  // include null terminator
+            actual_len = (uint32_t)len;
+        }
+        free(json);
+    }
+
+    cJSON_Delete(root);
+    return actual_len;  // 0 if failed
 }
