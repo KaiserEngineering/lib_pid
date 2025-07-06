@@ -118,9 +118,6 @@ for pid in data["Ford_Focus_STRS_2013_2018"]:
     # Define the PID label
     header.write("#define " + define + label_extension + pid["shortName"] + "\"\n")
 
-    # Define the PID parameter name
-    header.write("#define " + define + parameter_extension + pid["shortDesc"] + "\"\n")
-
     # Define the PID description
     header.write("#define " + define + desc_extension + pid["desc"] + "\"\n")
 
