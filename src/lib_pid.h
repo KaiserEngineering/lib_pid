@@ -201,6 +201,8 @@ float get_pid_lower_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_precision( uint32_t pid_uuid, PID_UNITS unit );
 uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units );
+uint32_t get_pid_from_list(uint32_t idx);
+uint32_t get_pid_list_size(void);
 
 #define OBDII_BYTEA 0
 #define OBDII_BYTEB 1

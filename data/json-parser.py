@@ -587,27 +587,28 @@ get_pid_units.write( "}" )
 get_pid_units.close()
 
 ############################################
-#          get_pid_json_list.c             #
+#             get_pid_list.c               #
 ############################################
 
-get_pid_json_list = open("..\src\get_pid_json_list.c", "w")
+get_pid_list = open("..\src\get_pid_list.c", "w")
 
-print("[CREATE] get_pid_json_list.c")
+print("[CREATE] get_pid_list.c")
 
-get_pid_json_list.write( code_header + "\n\n" )
+get_pid_list.write( code_header + "\n\n" )
 
-get_pid_json_list.write( "#include \"lib_pid.h\"\n\n" )
-get_pid_json_list.write( "{\n" )
-get_pid_json_list.write( "pid:[" )
-
+get_pid_list.write( "#include \"lib_pid.h\"\n\n" )
+get_pid_list.write( "const uint32_t pid_list[] = {\n" )
 for pid in data["Ford_Focus_STRS_2013_2018"]:
-  get_pid_json_list.write(f'"{pid["desc"]}",\n')
-get_pid_json_list.write( "]\n" )
-get_pid_json_list.write( "}\n" )
+  desc = pid["desc"].replace(" ", "_").replace("-", "").upper()
+  mode = pid["mode"].upper()
+  get_pid_list.write(f'    {mode}_{desc}_UUID,\n')
+get_pid_list.write( "};\n\n" )
+get_pid_list.write( "uint32_t get_pid_from_list(uint32_t idx) { return pid_list[idx]; }\n" )
+get_pid_list.write( "uint32_t get_pid_list_size(void) { return sizeof(pid_list) / sizeof(pid_list[0]); }\n" )
 
 ############################################
 #               readme.md                  #
-############################################
+############################################W
 readme = open("../readme.md", "w")
 
 readme.write("| Parameter | Type | Description |\n")
