@@ -368,7 +368,7 @@
 			"units"    : [ "KPA", "PSI" ],
 			"min"      : [ 0, 0 ],
 			"max"      : [ 255, 36 ],
-			"decimals" : [ 0, 1 ],
+			"decimals" : [ 1, 2 ],
 			"formula"  : "UNDEFINED",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"
@@ -827,7 +827,7 @@
 			"units"    : [ "KPA", "PSI" ],
 			"min"      : [ -82, -12 ],
 			"max"      : [ 170, 24 ],
-			"decimals" : [ 0, 1 ],
+			"decimals" : [ 1, 2 ],
 			"formula"  : "UNDEFINED",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"

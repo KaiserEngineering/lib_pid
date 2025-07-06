@@ -17,35 +17,35 @@ code_header = code_header.replace("<year>", today.strftime("%Y"))
 
 C_FORMULAS = {
     'UNDEFINED'                                 : '0',
-    '100_TIMES_A_OVER_255'                      : '(((float)data[A]) * (float)100) / (float)255',
-    'A_OVER_200'                                : '(float)data[A] / (float)255',
-    'A_MINUS_40'                                : '((float)data[A] - (float)40)',
-    '256_TIMES_A_PLUS_B_OVER_4'                 : '(((float)256 * (float)data[A] ) + (float)data[B] ) / (float)4',
-    '256_TIMES_A_PLUS_B_OVER_100'               : '(((float)256 * (float)data[A] ) + (float)data[B] ) / (float)100',
-    '256_TIMES_A_PLUS_B_OVER_10_MINUS_40'       : '((((float)256 * (float)data[A] ) + (float)data[B] ) / (float)10)-(float)40',
-    'A'                                         : '(float)data[A]',
-    '256_TIMES_A_SIGNED_PLUS_B_OVER_64'         : '(((float)256 * (float)(int8_t)data[A] ) + (float)data[B] ) / (float)64',
-    'A_TIMES_3'                                 : '(float)data[A] * (float)3',
-    'A_OVER_2_MINUS_64'                         : '((float)data[A] / (float)2) - (float)64',
-    'A_OVER_2_MINUS_40'                         : '((float)data[A] / (float)2) - (float)40',
-    'A_OVER_3_MINUS_40'                         : '((float)data[A] / (float)3) - (float)40',
-    '256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512'    : '(((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)-512',
-    '256_TIMES_A_SIGNED_PLUS_B_OVER_1024'       : '(((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)1024',
-    '256_TIMES_A_SIGNED_PLUS_B_OVER_16384'      : '(((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) / (float)16384',
-    '256_TIMES_A_PLUS_B_OVER_327_DOT_68'        : '(((float)256 * (float)(data[A]) ) + (float)data[B] ) / (float)327.68',
-    '256_TIMES_A_PLUS_B_OVER_32768'             : '(((float)256 * (float)(data[A]) ) + (float)data[B] ) / (float)32768',
-    '100_OVER_128_TIMES_A_MINUS_100'            : '(((float)100 / (float)128) * (float)(data[A])) - (float)100',
-    '256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES': '(((((float)256 * (float)(data[A])) + (float)(data[B])) * (float)2) / (float)65536)',
-    'ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B'      : '((float)0.079 * (((float)256 * (float)data[A]) + (float)data[B]))',
-    '256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002'  : '(((float)256 * (float)((int8_t)data[A]) ) + (float)data[B] ) * (float)0.002',
-    '256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3'   : '((((float)256 *(float)data[A]) + (float)data[B]) + ((float)22 / (float)3))',
-    '29D4_OVER_65536_TIMES_256_A_PLUS_B'         : '((((float)256 *(float)data[A]) + (float)data[B]) * (float)29.4) / (float)65536'
+    '100_TIMES_A_OVER_255'                      : '(((float)data[OBDII_BYTEA]) * (float)100) / (float)255',
+    'A_OVER_200'                                : '(float)data[OBDII_BYTEA] / (float)255',
+    'A_MINUS_40'                                : '((float)data[OBDII_BYTEA] - (float)40)',
+    '256_TIMES_A_PLUS_B_OVER_4'                 : '(((float)256 * (float)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)4',
+    '256_TIMES_A_PLUS_B_OVER_100'               : '(((float)256 * (float)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)100',
+    '256_TIMES_A_PLUS_B_OVER_10_MINUS_40'       : '((((float)256 * (float)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)10)-(float)40',
+    'A'                                         : '(float)data[OBDII_BYTEA]',
+    '256_TIMES_A_SIGNED_PLUS_B_OVER_64'         : '(((float)256 * (float)(int8_t)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)64',
+    'A_TIMES_3'                                 : '(float)data[OBDII_BYTEA] * (float)3',
+    'A_OVER_2_MINUS_64'                         : '((float)data[OBDII_BYTEA] / (float)2) - (float)64',
+    'A_OVER_2_MINUS_40'                         : '((float)data[OBDII_BYTEA] / (float)2) - (float)40',
+    'A_OVER_3_MINUS_40'                         : '((float)data[OBDII_BYTEA] / (float)3) - (float)40',
+    '256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512'    : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)-512',
+    '256_TIMES_A_SIGNED_PLUS_B_OVER_1024'       : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)1024',
+    '256_TIMES_A_SIGNED_PLUS_B_OVER_16384'      : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)16384',
+    '256_TIMES_A_PLUS_B_OVER_327_DOT_68'        : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)327.68',
+    '256_TIMES_A_PLUS_B_OVER_32768'             : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)32768',
+    '100_OVER_128_TIMES_A_MINUS_100'            : '(((float)100 / (float)128) * (float)(data[OBDII_BYTEA])) - (float)100',
+    '256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES': '(((((float)256 * (float)(data[OBDII_BYTEA])) + (float)(data[OBDII_BYTEB])) * (float)2) / (float)65536)',
+    'ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B'      : '((float)0.079 * (((float)256 * (float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]))',
+    '256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002'  : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) * (float)0.002',
+    '256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3'   : '((((float)256 *(float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]) + ((float)22 / (float)3))',
+    '29D4_OVER_65536_TIMES_256_A_PLUS_B'         : '((((float)256 *(float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]) * (float)29.4) / (float)65536'
 }
 
 with open('digital-dash-firmware.json') as f:
   data = json.load(f)
 
-header = open("lib_pid\inc\pid.h", "w")
+header = open("..\src\pid.h", "w")
 
 length = 0
 
@@ -151,7 +151,7 @@ header.close()
 #          get_pid_value.c                 #
 ############################################
 
-get_pid_value = open("lib_pid\src\get_pid_value.c", "w")
+get_pid_value = open("..\src\get_pid_value.c", "w")
 
 print("[CREATE] get_pid_value.c")
 
@@ -199,7 +199,7 @@ get_pid_value.close()
 #        get_pid_base_unit.c               #
 ############################################
 
-get_pid_base_unit = open("lib_pid\src\get_pid_base_unit.c", "w")
+get_pid_base_unit = open("..\src\get_pid_base_unit.c", "w")
 
 print("[CREATE] get_pid_base_unit.c")
 
@@ -233,7 +233,7 @@ get_pid_base_unit.close()
 #        get_pid_lower_limit.c             #
 ############################################
 
-get_pid_lower_limit = open("lib_pid\src\get_pid_lower_limit.c", "w")
+get_pid_lower_limit = open("..\src\get_pid_lower_limit.c", "w")
 
 print("[CREATE] get_pid_lower_limit.c")
 
@@ -274,7 +274,7 @@ get_pid_lower_limit.close()
 #        get_pid_upper_limit.c             #
 ############################################
 
-get_pid_upper_limit = open("lib_pid\src\get_pid_upper_limit.c", "w")
+get_pid_upper_limit = open("..\src\get_pid_upper_limit.c", "w")
 
 print("[CREATE] get_pid_upper_limit.c")
 
@@ -315,7 +315,7 @@ get_pid_upper_limit.close()
 #       get_pid_precision.c          #
 ############################################
 
-get_pid_precision = open("lib_pid\src\get_pid_precision.c", "w")
+get_pid_precision = open("..\src\get_pid_precision.c", "w")
 
 print("[CREATE] get_pid_precision.c")
 
@@ -356,7 +356,7 @@ get_pid_precision.close()
 #      lookup_payload_length.c             #
 ############################################
 
-lookup_payload_length = open("lib_pid\src\lookup_payload_length.c", "w")
+lookup_payload_length = open("..\src\lookup_payload_length.c", "w")
 
 print("[CREATE] lookup_payload_length.c")
 
@@ -392,7 +392,7 @@ lookup_payload_length.close()
 #          get_pid_label.c                 #
 ############################################
 
-get_pid_label = open("lib_pid\src\get_pid_label.c", "w")
+get_pid_label = open("..\src\get_pid_label.c", "w")
 
 print("[CREATE] get_pid_label.c")
 
@@ -432,7 +432,7 @@ get_pid_label.close()
 #          get_pid_desc.c                 #
 ############################################
 
-get_pid_desc = open("lib_pid\src\get_pid_desc.c", "w")
+get_pid_desc = open("..\src\get_pid_desc.c", "w")
 
 print("[CREATE] get_pid_desc.c")
 
@@ -472,7 +472,7 @@ get_pid_desc.close()
 #          get_pid_by_string.c             #
 ############################################
 
-get_pid_by_string = open("lib_pid\src\get_pid_by_string.c", "w")
+get_pid_by_string = open("..\src\get_pid_by_string.c", "w")
 
 print("[CREATE] get_pid_by_string.c")
 
@@ -499,7 +499,7 @@ get_pid_by_string.close()
 #          get_pid_header.c                #
 ############################################
 
-get_pid_header = open("lib_pid\src\get_pid_header.c", "w")
+get_pid_header = open("..\src\get_pid_header.c", "w")
 
 print("[CREATE] get_pid_header.c")
 
@@ -533,7 +533,7 @@ get_pid_header.close()
 #          get_pid_units.c                 #
 ############################################
 
-get_pid_units = open("lib_pid\src\get_pid_units.c", "w")
+get_pid_units = open("..\src\get_pid_units.c", "w")
 
 print("[CREATE] get_pid_units.c")
 
@@ -590,7 +590,7 @@ get_pid_units.close()
 #          get_pid_json_list.c             #
 ############################################
 
-get_pid_json_list = open("lib_pid\src\get_pid_json_list.c", "w")
+get_pid_json_list = open("..\src\get_pid_json_list.c", "w")
 
 print("[CREATE] get_pid_json_list.c")
 
