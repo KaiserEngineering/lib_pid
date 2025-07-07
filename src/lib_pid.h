@@ -12,6 +12,8 @@
 #include <stdint.h>
 #include <string.h>
 #include "cJSON.h"
+#include <stdlib.h>
+#include <math.h>
 #ifdef LIMIT_PIDS
 #include "pids_supported.h"
 #endif
