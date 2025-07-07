@@ -85,12 +85,14 @@ uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size) {
         pid_json.num_supported_units = get_pid_units(pid_json.pid_uuid, &pid_json.supported_units);
 
         double rounded_nun = 0;
+        char tmp_str[32] = {0};
 
         for (int u = 0; u < pid_json.num_supported_units; u++) {
             pid_json.pid_unit = pid_json.supported_units[u];
             load_pid_data(&pid_json);
 
-            cJSON_AddItemToArray(units, cJSON_CreateString(pid_json.unit_label));
+            get_unit_desc(pid_json.pid_unit, tmp_str);
+            cJSON_AddItemToArray(units, cJSON_CreateString(tmp_str));
             rounded_nun = round(pid_json.lower_limit * 1000.0) / 1000.0;
             cJSON_AddItemToArray(min, cJSON_CreateNumber(rounded_nun));
             rounded_nun = round(pid_json.upper_limit * 1000.0) / 1000.0;
