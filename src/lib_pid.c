@@ -23,35 +23,46 @@ uint16_t get_pid_by_uuid( uint32_t pid_uuid )
 	return pid_uuid & 0xFFFF;
 }
 
-uint8_t load_pid_data( PTR_PID_DATA pid )
+uint8_t load_pid_data(PTR_PID_DATA pid)
 {
-	// Verify the pid_uuid is valid
-	if( pid->pid_uuid == PID_UNASSIGNED )
-		return 0;
+    // Verify the pid_uuid is valid
+    if (pid->pid_uuid == PID_UNASSIGNED)
+        return 0;
 
-	// Verify the pid unit was set
-	if( pid->pid_unit == PID_UNITS_RESERVED )
-		return 0;
+    // Load the base unit first
+    pid->base_unit = get_pid_base_unit(pid->pid_uuid);
 
-	// Load the labels
-	get_pid_label(pid->pid_uuid, pid->label);
-	get_unit_label(pid->pid_unit, pid->unit_label);
+    // Load the list of supported units
+    pid->num_supported_units = get_pid_units(pid->pid_uuid, &pid->supported_units);
 
-	// Load the description
-	get_pid_desc(pid->pid_uuid, pid->desc);
+    // If the pid_unit is not valid or not supported, fall back to base_unit
+    uint8_t unit_supported = 0;
+    if (pid->pid_unit != PID_UNITS_RESERVED) {
+        for (uint8_t i = 0; i < pid->num_supported_units; i++) {
+            if (pid->pid_unit == pid->supported_units[i]) {
+                unit_supported = 1;
+                break;
+            }
+        }
+    }
 
-	// Load the base units
-	pid->base_unit = get_pid_base_unit(pid->pid_uuid);
+    if (!unit_supported) {
+        pid->pid_unit = pid->base_unit;
+    }
 
-	// Load the list of supported units
-	pid->num_supported_units = get_pid_units(pid->pid_uuid, &pid->supported_units);
+    // Load the labels
+    get_pid_label(pid->pid_uuid, pid->label);
+    get_unit_label(pid->pid_unit, pid->unit_label);
 
-	// Get the value limits
-	pid->lower_limit = get_pid_lower_limit(pid->pid_uuid ,pid->pid_unit);
-	pid->upper_limit = get_pid_upper_limit(pid->pid_uuid ,pid->pid_unit);
-	pid->precision = get_pid_precision(pid->pid_uuid ,pid->pid_unit);
+    // Load the description
+    get_pid_desc(pid->pid_uuid, pid->desc);
 
-	return 1;
+    // Get the value limits
+    pid->lower_limit = get_pid_lower_limit(pid->pid_uuid, pid->pid_unit);
+    pid->upper_limit = get_pid_upper_limit(pid->pid_uuid, pid->pid_unit);
+    pid->precision = get_pid_precision(pid->pid_uuid, pid->pid_unit);
+
+    return 1;
 }
 
 uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size) {
