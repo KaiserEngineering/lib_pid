@@ -210,7 +210,7 @@
 #define MODE22_CHARGE_AIR_TEMP_CELSIUS_PRECISION                           (uint8_t)1
 #define MODE22_CHARGE_AIR_TEMP_FAHRENHEIT_LOWER                            (float)-40
 #define MODE22_CHARGE_AIR_TEMP_FAHRENHEIT_UPPER                            (float)400
-#define MODE22_CHARGE_AIR_TEMP_FAHRENHEIT_PRECISION                        (uint8_t)2
+#define MODE22_CHARGE_AIR_TEMP_FAHRENHEIT_PRECISION                        (uint8_t)1
 #endif
 
 /**

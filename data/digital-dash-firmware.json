@@ -474,7 +474,7 @@
 			"units"    : [ "CELSIUS", "FAHRENHEIT" ],
 			"min"      : [ -40, -40 ],
 			"max"      : [ 200, 400 ],
-			"decimals" : [ 1, 2 ],
+			"decimals" : [ 1, 1 ],
 			"formula"  : "256_TIMES_A_SIGNED_PLUS_B_OVER_64",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"
