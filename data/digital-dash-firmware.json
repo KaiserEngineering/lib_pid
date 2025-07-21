@@ -1,9 +1,8 @@
 {
 	"Ford_Focus_STRS_2013_2018": [
 		{
-			"desc"     : "Commanded Air to Fuel Ratio",
-			"shortName": "Cmd AFR",
-			"shortDesc": "Commanded Air-Fuel Ratio",
+			"label"    : "Cmd AFR",
+			"desc"     : "Commanded Air-Fuel Ratio",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "44",
@@ -18,9 +17,8 @@
 			]
 		},
 		{
-			"desc"     : "Calculated engine load",
-			"shortName": "Load",
-			"shortDesc": "Calc Load",
+			"label"    : "Load",
+			"desc"     : "Calc engine load",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "04",
@@ -35,9 +33,8 @@
 			]
 		},
 		{
-			"desc"     : "Engine coolant temperature",
-			"shortName": "ECT",
-			"shortDesc": "Coolant Temp",
+			"label"    : "ECT",
+			"desc"     : "Engine coolant temp",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "05",
@@ -52,9 +49,8 @@
 			]
 		},
 		{
-			"desc"     : "Short term fuel trim - Bank 1",
-			"shortName": "STFT1",
-			"shortDesc": "Short Fuel Trim 1",
+			"label"    : "STFT1",
+			"desc"     : "Short term fuel trim Bank 1",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "06",
@@ -69,9 +65,8 @@
 			]
 		},
 		{
-			"desc"     : "Long term fuel trim - Bank 1",
-			"shortName": "LTFT1",
-			"shortDesc": "Long Fuel Trim 1",
+			"label"    : "LTFT1",
+			"desc"     : "Long term fuel trim Bank 1",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "07",
@@ -86,9 +81,8 @@
 			]
 		},
 		{
-			"desc"     : "Short term fuel trim - Bank 2",
-			"shortName": "STFT2",
-			"shortDesc": "Short Fuel Trim 2",
+			"label"    : "STFT2",
+			"desc"     : "Short term fuel trim Bank 2",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "08",
@@ -103,9 +97,8 @@
 			]
 		},
 		{
-			"desc"     : "Long term fuel trim - Bank 2",
-			"shortName": "LTFT2",
-			"shortDesc": "Long Fuel Trim 2",
+			"label"    : "LTFT2",
+			"desc"     : "Long term fuel trim Bank 2",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "09",
@@ -120,9 +113,8 @@
 			]
 		},
 		{
+			"label"    : "Fuel",
 			"desc"     : "Fuel Pressure",
-			"shortName": "Fuel",
-			"shortDesc": "Fuel Pressure",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "0A",
@@ -137,9 +129,8 @@
 			]
 		},
 		{
-			"desc"     : "Intake manifold absolute pressure",
-			"shortName": "MAP",
-			"shortDesc": "Manifold Abs Press",
+			"label"    : "MAP",
+			"desc"     : "Manifold Abs Press",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "0B",
@@ -154,9 +145,8 @@
 			]	
 		},
 		{
+			"label"    : "RPM",
 			"desc"     : "Engine speed",
-			"shortName": "RPM",
-			"shortDesc": "Engine speed",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "0C",
@@ -168,12 +158,27 @@
 			"formula"  : "256_TIMES_A_PLUS_B_OVER_4",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"
-			]	
+			]
 		},
 		{
-			"desc"     : "Vehicle speed",
-			"shortName": "Speed",
-			"shortDesc": "Speed",
+			"label"    : "RPM",
+			"desc"     : "Engine speed",
+			"id"       : "7E0",
+			"mode"     : "SNIFF",
+			"pid"      : "0C",
+			"dataLen"  : 2,
+			"units"    : [ "RPM" ],
+			"min"      : [ 0 ],
+			"max"      : [ 8000 ],
+			"decimals" : [ 0 ],
+			"formula"  : "256_TIMES_A_PLUS_B_OVER_4",
+			"vehicles" : [
+				"Ford_Focus_STRS_2013_2018"
+			]
+		},
+		{
+			"label"    : "Speed",
+			"desc"     : "Vehicle Speed",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "0D",
@@ -188,9 +193,8 @@
 			]	
 		},
 		{
-			"desc"     : "Timing advance",
-			"shortName": "Timing",
-			"shortDesc": "Timing Advance",
+			"label"    : "Timing",
+			"desc"     : "Timing Advance",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "0E",
@@ -205,9 +209,8 @@
 			]	
 		},
 		{
-			"desc"     : "Intake air temperature",
-			"shortName": "IAT",
-			"shortDesc": "Intake Air Temp",
+			"label"    : "IAT",
+			"desc"     : "Intake Air Temp",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "0F",
@@ -222,9 +225,8 @@
 			]	
 		},
 		{
-			"desc"     : "Mass air flow sensor air flow rate",
-			"shortName": "MAF",
-			"shortDesc": "Mass Air Flow",
+			"label"    : "MAF",
+			"desc"     : "Mass Air Flow",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "10",
@@ -239,9 +241,8 @@
 			]	
 		},
 		{
-			"desc"     : "Throttle position",
-			"shortName": "Throttle",
-			"shortDesc": "Throttle",
+			"label"    : "Throttle",
+			"desc"     : "Throttle Position",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "11",
@@ -256,9 +257,8 @@
 			]	
 		},
 		{
-			"desc"     : "Oxygen Sensor 2 Voltage",
-			"shortName": "O2",
-			"shortDesc": "O2 Volts",
+			"label"    : "O2",
+			"desc"     : "O2 Sensor 2 Volts",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "15",
@@ -273,9 +273,8 @@
 			]	
 		},
 		{
-			"desc"     : "Fuel Rail Pressure relative to manifold vacuum",
-			"shortName": "Fuel",
-			"shortDesc": "Fuel Rail Pressure",
+			"label"    : "Fuel",
+			"desc"     : "Fuel Rail Pressure",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "22",
@@ -290,9 +289,8 @@
 			]	
 		},
 		{
-			"desc"     : "Absolute barometric pressure",
-			"shortName": "Baro",
-			"shortDesc": "Barometric",
+			"label"    : "Baro",
+			"desc"     : "Barometric Pressure",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "33",
@@ -307,9 +305,8 @@
 			]	
 		},
 		{
-			"desc"     : "Air to Fuel Ratio",
-			"shortName": "AFR",
-			"shortDesc": "Air-Fuel Ratio (Oxygen Sensor 1)",
+			"label"    : "AFR",
+			"desc"     : "Air-Fuel Ratio (Oxygen Sensor 1)",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "34",
@@ -324,9 +321,8 @@
 			]	
 		},
 		{
-			"desc"     : "Relative accelerator pedal position",
-			"shortName": "APP",
-			"shortDesc": "Accel Pedal Pos",
+			"label"    : "APP",
+			"desc"     : "Accel Pedal Pos",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "5A",
@@ -341,9 +337,8 @@
 			]
 		},
 		{
-			"desc"     : "Engine oil temperature",
-			"shortName": "Oil Temp",
-			"shortDesc": "Oil Temp",
+			"label"    : "Oil Temp",
+			"desc"     : "Oil Temp",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "5C",
@@ -358,9 +353,8 @@
 			]
 		},
 		{
-			"desc"     : "Turbocharger compressor inlet pressure",
-			"shortName": "Boost",
-			"shortDesc": "Boost",
+			"label"    : "Boost",
+			"desc"     : "Boost",
 			"id"       : "7E0",
 			"mode"     : "MODE1",
 			"pid"      : "6F",
@@ -375,9 +369,8 @@
 			]
 		},
 		{
+			"label"    : "Lat Accel",
 			"desc"     : "Lateral Acceleration",
-			"shortName": "Lat Accel",
-			"shortDesc": "Lateral Acceleration",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "2B0C",
@@ -392,9 +385,8 @@
 			]
 		},
 		{
-			"desc"     : "Longitude Acceleration",
-			"shortName": "Long Accel",
-			"shortDesc": "Longitude Acceleration",
+			"label"    : "Long Accel",
+			"desc"     : "Longitudinal Acceleration",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "2B11",
@@ -409,9 +401,8 @@
 			]
 		},
 		{
-			"desc"     : "Manifold Absolute Pressure Sensor Voltage 1",
-			"shortName": "MAP",
-			"shortDesc": "Manifold Abs Press (V)",
+			"label"    : "MAP",
+			"desc"     : "Manifold Abs Press Sensor 1 Volt",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "0301",
@@ -426,9 +417,8 @@
 			]	
 		},
 		{
-			"desc"     : "Low Pressure Fuel Pump Commanded Duty Cycle",
-			"shortName": "LPFP DC",
-			"shortDesc": "LP Fuel Duty Cycle",
+			"label"    : "LPFP DC",
+			"desc"     : "LP Fuel Duty Cycle",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "0307",
@@ -443,9 +433,8 @@
 			]	
 		},
 		{
+			"label"    : "IGN 1",
 			"desc"     : "Ignition Correction Cylinder 1",
-			"shortName": "IGN 1",
-			"shortDesc": "Ign Cor Cyl 1",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "03EC",
@@ -460,9 +449,8 @@
 			]	
 		},
 		{
+			"label"    : "VCT Int DC",
 			"desc"     : "VCT Intake Cam Solenoid Duty Cycle",
-			"shortName": "VCT Int DC",
-			"shortDesc": "VCT Int DC",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "0316",
@@ -477,9 +465,8 @@
 			]
 		},
 		{
+			"label"    : "VCT Exh DC",
 			"desc"     : "VCT Exhaust Cam Solenoid Duty Cycle",
-			"shortName": "VCT Exh DC",
-			"shortDesc": "VCT Exh DC",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "0317",
@@ -494,9 +481,8 @@
 			]
 		},
 		{
-			"desc"     : "Intake air temperature",
-			"shortName": "IAT",
-			"shortDesc": "Intake Air Temp",
+			"label"    : "IAT",
+			"desc"     : "Intake Air Temp",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "F40F",
@@ -511,9 +497,8 @@
 			]
 		},
 		{
-			"desc"     : "Charge air temperature",
-			"shortName": "CAT",
-			"shortDesc": "Charge Air Temp",
+			"label"    : "CAT",
+			"desc"     : "Charge Air Temp",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "0461",
@@ -528,9 +513,8 @@
 			]	
 		},
 		{
-			"desc"     : "Manifold charge temperature",
-			"shortName": "MCT",
-			"shortDesc": "Manifold Charge Temp",
+			"label"    : "MCT",
+			"desc"     : "Manifold Charge Temp",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "03CA",
@@ -545,9 +529,8 @@
 			]	
 		},
 		{
+			"label"    : "OAR",
 			"desc"     : "Octane Adjust Ratio",
-			"shortName": "OAR",
-			"shortDesc": "Octane Adjust Ratio",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "03E8",
@@ -562,9 +545,8 @@
 			]	
 		},
 		{
-			"desc"     : "Ambient air temperature",
-			"shortName": "AAT",
-			"shortDesc": "Ambient Air Temp",
+			"label"    : "AAT",
+			"desc"     : "Ambient Air Temp",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "057D",
@@ -579,9 +561,8 @@
 			]	
 		},
 		{
-			"desc"     : "Engine load percentage",
-			"shortName": "Load",
-			"shortDesc": "Engine Load",
+			"label"    : "Load",
+			"desc"     : "Engine Load",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "F404",
@@ -596,9 +577,8 @@
 			]	
 		},
 		{
+			"label"    : "Cat Temp",
 			"desc"     : "Catalytic Temperature",
-			"shortName": "Cat Temp",
-			"shortDesc": "Catalytic Temperature",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "F43C",
@@ -613,9 +593,8 @@
 			]	
 		},
 		{
-			"desc"     : "Gauge Brightness",
-			"shortName": "Brightness",
-			"shortDesc": "Gauge Illum Level",
+			"label"    : "Brightness",
+			"desc"     : "Gauge Illum Level",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "01C8",
@@ -630,9 +609,8 @@
 			]	
 		},
 		{
+			"label"    : "Status",
 			"desc"     : "Vehicle Status",
-			"shortName": "Status",
-			"shortDesc": "Vehicle Status",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "1260",
@@ -647,9 +625,8 @@
 			]	
 		},
 		{
+			"label"    : "Brake Pedal",
 			"desc"     : "Brake Pedal Status",
-			"shortName": "Brake Pedal",
-			"shortDesc": "Brake Pedal",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0802",
@@ -664,9 +641,8 @@
 			]
 		},
 		{
+			"label"    : "E-Brake",
 			"desc"     : "Emergency Brake Status",
-			"shortName": "E-Brake",
-			"shortDesc": "E-Brake",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0C82",
@@ -681,9 +657,8 @@
 			]
 		},
 		{
+			"label"    : "Reverse",
 			"desc"     : "Reverse Status",
-			"shortName": "Reverse",
-			"shortDesc": "Reverse",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0803",
@@ -698,9 +673,8 @@
 			]
 		},
 		{
+			"label"    : "ON Button",
 			"desc"     : "Cruise Control ON button",
-			"shortName": "ON Button",
-			"shortDesc": "ON Button",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0301",
@@ -715,9 +689,8 @@
 			]
 		},
 		{
+			"label"    : "OFF Button",
 			"desc"     : "Cruise Control OFF button",
-			"shortName": "OFF Button",
-			"shortDesc": "OFF Button",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0302",
@@ -732,9 +705,8 @@
 			]
 		},
 		{
-			"desc"     : "Cruise Control OFF button Toggle",
-			"shortName": "OFF Button",
-			"shortDesc": "OFF Button",
+			"label"    : "OFF Button",
+			"desc"     : "Cruise Control OFF button toggle",
 			"id"       : "7E0",
 			"mode"     : "CALC1",
 			"pid"      : "0302",
@@ -749,9 +721,8 @@
 			]
 		},
 		{
-			"desc"     : "Cruise Control SET plus button",
-			"shortName": "SET+ Button",
-			"shortDesc": "SET+ Button",
+			"label"    : "SET+ Button",
+			"desc"     : "Cruise Control SET Plus Button",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0303",
@@ -766,9 +737,8 @@
 			]
 		},
 		{
-			"desc"     : "Cruise Control SET minus button",
-			"shortName": "SET- Button",
-			"shortDesc": "SET- Button",
+			"label"    : "SET- Button",
+			"desc"     : "Cruise Control SET Minus button",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0304",
@@ -783,9 +753,8 @@
 			]
 		},
 		{
+			"label"    : "RES Button",
 			"desc"     : "Cruise Control RES button",
-			"shortName": "RES Button",
-			"shortDesc": "RES Button",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0305",
@@ -800,9 +769,8 @@
 			]
 		},
 		{
+			"label"    : "CAN Button",
 			"desc"     : "Cruise Control CAN button",
-			"shortName": "CAN Button",
-			"shortDesc": "CAN Button",
 			"id"       : "7E0",
 			"mode"     : "SNIFF",
 			"pid"      : "0306",
@@ -817,9 +785,8 @@
 			]
 		},
 		{
-			"desc"     : "Turbocharger compressor inlet pressure",
-			"shortName": "Boost",
-			"shortDesc": "Boost/Vacuum",
+			"label"    : "Boost",
+			"desc"     : "Boost/Vacuum",
 			"id"       : "7E0",
 			"mode"     : "CALC1",
 			"pid"      : "6F",
@@ -834,9 +801,8 @@
 			]
 		},
 		{
+			"label"    : "Lat Accel",
 			"desc"     : "Lateral Acceleration",
-			"shortName": "Lat Accel",
-			"shortDesc": "Lateral Acceleration",
 			"id"       : "180",
 			"mode"     : "SNIFF",
 			"pid"      : "1802",
@@ -851,9 +817,8 @@
 			]
 		},
 		{
+			"label"    : "Long Accel",
 			"desc"     : "Longitudinal Acceleration",
-			"shortName": "Long Accel",
-			"shortDesc": "Longitudinal Acceleration",
 			"id"       : "160",
 			"mode"     : "SNIFF",
 			"pid"      : "1602",

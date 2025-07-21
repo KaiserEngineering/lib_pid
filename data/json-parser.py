@@ -49,6 +49,9 @@ header = open("..\src\pid.h", "w")
 
 length = 0
 
+def format_pid_desc(pid):
+    return pid["desc"].replace(' ', '_').replace('-', '_').replace('(', '').replace(')', '').replace('/', '_').upper()
+
 for pid in data["Ford_Focus_STRS_2013_2018"]:
     if len(pid["desc"]) > length:
         length = len(pid["desc"])
@@ -92,7 +95,7 @@ for pid in data["Ford_Focus_STRS_2013_2018"]:
     header.write(" * " + pid["desc"] + " expressed in " + pid["units"][0] +"\n" )
     header.write(" */\n")
 
-    define = pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper()
+    define = pid["mode"] + "_" + format_pid_desc(pid)
 
     # Add ifdef to check if PID is supported
     header.write("#if defined(" + define + "_SUPPORTED) || !defined(LIMIT_PIDS)\n")
@@ -116,7 +119,7 @@ for pid in data["Ford_Focus_STRS_2013_2018"]:
     header.write("#define " + define + units_extension + pid["units"][0] + "\n")
 
     # Define the PID label
-    header.write("#define " + define + label_extension + pid["shortName"] + "\"\n")
+    header.write("#define " + define + label_extension + pid["label"] + "\"\n")
 
     # Define the PID description
     header.write("#define " + define + desc_extension + pid["desc"] + "\"\n")
@@ -172,14 +175,14 @@ for eq in formulas:
   for pid in data["Ford_Focus_STRS_2013_2018"]:
     if pid["formula"] == eq:
       get_pid_value.write("        #if defined(")
-      get_pid_value.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+      get_pid_value.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
       get_pid_value.write("            #ifndef ")
       get_pid_value.write("FORMULA_" + pid["formula"] + "\n")
       get_pid_value.write("            #define ")
       get_pid_value.write("FORMULA_" + pid["formula"] + "\n")
       get_pid_value.write("            #endif\n")
       get_pid_value.write("            case ")
-      get_pid_value.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
+      get_pid_value.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
       get_pid_value.write("        #endif\n\n")
   get_pid_value.write("        #ifdef FORMULA_" + eq + "\n")
   get_pid_value.write("            return " + C_FORMULAS[eq] + ";\n")
@@ -213,10 +216,10 @@ get_pid_base_unit.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
   get_pid_base_unit.write("        #if defined(")
-  get_pid_base_unit.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+  get_pid_base_unit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
   get_pid_base_unit.write("            case ")
-  get_pid_base_unit.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
-  get_pid_base_unit.write("                return " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UNITS;\n" )
+  get_pid_base_unit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
+  get_pid_base_unit.write("                return " + pid["mode"] + "_" + format_pid_desc(pid) + "_UNITS;\n" )
   get_pid_base_unit.write("        #endif\n\n")
 
 get_pid_base_unit.write("            default:\n")
@@ -247,14 +250,14 @@ get_pid_lower_limit.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
   get_pid_lower_limit.write("        #if defined(")
-  get_pid_lower_limit.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+  get_pid_lower_limit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
   get_pid_lower_limit.write("            case ")
-  get_pid_lower_limit.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
+  get_pid_lower_limit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_lower_limit.write("                switch( unit )\n" )
   get_pid_lower_limit.write("                {\n" )
   for case in pid["units"]:
     get_pid_lower_limit.write("                    case PID_UNITS_" + str(case) + ":\n" )
-    get_pid_lower_limit.write("                        return " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_" + case + "_LOWER;\n\n" )
+    get_pid_lower_limit.write("                        return " + pid["mode"] + "_" + format_pid_desc(pid) + "_" + case + "_LOWER;\n\n" )
   get_pid_lower_limit.write("                    default:\n" )
   get_pid_lower_limit.write("                        return LIMIT_ERROR;\n\n" )
   get_pid_lower_limit.write("                }\n" )
@@ -288,14 +291,14 @@ get_pid_upper_limit.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
   get_pid_upper_limit.write("        #if defined(")
-  get_pid_upper_limit.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+  get_pid_upper_limit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
   get_pid_upper_limit.write("            case ")
-  get_pid_upper_limit.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
+  get_pid_upper_limit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_upper_limit.write("                switch( unit )\n" )
   get_pid_upper_limit.write("                {\n" )
   for case in pid["units"]:
     get_pid_upper_limit.write("                    case PID_UNITS_" + str(case) + ":\n" )
-    get_pid_upper_limit.write("                        return " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_" + case + "_UPPER;\n\n" )
+    get_pid_upper_limit.write("                        return " + pid["mode"] + "_" + format_pid_desc(pid) + "_" + case + "_UPPER;\n\n" )
   get_pid_upper_limit.write("                    default:\n" )
   get_pid_upper_limit.write("                        return LIMIT_ERROR;\n\n" )
   get_pid_upper_limit.write("                }\n" )
@@ -329,14 +332,14 @@ get_pid_precision.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
   get_pid_precision.write("        #if defined(")
-  get_pid_precision.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+  get_pid_precision.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
   get_pid_precision.write("            case ")
-  get_pid_precision.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
+  get_pid_precision.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_precision.write("                switch( unit )\n" )
   get_pid_precision.write("                {\n" )
   for case in pid["units"]:
     get_pid_precision.write("                    case PID_UNITS_" + str(case) + ":\n" )
-    get_pid_precision.write("                        return " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_" + case + "_PRECISION;\n\n" )
+    get_pid_precision.write("                        return " + pid["mode"] + "_" + format_pid_desc(pid) + "_" + case + "_PRECISION;\n\n" )
   get_pid_precision.write("                    default:\n" )
   get_pid_precision.write("                        return 0;\n\n" )
   get_pid_precision.write("                }\n" )
@@ -372,10 +375,10 @@ lookup_payload_length.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
   lookup_payload_length.write("        #if defined(")
-  lookup_payload_length.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+  lookup_payload_length.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
   lookup_payload_length.write("            case ")
-  lookup_payload_length.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
-  lookup_payload_length.write("                return " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_LEN;\n" )
+  lookup_payload_length.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
+  lookup_payload_length.write("                return " + pid["mode"] + "_" + format_pid_desc(pid) + "_LEN;\n" )
   lookup_payload_length.write("        #endif\n\n")
 
 lookup_payload_length.write("            default:\n")
@@ -410,10 +413,10 @@ get_pid_label.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
   get_pid_label.write("        #if defined(")
-  get_pid_label.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+  get_pid_label.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
   get_pid_label.write("            case ")
-  get_pid_label.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
-  get_pid_label.write("                memcpy(label, " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_LABEL, sizeof(" + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_LABEL));\n" )
+  get_pid_label.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
+  get_pid_label.write("                memcpy(label, " + pid["mode"] + "_" + format_pid_desc(pid) + "_LABEL, sizeof(" + pid["mode"] + "_" + format_pid_desc(pid) + "_LABEL));\n" )
   get_pid_label.write("                break;\n" )
   get_pid_label.write("        #endif\n\n")
 
@@ -450,10 +453,10 @@ get_pid_desc.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
   get_pid_desc.write("        #if defined(")
-  get_pid_desc.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+  get_pid_desc.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
   get_pid_desc.write("            case ")
-  get_pid_desc.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
-  get_pid_desc.write("                memcpy(desc, " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_DESC, sizeof(" + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_DESC));\n" )
+  get_pid_desc.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
+  get_pid_desc.write("                memcpy(desc, " + pid["mode"] + "_" + format_pid_desc(pid) + "_DESC, sizeof(" + pid["mode"] + "_" + format_pid_desc(pid) + "_DESC));\n" )
   get_pid_desc.write("                break;\n" )
   get_pid_desc.write("        #endif\n\n")
 
@@ -483,10 +486,10 @@ get_pid_by_string.write( "uint32_t get_pid_by_string(const char *str)\n" )
 get_pid_by_string.write( "{\n" )
 for pid in data["Ford_Focus_STRS_2013_2018"]:
     get_pid_by_string.write("    #if defined(")
-    get_pid_by_string.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+    get_pid_by_string.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
     get_pid_by_string.write("        if(strcmp(str, ")
-    get_pid_by_string.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_DESC) == 0) ")
-    get_pid_by_string.write("return " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID;\n" )
+    get_pid_by_string.write(pid["mode"] + "_" + format_pid_desc(pid) + "_DESC) == 0) ")
+    get_pid_by_string.write("return " + pid["mode"] + "_" + format_pid_desc(pid) + "_UUID;\n" )
     get_pid_by_string.write("    #endif\n\n")
 get_pid_by_string.write( "    return 0x00000000;\n" )
 get_pid_by_string.write( "}\n" )
@@ -513,10 +516,10 @@ get_pid_header.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
     get_pid_header.write("        #if defined(")
-    get_pid_header.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+    get_pid_header.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
     get_pid_header.write("            case ")
-    get_pid_header.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
-    get_pid_header.write("                return " + pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_HEADER;\n" )
+    get_pid_header.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
+    get_pid_header.write("                return " + pid["mode"] + "_" + format_pid_desc(pid) + "_HEADER;\n" )
     get_pid_header.write("        #endif\n\n")
 
 get_pid_header.write("            default:\n")
@@ -569,9 +572,9 @@ get_pid_units.write( "    {\n" )
 
 for pid in data["Ford_Focus_STRS_2013_2018"]:
     get_pid_units.write("        #if defined(")
-    get_pid_units.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
+    get_pid_units.write(pid["mode"] + "_" + format_pid_desc(pid) + "_SUPPORTED) || !defined(LIMIT_PIDS)\n" )
     get_pid_units.write("            case ")
-    get_pid_units.write(pid["mode"] + "_" + pid["desc"].replace(' ', '_').replace('-', '').upper() + "_UUID:\n")
+    get_pid_units.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
     get_pid_units.write("                *units = " + format_name(pid["units"]) + ";\n" )
     get_pid_units.write("                return sizeof(" + format_name(pid["units"]) + ") / sizeof(PID_UNITS);\n" )
     get_pid_units.write("        #endif\n\n")
@@ -596,7 +599,7 @@ get_pid_list.write( code_header + "\n\n" )
 get_pid_list.write( "#include \"lib_pid.h\"\n\n" )
 get_pid_list.write( "const uint32_t pid_list[] = {\n" )
 for pid in data["Ford_Focus_STRS_2013_2018"]:
-  desc = pid["desc"].replace(" ", "_").replace("-", "").upper()
+  desc = format_pid_desc(pid)
   mode = pid["mode"].upper()
   get_pid_list.write(f'    {mode}_{desc}_UUID,\n')
 get_pid_list.write( "};\n\n" )
@@ -608,8 +611,8 @@ get_pid_list.write( "uint32_t get_pid_list_size(void) { return sizeof(pid_list) 
 ############################################W
 readme = open("../readme.md", "w")
 
-readme.write("| Parameter | Type | Description |\n")
-readme.write("| :-- | :--: | :-- |\n")
+readme.write("| Type | Description |\n")
+readme.write("| :--: | :-- |\n")
 
 with open('digital-dash-firmware.json') as f:
   data = json.load(f)
@@ -626,7 +629,7 @@ for pid in data["Ford_Focus_STRS_2013_2018"]:
     elif pid["mode"] == "CALC1":
       mode = "Custom"
 
-    readme.write("| " + pid["shortDesc"] + " | " + mode + " | " + pid["desc"] + " |\n")
+    readme.write("| " + mode + " | " + pid["desc"] + " |\n")
 
 
 readme.close()

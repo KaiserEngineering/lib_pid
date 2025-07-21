@@ -31,39 +31,39 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
 {
     switch( pid_uuid )
     {
-        #if defined(MODE1_COMMANDED_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_COMMANDED_AIR_TO_FUEL_RATIO_UUID:
-                return MODE1_COMMANDED_AIR_TO_FUEL_RATIO_UNITS;
+        #if defined(MODE1_COMMANDED_AIR_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_COMMANDED_AIR_FUEL_RATIO_UUID:
+                return MODE1_COMMANDED_AIR_FUEL_RATIO_UNITS;
         #endif
 
-        #if defined(MODE1_CALCULATED_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_CALCULATED_ENGINE_LOAD_UUID:
-                return MODE1_CALCULATED_ENGINE_LOAD_UNITS;
+        #if defined(MODE1_CALC_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_CALC_ENGINE_LOAD_UUID:
+                return MODE1_CALC_ENGINE_LOAD_UNITS;
         #endif
 
-        #if defined(MODE1_ENGINE_COOLANT_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ENGINE_COOLANT_TEMPERATURE_UUID:
-                return MODE1_ENGINE_COOLANT_TEMPERATURE_UNITS;
+        #if defined(MODE1_ENGINE_COOLANT_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_ENGINE_COOLANT_TEMP_UUID:
+                return MODE1_ENGINE_COOLANT_TEMP_UNITS;
         #endif
 
-        #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_UUID:
-                return MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_UNITS;
+        #if defined(MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_UUID:
+                return MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_UNITS;
         #endif
 
-        #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_LONG_TERM_FUEL_TRIM__BANK_1_UUID:
-                return MODE1_LONG_TERM_FUEL_TRIM__BANK_1_UNITS;
+        #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_LONG_TERM_FUEL_TRIM_BANK_1_UUID:
+                return MODE1_LONG_TERM_FUEL_TRIM_BANK_1_UNITS;
         #endif
 
-        #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_UUID:
-                return MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_UNITS;
+        #if defined(MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_UUID:
+                return MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_UNITS;
         #endif
 
-        #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_LONG_TERM_FUEL_TRIM__BANK_2_UUID:
-                return MODE1_LONG_TERM_FUEL_TRIM__BANK_2_UNITS;
+        #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_LONG_TERM_FUEL_TRIM_BANK_2_UUID:
+                return MODE1_LONG_TERM_FUEL_TRIM_BANK_2_UNITS;
         #endif
 
         #if defined(MODE1_FUEL_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -71,14 +71,19 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
                 return MODE1_FUEL_PRESSURE_UNITS;
         #endif
 
-        #if defined(MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_UUID:
-                return MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_UNITS;
+        #if defined(MODE1_MANIFOLD_ABS_PRESS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_MANIFOLD_ABS_PRESS_UUID:
+                return MODE1_MANIFOLD_ABS_PRESS_UNITS;
         #endif
 
         #if defined(MODE1_ENGINE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
             case MODE1_ENGINE_SPEED_UUID:
                 return MODE1_ENGINE_SPEED_UNITS;
+        #endif
+
+        #if defined(SNIFF_ENGINE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
+            case SNIFF_ENGINE_SPEED_UUID:
+                return SNIFF_ENGINE_SPEED_UNITS;
         #endif
 
         #if defined(MODE1_VEHICLE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -91,14 +96,14 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
                 return MODE1_TIMING_ADVANCE_UNITS;
         #endif
 
-        #if defined(MODE1_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_INTAKE_AIR_TEMPERATURE_UUID:
-                return MODE1_INTAKE_AIR_TEMPERATURE_UNITS;
+        #if defined(MODE1_INTAKE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_INTAKE_AIR_TEMP_UUID:
+                return MODE1_INTAKE_AIR_TEMP_UNITS;
         #endif
 
-        #if defined(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_UUID:
-                return MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_UNITS;
+        #if defined(MODE1_MASS_AIR_FLOW_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_MASS_AIR_FLOW_UUID:
+                return MODE1_MASS_AIR_FLOW_UNITS;
         #endif
 
         #if defined(MODE1_THROTTLE_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -106,59 +111,59 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
                 return MODE1_THROTTLE_POSITION_UNITS;
         #endif
 
-        #if defined(MODE1_OXYGEN_SENSOR_2_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_OXYGEN_SENSOR_2_VOLTAGE_UUID:
-                return MODE1_OXYGEN_SENSOR_2_VOLTAGE_UNITS;
+        #if defined(MODE1_O2_SENSOR_2_VOLTS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_O2_SENSOR_2_VOLTS_UUID:
+                return MODE1_O2_SENSOR_2_VOLTS_UNITS;
         #endif
 
-        #if defined(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_UUID:
-                return MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_UNITS;
+        #if defined(MODE1_FUEL_RAIL_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_FUEL_RAIL_PRESSURE_UUID:
+                return MODE1_FUEL_RAIL_PRESSURE_UNITS;
         #endif
 
-        #if defined(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_UUID:
-                return MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_UNITS;
+        #if defined(MODE1_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_BAROMETRIC_PRESSURE_UUID:
+                return MODE1_BAROMETRIC_PRESSURE_UNITS;
         #endif
 
-        #if defined(MODE1_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_AIR_TO_FUEL_RATIO_UUID:
-                return MODE1_AIR_TO_FUEL_RATIO_UNITS;
+        #if defined(MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_UUID:
+                return MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_UNITS;
         #endif
 
-        #if defined(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_UUID:
-                return MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_UNITS;
+        #if defined(MODE1_ACCEL_PEDAL_POS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_ACCEL_PEDAL_POS_UUID:
+                return MODE1_ACCEL_PEDAL_POS_UNITS;
         #endif
 
-        #if defined(MODE1_ENGINE_OIL_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ENGINE_OIL_TEMPERATURE_UUID:
-                return MODE1_ENGINE_OIL_TEMPERATURE_UNITS;
+        #if defined(MODE1_OIL_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_OIL_TEMP_UUID:
+                return MODE1_OIL_TEMP_UNITS;
         #endif
 
-        #if defined(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UUID:
-                return MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UNITS;
+        #if defined(MODE1_BOOST_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_BOOST_UUID:
+                return MODE1_BOOST_UNITS;
         #endif
 
-        #if defined(MODE22_LATERAL_G_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LATERAL_G_UUID:
-                return MODE22_LATERAL_G_UNITS;
+        #if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LATERAL_ACCELERATION_UUID:
+                return MODE22_LATERAL_ACCELERATION_UNITS;
         #endif
 
-        #if defined(MODE22_LONGITUDE_G_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LONGITUDE_G_UUID:
-                return MODE22_LONGITUDE_G_UNITS;
+        #if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LONGITUDINAL_ACCELERATION_UUID:
+                return MODE22_LONGITUDINAL_ACCELERATION_UNITS;
         #endif
 
-        #if defined(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_UUID:
-                return MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_UNITS;
+        #if defined(MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UUID:
+                return MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UNITS;
         #endif
 
-        #if defined(MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_UUID:
-                return MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_UNITS;
+        #if defined(MODE22_LP_FUEL_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LP_FUEL_DUTY_CYCLE_UUID:
+                return MODE22_LP_FUEL_DUTY_CYCLE_UNITS;
         #endif
 
         #if defined(MODE22_IGNITION_CORRECTION_CYLINDER_1_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -176,19 +181,19 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
                 return MODE22_VCT_EXHAUST_CAM_SOLENOID_DUTY_CYCLE_UNITS;
         #endif
 
-        #if defined(MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_INTAKE_AIR_TEMPERATURE_UUID:
-                return MODE22_INTAKE_AIR_TEMPERATURE_UNITS;
+        #if defined(MODE22_INTAKE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_INTAKE_AIR_TEMP_UUID:
+                return MODE22_INTAKE_AIR_TEMP_UNITS;
         #endif
 
-        #if defined(MODE22_CHARGE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_CHARGE_AIR_TEMPERATURE_UUID:
-                return MODE22_CHARGE_AIR_TEMPERATURE_UNITS;
+        #if defined(MODE22_CHARGE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_CHARGE_AIR_TEMP_UUID:
+                return MODE22_CHARGE_AIR_TEMP_UNITS;
         #endif
 
-        #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_MANIFOLD_CHARGE_TEMPERATURE_UUID:
-                return MODE22_MANIFOLD_CHARGE_TEMPERATURE_UNITS;
+        #if defined(MODE22_MANIFOLD_CHARGE_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
+                return MODE22_MANIFOLD_CHARGE_TEMP_UNITS;
         #endif
 
         #if defined(MODE22_OCTANE_ADJUST_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -196,14 +201,14 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
                 return MODE22_OCTANE_ADJUST_RATIO_UNITS;
         #endif
 
-        #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_AMBIENT_AIR_TEMPERATURE_UUID:
-                return MODE22_AMBIENT_AIR_TEMPERATURE_UNITS;
+        #if defined(MODE22_AMBIENT_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_AMBIENT_AIR_TEMP_UUID:
+                return MODE22_AMBIENT_AIR_TEMP_UNITS;
         #endif
 
-        #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_ENGINE_LOAD_PERCENTAGE_UUID:
-                return MODE22_ENGINE_LOAD_PERCENTAGE_UNITS;
+        #if defined(MODE22_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_ENGINE_LOAD_UUID:
+                return MODE22_ENGINE_LOAD_UNITS;
         #endif
 
         #if defined(MODE22_CATALYTIC_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -211,9 +216,9 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
                 return MODE22_CATALYTIC_TEMPERATURE_UNITS;
         #endif
 
-        #if defined(SNIFF_GAUGE_BRIGHTNESS_SUPPORTED) || !defined(LIMIT_PIDS)
-            case SNIFF_GAUGE_BRIGHTNESS_UUID:
-                return SNIFF_GAUGE_BRIGHTNESS_UNITS;
+        #if defined(SNIFF_GAUGE_ILLUM_LEVEL_SUPPORTED) || !defined(LIMIT_PIDS)
+            case SNIFF_GAUGE_ILLUM_LEVEL_UUID:
+                return SNIFF_GAUGE_ILLUM_LEVEL_UNITS;
         #endif
 
         #if defined(SNIFF_VEHICLE_STATUS_SUPPORTED) || !defined(LIMIT_PIDS)
@@ -271,9 +276,9 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
                 return SNIFF_CRUISE_CONTROL_CAN_BUTTON_UNITS;
         #endif
 
-        #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UUID:
-                return CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UNITS;
+        #if defined(CALC1_BOOST_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
+            case CALC1_BOOST_VACUUM_UUID:
+                return CALC1_BOOST_VACUUM_UNITS;
         #endif
 
         #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)

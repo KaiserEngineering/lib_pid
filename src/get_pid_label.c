@@ -34,45 +34,45 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
 
     switch( pid_uuid )
     {
-        #if defined(MODE1_COMMANDED_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_COMMANDED_AIR_TO_FUEL_RATIO_UUID:
-                memcpy(label, MODE1_COMMANDED_AIR_TO_FUEL_RATIO_LABEL, sizeof(MODE1_COMMANDED_AIR_TO_FUEL_RATIO_LABEL));
+        #if defined(MODE1_COMMANDED_AIR_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_COMMANDED_AIR_FUEL_RATIO_UUID:
+                memcpy(label, MODE1_COMMANDED_AIR_FUEL_RATIO_LABEL, sizeof(MODE1_COMMANDED_AIR_FUEL_RATIO_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_CALCULATED_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_CALCULATED_ENGINE_LOAD_UUID:
-                memcpy(label, MODE1_CALCULATED_ENGINE_LOAD_LABEL, sizeof(MODE1_CALCULATED_ENGINE_LOAD_LABEL));
+        #if defined(MODE1_CALC_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_CALC_ENGINE_LOAD_UUID:
+                memcpy(label, MODE1_CALC_ENGINE_LOAD_LABEL, sizeof(MODE1_CALC_ENGINE_LOAD_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_ENGINE_COOLANT_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ENGINE_COOLANT_TEMPERATURE_UUID:
-                memcpy(label, MODE1_ENGINE_COOLANT_TEMPERATURE_LABEL, sizeof(MODE1_ENGINE_COOLANT_TEMPERATURE_LABEL));
+        #if defined(MODE1_ENGINE_COOLANT_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_ENGINE_COOLANT_TEMP_UUID:
+                memcpy(label, MODE1_ENGINE_COOLANT_TEMP_LABEL, sizeof(MODE1_ENGINE_COOLANT_TEMP_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_UUID:
-                memcpy(label, MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_LABEL, sizeof(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_LABEL));
+        #if defined(MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_UUID:
+                memcpy(label, MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_LABEL, sizeof(MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_LONG_TERM_FUEL_TRIM__BANK_1_UUID:
-                memcpy(label, MODE1_LONG_TERM_FUEL_TRIM__BANK_1_LABEL, sizeof(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_LABEL));
+        #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_LONG_TERM_FUEL_TRIM_BANK_1_UUID:
+                memcpy(label, MODE1_LONG_TERM_FUEL_TRIM_BANK_1_LABEL, sizeof(MODE1_LONG_TERM_FUEL_TRIM_BANK_1_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_UUID:
-                memcpy(label, MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_LABEL, sizeof(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_LABEL));
+        #if defined(MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_UUID:
+                memcpy(label, MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_LABEL, sizeof(MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_LONG_TERM_FUEL_TRIM__BANK_2_UUID:
-                memcpy(label, MODE1_LONG_TERM_FUEL_TRIM__BANK_2_LABEL, sizeof(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_LABEL));
+        #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_LONG_TERM_FUEL_TRIM_BANK_2_UUID:
+                memcpy(label, MODE1_LONG_TERM_FUEL_TRIM_BANK_2_LABEL, sizeof(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_LABEL));
                 break;
         #endif
 
@@ -82,15 +82,21 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
                 break;
         #endif
 
-        #if defined(MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_UUID:
-                memcpy(label, MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_LABEL, sizeof(MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_LABEL));
+        #if defined(MODE1_MANIFOLD_ABS_PRESS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_MANIFOLD_ABS_PRESS_UUID:
+                memcpy(label, MODE1_MANIFOLD_ABS_PRESS_LABEL, sizeof(MODE1_MANIFOLD_ABS_PRESS_LABEL));
                 break;
         #endif
 
         #if defined(MODE1_ENGINE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
             case MODE1_ENGINE_SPEED_UUID:
                 memcpy(label, MODE1_ENGINE_SPEED_LABEL, sizeof(MODE1_ENGINE_SPEED_LABEL));
+                break;
+        #endif
+
+        #if defined(SNIFF_ENGINE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
+            case SNIFF_ENGINE_SPEED_UUID:
+                memcpy(label, SNIFF_ENGINE_SPEED_LABEL, sizeof(SNIFF_ENGINE_SPEED_LABEL));
                 break;
         #endif
 
@@ -106,15 +112,15 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
                 break;
         #endif
 
-        #if defined(MODE1_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_INTAKE_AIR_TEMPERATURE_UUID:
-                memcpy(label, MODE1_INTAKE_AIR_TEMPERATURE_LABEL, sizeof(MODE1_INTAKE_AIR_TEMPERATURE_LABEL));
+        #if defined(MODE1_INTAKE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_INTAKE_AIR_TEMP_UUID:
+                memcpy(label, MODE1_INTAKE_AIR_TEMP_LABEL, sizeof(MODE1_INTAKE_AIR_TEMP_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_UUID:
-                memcpy(label, MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_LABEL, sizeof(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_LABEL));
+        #if defined(MODE1_MASS_AIR_FLOW_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_MASS_AIR_FLOW_UUID:
+                memcpy(label, MODE1_MASS_AIR_FLOW_LABEL, sizeof(MODE1_MASS_AIR_FLOW_LABEL));
                 break;
         #endif
 
@@ -124,69 +130,69 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
                 break;
         #endif
 
-        #if defined(MODE1_OXYGEN_SENSOR_2_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_OXYGEN_SENSOR_2_VOLTAGE_UUID:
-                memcpy(label, MODE1_OXYGEN_SENSOR_2_VOLTAGE_LABEL, sizeof(MODE1_OXYGEN_SENSOR_2_VOLTAGE_LABEL));
+        #if defined(MODE1_O2_SENSOR_2_VOLTS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_O2_SENSOR_2_VOLTS_UUID:
+                memcpy(label, MODE1_O2_SENSOR_2_VOLTS_LABEL, sizeof(MODE1_O2_SENSOR_2_VOLTS_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_UUID:
-                memcpy(label, MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_LABEL, sizeof(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_LABEL));
+        #if defined(MODE1_FUEL_RAIL_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_FUEL_RAIL_PRESSURE_UUID:
+                memcpy(label, MODE1_FUEL_RAIL_PRESSURE_LABEL, sizeof(MODE1_FUEL_RAIL_PRESSURE_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_UUID:
-                memcpy(label, MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_LABEL, sizeof(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_LABEL));
+        #if defined(MODE1_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_BAROMETRIC_PRESSURE_UUID:
+                memcpy(label, MODE1_BAROMETRIC_PRESSURE_LABEL, sizeof(MODE1_BAROMETRIC_PRESSURE_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_AIR_TO_FUEL_RATIO_UUID:
-                memcpy(label, MODE1_AIR_TO_FUEL_RATIO_LABEL, sizeof(MODE1_AIR_TO_FUEL_RATIO_LABEL));
+        #if defined(MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_UUID:
+                memcpy(label, MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_LABEL, sizeof(MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_UUID:
-                memcpy(label, MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_LABEL, sizeof(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_LABEL));
+        #if defined(MODE1_ACCEL_PEDAL_POS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_ACCEL_PEDAL_POS_UUID:
+                memcpy(label, MODE1_ACCEL_PEDAL_POS_LABEL, sizeof(MODE1_ACCEL_PEDAL_POS_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_ENGINE_OIL_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ENGINE_OIL_TEMPERATURE_UUID:
-                memcpy(label, MODE1_ENGINE_OIL_TEMPERATURE_LABEL, sizeof(MODE1_ENGINE_OIL_TEMPERATURE_LABEL));
+        #if defined(MODE1_OIL_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_OIL_TEMP_UUID:
+                memcpy(label, MODE1_OIL_TEMP_LABEL, sizeof(MODE1_OIL_TEMP_LABEL));
                 break;
         #endif
 
-        #if defined(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UUID:
-                memcpy(label, MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_LABEL, sizeof(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_LABEL));
+        #if defined(MODE1_BOOST_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_BOOST_UUID:
+                memcpy(label, MODE1_BOOST_LABEL, sizeof(MODE1_BOOST_LABEL));
                 break;
         #endif
 
-        #if defined(MODE22_LATERAL_G_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LATERAL_G_UUID:
-                memcpy(label, MODE22_LATERAL_G_LABEL, sizeof(MODE22_LATERAL_G_LABEL));
+        #if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LATERAL_ACCELERATION_UUID:
+                memcpy(label, MODE22_LATERAL_ACCELERATION_LABEL, sizeof(MODE22_LATERAL_ACCELERATION_LABEL));
                 break;
         #endif
 
-        #if defined(MODE22_LONGITUDE_G_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LONGITUDE_G_UUID:
-                memcpy(label, MODE22_LONGITUDE_G_LABEL, sizeof(MODE22_LONGITUDE_G_LABEL));
+        #if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LONGITUDINAL_ACCELERATION_UUID:
+                memcpy(label, MODE22_LONGITUDINAL_ACCELERATION_LABEL, sizeof(MODE22_LONGITUDINAL_ACCELERATION_LABEL));
                 break;
         #endif
 
-        #if defined(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_UUID:
-                memcpy(label, MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_LABEL, sizeof(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_LABEL));
+        #if defined(MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UUID:
+                memcpy(label, MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_LABEL, sizeof(MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_LABEL));
                 break;
         #endif
 
-        #if defined(MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_UUID:
-                memcpy(label, MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_LABEL, sizeof(MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_LABEL));
+        #if defined(MODE22_LP_FUEL_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LP_FUEL_DUTY_CYCLE_UUID:
+                memcpy(label, MODE22_LP_FUEL_DUTY_CYCLE_LABEL, sizeof(MODE22_LP_FUEL_DUTY_CYCLE_LABEL));
                 break;
         #endif
 
@@ -208,21 +214,21 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
                 break;
         #endif
 
-        #if defined(MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_INTAKE_AIR_TEMPERATURE_UUID:
-                memcpy(label, MODE22_INTAKE_AIR_TEMPERATURE_LABEL, sizeof(MODE22_INTAKE_AIR_TEMPERATURE_LABEL));
+        #if defined(MODE22_INTAKE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_INTAKE_AIR_TEMP_UUID:
+                memcpy(label, MODE22_INTAKE_AIR_TEMP_LABEL, sizeof(MODE22_INTAKE_AIR_TEMP_LABEL));
                 break;
         #endif
 
-        #if defined(MODE22_CHARGE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_CHARGE_AIR_TEMPERATURE_UUID:
-                memcpy(label, MODE22_CHARGE_AIR_TEMPERATURE_LABEL, sizeof(MODE22_CHARGE_AIR_TEMPERATURE_LABEL));
+        #if defined(MODE22_CHARGE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_CHARGE_AIR_TEMP_UUID:
+                memcpy(label, MODE22_CHARGE_AIR_TEMP_LABEL, sizeof(MODE22_CHARGE_AIR_TEMP_LABEL));
                 break;
         #endif
 
-        #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_MANIFOLD_CHARGE_TEMPERATURE_UUID:
-                memcpy(label, MODE22_MANIFOLD_CHARGE_TEMPERATURE_LABEL, sizeof(MODE22_MANIFOLD_CHARGE_TEMPERATURE_LABEL));
+        #if defined(MODE22_MANIFOLD_CHARGE_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
+                memcpy(label, MODE22_MANIFOLD_CHARGE_TEMP_LABEL, sizeof(MODE22_MANIFOLD_CHARGE_TEMP_LABEL));
                 break;
         #endif
 
@@ -232,15 +238,15 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
                 break;
         #endif
 
-        #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_AMBIENT_AIR_TEMPERATURE_UUID:
-                memcpy(label, MODE22_AMBIENT_AIR_TEMPERATURE_LABEL, sizeof(MODE22_AMBIENT_AIR_TEMPERATURE_LABEL));
+        #if defined(MODE22_AMBIENT_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_AMBIENT_AIR_TEMP_UUID:
+                memcpy(label, MODE22_AMBIENT_AIR_TEMP_LABEL, sizeof(MODE22_AMBIENT_AIR_TEMP_LABEL));
                 break;
         #endif
 
-        #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_ENGINE_LOAD_PERCENTAGE_UUID:
-                memcpy(label, MODE22_ENGINE_LOAD_PERCENTAGE_LABEL, sizeof(MODE22_ENGINE_LOAD_PERCENTAGE_LABEL));
+        #if defined(MODE22_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_ENGINE_LOAD_UUID:
+                memcpy(label, MODE22_ENGINE_LOAD_LABEL, sizeof(MODE22_ENGINE_LOAD_LABEL));
                 break;
         #endif
 
@@ -250,9 +256,9 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
                 break;
         #endif
 
-        #if defined(SNIFF_GAUGE_BRIGHTNESS_SUPPORTED) || !defined(LIMIT_PIDS)
-            case SNIFF_GAUGE_BRIGHTNESS_UUID:
-                memcpy(label, SNIFF_GAUGE_BRIGHTNESS_LABEL, sizeof(SNIFF_GAUGE_BRIGHTNESS_LABEL));
+        #if defined(SNIFF_GAUGE_ILLUM_LEVEL_SUPPORTED) || !defined(LIMIT_PIDS)
+            case SNIFF_GAUGE_ILLUM_LEVEL_UUID:
+                memcpy(label, SNIFF_GAUGE_ILLUM_LEVEL_LABEL, sizeof(SNIFF_GAUGE_ILLUM_LEVEL_LABEL));
                 break;
         #endif
 
@@ -322,9 +328,9 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
                 break;
         #endif
 
-        #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UUID:
-                memcpy(label, CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_LABEL, sizeof(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_LABEL));
+        #if defined(CALC1_BOOST_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
+            case CALC1_BOOST_VACUUM_UUID:
+                memcpy(label, CALC1_BOOST_VACUUM_LABEL, sizeof(CALC1_BOOST_VACUUM_LABEL));
                 break;
         #endif
 

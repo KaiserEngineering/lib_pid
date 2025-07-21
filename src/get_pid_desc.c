@@ -34,45 +34,45 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
 
     switch( pid_uuid )
     {
-        #if defined(MODE1_COMMANDED_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_COMMANDED_AIR_TO_FUEL_RATIO_UUID:
-                memcpy(desc, MODE1_COMMANDED_AIR_TO_FUEL_RATIO_DESC, sizeof(MODE1_COMMANDED_AIR_TO_FUEL_RATIO_DESC));
+        #if defined(MODE1_COMMANDED_AIR_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_COMMANDED_AIR_FUEL_RATIO_UUID:
+                memcpy(desc, MODE1_COMMANDED_AIR_FUEL_RATIO_DESC, sizeof(MODE1_COMMANDED_AIR_FUEL_RATIO_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_CALCULATED_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_CALCULATED_ENGINE_LOAD_UUID:
-                memcpy(desc, MODE1_CALCULATED_ENGINE_LOAD_DESC, sizeof(MODE1_CALCULATED_ENGINE_LOAD_DESC));
+        #if defined(MODE1_CALC_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_CALC_ENGINE_LOAD_UUID:
+                memcpy(desc, MODE1_CALC_ENGINE_LOAD_DESC, sizeof(MODE1_CALC_ENGINE_LOAD_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_ENGINE_COOLANT_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ENGINE_COOLANT_TEMPERATURE_UUID:
-                memcpy(desc, MODE1_ENGINE_COOLANT_TEMPERATURE_DESC, sizeof(MODE1_ENGINE_COOLANT_TEMPERATURE_DESC));
+        #if defined(MODE1_ENGINE_COOLANT_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_ENGINE_COOLANT_TEMP_UUID:
+                memcpy(desc, MODE1_ENGINE_COOLANT_TEMP_DESC, sizeof(MODE1_ENGINE_COOLANT_TEMP_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_UUID:
-                memcpy(desc, MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_DESC, sizeof(MODE1_SHORT_TERM_FUEL_TRIM__BANK_1_DESC));
+        #if defined(MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_UUID:
+                memcpy(desc, MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_DESC, sizeof(MODE1_SHORT_TERM_FUEL_TRIM_BANK_1_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_LONG_TERM_FUEL_TRIM__BANK_1_UUID:
-                memcpy(desc, MODE1_LONG_TERM_FUEL_TRIM__BANK_1_DESC, sizeof(MODE1_LONG_TERM_FUEL_TRIM__BANK_1_DESC));
+        #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_LONG_TERM_FUEL_TRIM_BANK_1_UUID:
+                memcpy(desc, MODE1_LONG_TERM_FUEL_TRIM_BANK_1_DESC, sizeof(MODE1_LONG_TERM_FUEL_TRIM_BANK_1_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_UUID:
-                memcpy(desc, MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_DESC, sizeof(MODE1_SHORT_TERM_FUEL_TRIM__BANK_2_DESC));
+        #if defined(MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_UUID:
+                memcpy(desc, MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_DESC, sizeof(MODE1_SHORT_TERM_FUEL_TRIM_BANK_2_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_LONG_TERM_FUEL_TRIM__BANK_2_UUID:
-                memcpy(desc, MODE1_LONG_TERM_FUEL_TRIM__BANK_2_DESC, sizeof(MODE1_LONG_TERM_FUEL_TRIM__BANK_2_DESC));
+        #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_LONG_TERM_FUEL_TRIM_BANK_2_UUID:
+                memcpy(desc, MODE1_LONG_TERM_FUEL_TRIM_BANK_2_DESC, sizeof(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_DESC));
                 break;
         #endif
 
@@ -82,15 +82,21 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 break;
         #endif
 
-        #if defined(MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_UUID:
-                memcpy(desc, MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_DESC, sizeof(MODE1_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE_DESC));
+        #if defined(MODE1_MANIFOLD_ABS_PRESS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_MANIFOLD_ABS_PRESS_UUID:
+                memcpy(desc, MODE1_MANIFOLD_ABS_PRESS_DESC, sizeof(MODE1_MANIFOLD_ABS_PRESS_DESC));
                 break;
         #endif
 
         #if defined(MODE1_ENGINE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
             case MODE1_ENGINE_SPEED_UUID:
                 memcpy(desc, MODE1_ENGINE_SPEED_DESC, sizeof(MODE1_ENGINE_SPEED_DESC));
+                break;
+        #endif
+
+        #if defined(SNIFF_ENGINE_SPEED_SUPPORTED) || !defined(LIMIT_PIDS)
+            case SNIFF_ENGINE_SPEED_UUID:
+                memcpy(desc, SNIFF_ENGINE_SPEED_DESC, sizeof(SNIFF_ENGINE_SPEED_DESC));
                 break;
         #endif
 
@@ -106,15 +112,15 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 break;
         #endif
 
-        #if defined(MODE1_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_INTAKE_AIR_TEMPERATURE_UUID:
-                memcpy(desc, MODE1_INTAKE_AIR_TEMPERATURE_DESC, sizeof(MODE1_INTAKE_AIR_TEMPERATURE_DESC));
+        #if defined(MODE1_INTAKE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_INTAKE_AIR_TEMP_UUID:
+                memcpy(desc, MODE1_INTAKE_AIR_TEMP_DESC, sizeof(MODE1_INTAKE_AIR_TEMP_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_UUID:
-                memcpy(desc, MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_DESC, sizeof(MODE1_MASS_AIR_FLOW_SENSOR_AIR_FLOW_RATE_DESC));
+        #if defined(MODE1_MASS_AIR_FLOW_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_MASS_AIR_FLOW_UUID:
+                memcpy(desc, MODE1_MASS_AIR_FLOW_DESC, sizeof(MODE1_MASS_AIR_FLOW_DESC));
                 break;
         #endif
 
@@ -124,69 +130,69 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 break;
         #endif
 
-        #if defined(MODE1_OXYGEN_SENSOR_2_VOLTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_OXYGEN_SENSOR_2_VOLTAGE_UUID:
-                memcpy(desc, MODE1_OXYGEN_SENSOR_2_VOLTAGE_DESC, sizeof(MODE1_OXYGEN_SENSOR_2_VOLTAGE_DESC));
+        #if defined(MODE1_O2_SENSOR_2_VOLTS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_O2_SENSOR_2_VOLTS_UUID:
+                memcpy(desc, MODE1_O2_SENSOR_2_VOLTS_DESC, sizeof(MODE1_O2_SENSOR_2_VOLTS_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_UUID:
-                memcpy(desc, MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_DESC, sizeof(MODE1_FUEL_RAIL_PRESSURE_RELATIVE_TO_MANIFOLD_VACUUM_DESC));
+        #if defined(MODE1_FUEL_RAIL_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_FUEL_RAIL_PRESSURE_UUID:
+                memcpy(desc, MODE1_FUEL_RAIL_PRESSURE_DESC, sizeof(MODE1_FUEL_RAIL_PRESSURE_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_UUID:
-                memcpy(desc, MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_DESC, sizeof(MODE1_ABSOLUTE_BAROMETRIC_PRESSURE_DESC));
+        #if defined(MODE1_BAROMETRIC_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_BAROMETRIC_PRESSURE_UUID:
+                memcpy(desc, MODE1_BAROMETRIC_PRESSURE_DESC, sizeof(MODE1_BAROMETRIC_PRESSURE_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_AIR_TO_FUEL_RATIO_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_AIR_TO_FUEL_RATIO_UUID:
-                memcpy(desc, MODE1_AIR_TO_FUEL_RATIO_DESC, sizeof(MODE1_AIR_TO_FUEL_RATIO_DESC));
+        #if defined(MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_UUID:
+                memcpy(desc, MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_DESC, sizeof(MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_UUID:
-                memcpy(desc, MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_DESC, sizeof(MODE1_RELATIVE_ACCELERATOR_PEDAL_POSITION_DESC));
+        #if defined(MODE1_ACCEL_PEDAL_POS_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_ACCEL_PEDAL_POS_UUID:
+                memcpy(desc, MODE1_ACCEL_PEDAL_POS_DESC, sizeof(MODE1_ACCEL_PEDAL_POS_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_ENGINE_OIL_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_ENGINE_OIL_TEMPERATURE_UUID:
-                memcpy(desc, MODE1_ENGINE_OIL_TEMPERATURE_DESC, sizeof(MODE1_ENGINE_OIL_TEMPERATURE_DESC));
+        #if defined(MODE1_OIL_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_OIL_TEMP_UUID:
+                memcpy(desc, MODE1_OIL_TEMP_DESC, sizeof(MODE1_OIL_TEMP_DESC));
                 break;
         #endif
 
-        #if defined(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UUID:
-                memcpy(desc, MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_DESC, sizeof(MODE1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_DESC));
+        #if defined(MODE1_BOOST_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE1_BOOST_UUID:
+                memcpy(desc, MODE1_BOOST_DESC, sizeof(MODE1_BOOST_DESC));
                 break;
         #endif
 
-        #if defined(MODE22_LATERAL_G_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LATERAL_G_UUID:
-                memcpy(desc, MODE22_LATERAL_G_DESC, sizeof(MODE22_LATERAL_G_DESC));
+        #if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LATERAL_ACCELERATION_UUID:
+                memcpy(desc, MODE22_LATERAL_ACCELERATION_DESC, sizeof(MODE22_LATERAL_ACCELERATION_DESC));
                 break;
         #endif
 
-        #if defined(MODE22_LONGITUDE_G_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LONGITUDE_G_UUID:
-                memcpy(desc, MODE22_LONGITUDE_G_DESC, sizeof(MODE22_LONGITUDE_G_DESC));
+        #if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LONGITUDINAL_ACCELERATION_UUID:
+                memcpy(desc, MODE22_LONGITUDINAL_ACCELERATION_DESC, sizeof(MODE22_LONGITUDINAL_ACCELERATION_DESC));
                 break;
         #endif
 
-        #if defined(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_UUID:
-                memcpy(desc, MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_DESC, sizeof(MODE22_MANIFOLD_ABSOLUTE_PRESSURE_SENSOR_VOLTAGE_1_DESC));
+        #if defined(MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UUID:
+                memcpy(desc, MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_DESC, sizeof(MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_DESC));
                 break;
         #endif
 
-        #if defined(MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_UUID:
-                memcpy(desc, MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_DESC, sizeof(MODE22_LOW_PRESSURE_FUEL_PUMP_COMMANDED_DUTY_CYCLE_DESC));
+        #if defined(MODE22_LP_FUEL_DUTY_CYCLE_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_LP_FUEL_DUTY_CYCLE_UUID:
+                memcpy(desc, MODE22_LP_FUEL_DUTY_CYCLE_DESC, sizeof(MODE22_LP_FUEL_DUTY_CYCLE_DESC));
                 break;
         #endif
 
@@ -208,21 +214,21 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 break;
         #endif
 
-        #if defined(MODE22_INTAKE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_INTAKE_AIR_TEMPERATURE_UUID:
-                memcpy(desc, MODE22_INTAKE_AIR_TEMPERATURE_DESC, sizeof(MODE22_INTAKE_AIR_TEMPERATURE_DESC));
+        #if defined(MODE22_INTAKE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_INTAKE_AIR_TEMP_UUID:
+                memcpy(desc, MODE22_INTAKE_AIR_TEMP_DESC, sizeof(MODE22_INTAKE_AIR_TEMP_DESC));
                 break;
         #endif
 
-        #if defined(MODE22_CHARGE_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_CHARGE_AIR_TEMPERATURE_UUID:
-                memcpy(desc, MODE22_CHARGE_AIR_TEMPERATURE_DESC, sizeof(MODE22_CHARGE_AIR_TEMPERATURE_DESC));
+        #if defined(MODE22_CHARGE_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_CHARGE_AIR_TEMP_UUID:
+                memcpy(desc, MODE22_CHARGE_AIR_TEMP_DESC, sizeof(MODE22_CHARGE_AIR_TEMP_DESC));
                 break;
         #endif
 
-        #if defined(MODE22_MANIFOLD_CHARGE_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_MANIFOLD_CHARGE_TEMPERATURE_UUID:
-                memcpy(desc, MODE22_MANIFOLD_CHARGE_TEMPERATURE_DESC, sizeof(MODE22_MANIFOLD_CHARGE_TEMPERATURE_DESC));
+        #if defined(MODE22_MANIFOLD_CHARGE_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
+                memcpy(desc, MODE22_MANIFOLD_CHARGE_TEMP_DESC, sizeof(MODE22_MANIFOLD_CHARGE_TEMP_DESC));
                 break;
         #endif
 
@@ -232,15 +238,15 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 break;
         #endif
 
-        #if defined(MODE22_AMBIENT_AIR_TEMPERATURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_AMBIENT_AIR_TEMPERATURE_UUID:
-                memcpy(desc, MODE22_AMBIENT_AIR_TEMPERATURE_DESC, sizeof(MODE22_AMBIENT_AIR_TEMPERATURE_DESC));
+        #if defined(MODE22_AMBIENT_AIR_TEMP_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_AMBIENT_AIR_TEMP_UUID:
+                memcpy(desc, MODE22_AMBIENT_AIR_TEMP_DESC, sizeof(MODE22_AMBIENT_AIR_TEMP_DESC));
                 break;
         #endif
 
-        #if defined(MODE22_ENGINE_LOAD_PERCENTAGE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_ENGINE_LOAD_PERCENTAGE_UUID:
-                memcpy(desc, MODE22_ENGINE_LOAD_PERCENTAGE_DESC, sizeof(MODE22_ENGINE_LOAD_PERCENTAGE_DESC));
+        #if defined(MODE22_ENGINE_LOAD_SUPPORTED) || !defined(LIMIT_PIDS)
+            case MODE22_ENGINE_LOAD_UUID:
+                memcpy(desc, MODE22_ENGINE_LOAD_DESC, sizeof(MODE22_ENGINE_LOAD_DESC));
                 break;
         #endif
 
@@ -250,9 +256,9 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 break;
         #endif
 
-        #if defined(SNIFF_GAUGE_BRIGHTNESS_SUPPORTED) || !defined(LIMIT_PIDS)
-            case SNIFF_GAUGE_BRIGHTNESS_UUID:
-                memcpy(desc, SNIFF_GAUGE_BRIGHTNESS_DESC, sizeof(SNIFF_GAUGE_BRIGHTNESS_DESC));
+        #if defined(SNIFF_GAUGE_ILLUM_LEVEL_SUPPORTED) || !defined(LIMIT_PIDS)
+            case SNIFF_GAUGE_ILLUM_LEVEL_UUID:
+                memcpy(desc, SNIFF_GAUGE_ILLUM_LEVEL_DESC, sizeof(SNIFF_GAUGE_ILLUM_LEVEL_DESC));
                 break;
         #endif
 
@@ -322,9 +328,9 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 break;
         #endif
 
-        #if defined(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_SUPPORTED) || !defined(LIMIT_PIDS)
-            case CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_UUID:
-                memcpy(desc, CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_DESC, sizeof(CALC1_TURBOCHARGER_COMPRESSOR_INLET_PRESSURE_DESC));
+        #if defined(CALC1_BOOST_VACUUM_SUPPORTED) || !defined(LIMIT_PIDS)
+            case CALC1_BOOST_VACUUM_UUID:
+                memcpy(desc, CALC1_BOOST_VACUUM_DESC, sizeof(CALC1_BOOST_VACUUM_DESC));
                 break;
         #endif
 
