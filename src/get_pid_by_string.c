@@ -149,10 +149,6 @@ uint32_t get_pid_by_string(const char *str)
         if(strcmp(str, MODE22_LP_FUEL_DUTY_CYCLE_DESC) == 0) return MODE22_LP_FUEL_DUTY_CYCLE_UUID;
     #endif
 
-    #if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-        if(strcmp(str, MODE22_LATERAL_ACCELERATION_DESC) == 0) return MODE22_LATERAL_ACCELERATION_UUID;
-    #endif
-
     #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
         if(strcmp(str, SNIFF_LATERAL_ACCELERATION_DESC) == 0) return SNIFF_LATERAL_ACCELERATION_UUID;
     #endif
@@ -163,10 +159,6 @@ uint32_t get_pid_by_string(const char *str)
 
     #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
         if(strcmp(str, MODE1_LONG_TERM_FUEL_TRIM_BANK_2_DESC) == 0) return MODE1_LONG_TERM_FUEL_TRIM_BANK_2_UUID;
-    #endif
-
-    #if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-        if(strcmp(str, MODE22_LONGITUDINAL_ACCELERATION_DESC) == 0) return MODE22_LONGITUDINAL_ACCELERATION_UUID;
     #endif
 
     #if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)

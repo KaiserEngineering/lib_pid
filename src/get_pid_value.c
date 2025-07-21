@@ -377,24 +377,6 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
             return (((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)327.68;
         #endif
 
-        #if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-            #ifndef FORMULA_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
-            #define FORMULA_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
-            #endif
-            case MODE22_LATERAL_ACCELERATION_UUID:
-        #endif
-
-        #if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-            #ifndef FORMULA_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
-            #define FORMULA_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
-            #endif
-            case MODE22_LONGITUDINAL_ACCELERATION_UUID:
-        #endif
-
-        #ifdef FORMULA_256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002
-            return (((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) * (float)0.002;
-        #endif
-
         #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_1_SUPPORTED) || !defined(LIMIT_PIDS)
             #ifndef FORMULA_100_OVER_128_TIMES_A_MINUS_100
             #define FORMULA_100_OVER_128_TIMES_A_MINUS_100

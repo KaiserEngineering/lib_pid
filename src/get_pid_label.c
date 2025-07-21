@@ -214,12 +214,6 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
                 break;
         #endif
 
-        #if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LATERAL_ACCELERATION_UUID:
-                memcpy(label, MODE22_LATERAL_ACCELERATION_LABEL, sizeof(MODE22_LATERAL_ACCELERATION_LABEL));
-                break;
-        #endif
-
         #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
             case SNIFF_LATERAL_ACCELERATION_UUID:
                 memcpy(label, SNIFF_LATERAL_ACCELERATION_LABEL, sizeof(SNIFF_LATERAL_ACCELERATION_LABEL));
@@ -235,12 +229,6 @@ uint8_t get_pid_label( uint32_t pid_uuid, char* label )
         #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
             case MODE1_LONG_TERM_FUEL_TRIM_BANK_2_UUID:
                 memcpy(label, MODE1_LONG_TERM_FUEL_TRIM_BANK_2_LABEL, sizeof(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_LABEL));
-                break;
-        #endif
-
-        #if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LONGITUDINAL_ACCELERATION_UUID:
-                memcpy(label, MODE22_LONGITUDINAL_ACCELERATION_LABEL, sizeof(MODE22_LONGITUDINAL_ACCELERATION_LABEL));
                 break;
         #endif
 

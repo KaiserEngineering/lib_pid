@@ -181,11 +181,6 @@ uint16_t get_pid_header( uint32_t pid_uuid )
                 return MODE22_LP_FUEL_DUTY_CYCLE_HEADER;
         #endif
 
-        #if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LATERAL_ACCELERATION_UUID:
-                return MODE22_LATERAL_ACCELERATION_HEADER;
-        #endif
-
         #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
             case SNIFF_LATERAL_ACCELERATION_UUID:
                 return SNIFF_LATERAL_ACCELERATION_HEADER;
@@ -199,11 +194,6 @@ uint16_t get_pid_header( uint32_t pid_uuid )
         #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
             case MODE1_LONG_TERM_FUEL_TRIM_BANK_2_UUID:
                 return MODE1_LONG_TERM_FUEL_TRIM_BANK_2_HEADER;
-        #endif
-
-        #if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LONGITUDINAL_ACCELERATION_UUID:
-                return MODE22_LONGITUDINAL_ACCELERATION_HEADER;
         #endif
 
         #if defined(SNIFF_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)

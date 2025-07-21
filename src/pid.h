@@ -571,23 +571,6 @@
 /**
  * Lateral Acceleration expressed in G_FORCE
  */
-#if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-#define MODE22_LATERAL_ACCELERATION_HEADER                                 (uint16_t)0x7E0
-#define MODE22_LATERAL_ACCELERATION_PID                                    (uint16_t)0x2B0C
-#define MODE22_LATERAL_ACCELERATION_MODE                                   (uint8_t)MODE22
-#define MODE22_LATERAL_ACCELERATION_UUID                                   (uint32_t)((MODE22_LATERAL_ACCELERATION_MODE << 16) | MODE22_LATERAL_ACCELERATION_PID)
-#define MODE22_LATERAL_ACCELERATION_LEN                                    (uint8_t)0x2
-#define MODE22_LATERAL_ACCELERATION_UNITS                                  (uint16_t)PID_UNITS_G_FORCE
-#define MODE22_LATERAL_ACCELERATION_LABEL                                  "Lat Accel"
-#define MODE22_LATERAL_ACCELERATION_DESC                                   "Lateral Acceleration"
-#define MODE22_LATERAL_ACCELERATION_G_FORCE_LOWER                          (float)-1
-#define MODE22_LATERAL_ACCELERATION_G_FORCE_UPPER                          (float)1
-#define MODE22_LATERAL_ACCELERATION_G_FORCE_PRECISION                      (uint8_t)2
-#endif
-
-/**
- * Lateral Acceleration expressed in G_FORCE
- */
 #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
 #define SNIFF_LATERAL_ACCELERATION_HEADER                                 (uint16_t)0x180
 #define SNIFF_LATERAL_ACCELERATION_PID                                    (uint16_t)0x1802
@@ -634,23 +617,6 @@
 #define MODE1_LONG_TERM_FUEL_TRIM_BANK_2_PERCENT_LOWER                    (float)-100
 #define MODE1_LONG_TERM_FUEL_TRIM_BANK_2_PERCENT_UPPER                    (float)99.2
 #define MODE1_LONG_TERM_FUEL_TRIM_BANK_2_PERCENT_PRECISION                (uint8_t)0
-#endif
-
-/**
- * Longitudinal Acceleration expressed in G_FORCE
- */
-#if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-#define MODE22_LONGITUDINAL_ACCELERATION_HEADER                            (uint16_t)0x7E0
-#define MODE22_LONGITUDINAL_ACCELERATION_PID                               (uint16_t)0x2B11
-#define MODE22_LONGITUDINAL_ACCELERATION_MODE                              (uint8_t)MODE22
-#define MODE22_LONGITUDINAL_ACCELERATION_UUID                              (uint32_t)((MODE22_LONGITUDINAL_ACCELERATION_MODE << 16) | MODE22_LONGITUDINAL_ACCELERATION_PID)
-#define MODE22_LONGITUDINAL_ACCELERATION_LEN                               (uint8_t)0x2
-#define MODE22_LONGITUDINAL_ACCELERATION_UNITS                             (uint16_t)PID_UNITS_G_FORCE
-#define MODE22_LONGITUDINAL_ACCELERATION_LABEL                             "Long Accel"
-#define MODE22_LONGITUDINAL_ACCELERATION_DESC                              "Longitudinal Acceleration"
-#define MODE22_LONGITUDINAL_ACCELERATION_G_FORCE_LOWER                     (float)-1
-#define MODE22_LONGITUDINAL_ACCELERATION_G_FORCE_UPPER                     (float)1
-#define MODE22_LONGITUDINAL_ACCELERATION_G_FORCE_PRECISION                 (uint8_t)2
 #endif
 
 /**

@@ -214,12 +214,6 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 break;
         #endif
 
-        #if defined(MODE22_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LATERAL_ACCELERATION_UUID:
-                memcpy(desc, MODE22_LATERAL_ACCELERATION_DESC, sizeof(MODE22_LATERAL_ACCELERATION_DESC));
-                break;
-        #endif
-
         #if defined(SNIFF_LATERAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
             case SNIFF_LATERAL_ACCELERATION_UUID:
                 memcpy(desc, SNIFF_LATERAL_ACCELERATION_DESC, sizeof(SNIFF_LATERAL_ACCELERATION_DESC));
@@ -235,12 +229,6 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
         #if defined(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_SUPPORTED) || !defined(LIMIT_PIDS)
             case MODE1_LONG_TERM_FUEL_TRIM_BANK_2_UUID:
                 memcpy(desc, MODE1_LONG_TERM_FUEL_TRIM_BANK_2_DESC, sizeof(MODE1_LONG_TERM_FUEL_TRIM_BANK_2_DESC));
-                break;
-        #endif
-
-        #if defined(MODE22_LONGITUDINAL_ACCELERATION_SUPPORTED) || !defined(LIMIT_PIDS)
-            case MODE22_LONGITUDINAL_ACCELERATION_UUID:
-                memcpy(desc, MODE22_LONGITUDINAL_ACCELERATION_DESC, sizeof(MODE22_LONGITUDINAL_ACCELERATION_DESC));
                 break;
         #endif
 
