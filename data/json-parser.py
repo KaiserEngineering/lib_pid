@@ -45,6 +45,15 @@ C_FORMULAS = {
 with open('digital-dash-firmware.json') as f:
   data = json.load(f)
 
+# Extract the list for your key
+pid_list = data["Ford_Focus_STRS_2013_2018"]
+
+# Sort by PID (string), e.g., ascending order
+pid_list.sort(key=lambda pid: pid["desc"])
+
+# Update the dict
+data["Ford_Focus_STRS_2013_2018"] = pid_list
+
 header = open("..\src\pid.h", "w")
 
 length = 0
