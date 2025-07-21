@@ -375,9 +375,9 @@
 			]
 		},
 		{
-			"desc"     : "Lateral G",
-			"shortName": "Lat G",
-			"shortDesc": "Lateral G",
+			"desc"     : "Lateral Acceleration",
+			"shortName": "Lat Accel",
+			"shortDesc": "Lateral Acceleration",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "2B0C",
@@ -392,9 +392,9 @@
 			]
 		},
 		{
-			"desc"     : "Longitude G",
-			"shortName": "Long G",
-			"shortDesc": "Longitude G",
+			"desc"     : "Longitude Acceleration",
+			"shortName": "Long Accel",
+			"shortDesc": "Longitude Acceleration",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "2B11",
