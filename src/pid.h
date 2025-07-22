@@ -580,7 +580,7 @@
 #define SNIFF_LATERAL_ACCELERATION_UNITS                                  (uint16_t)PID_UNITS_G_FORCE
 #define SNIFF_LATERAL_ACCELERATION_LABEL                                  "Lat Accel"
 #define SNIFF_LATERAL_ACCELERATION_DESC                                   "Lateral Acceleration"
-#define SNIFF_LATERAL_ACCELERATION_G_FORCE_LOWER                          (float)0
+#define SNIFF_LATERAL_ACCELERATION_G_FORCE_LOWER                          (float)-2
 #define SNIFF_LATERAL_ACCELERATION_G_FORCE_UPPER                          (float)2
 #define SNIFF_LATERAL_ACCELERATION_G_FORCE_PRECISION                      (uint8_t)2
 #endif
@@ -631,7 +631,7 @@
 #define SNIFF_LONGITUDINAL_ACCELERATION_UNITS                             (uint16_t)PID_UNITS_G_FORCE
 #define SNIFF_LONGITUDINAL_ACCELERATION_LABEL                             "Long Accel"
 #define SNIFF_LONGITUDINAL_ACCELERATION_DESC                              "Longitudinal Acceleration"
-#define SNIFF_LONGITUDINAL_ACCELERATION_G_FORCE_LOWER                     (float)0
+#define SNIFF_LONGITUDINAL_ACCELERATION_G_FORCE_LOWER                     (float)-2
 #define SNIFF_LONGITUDINAL_ACCELERATION_G_FORCE_UPPER                     (float)2
 #define SNIFF_LONGITUDINAL_ACCELERATION_G_FORCE_PRECISION                 (uint8_t)2
 #endif
