@@ -235,7 +235,7 @@
 			"min"      : [ 0 ],
 			"max"      : [ 655.35 ],
 			"decimals" : [ 0 ],
-			"formula"  : "A_MINUS_40",
+			"formula"  : "256_TIMES_A_PLUS_B_OVER_100",
 			"vehicles" : [
 				"None"
 			]	

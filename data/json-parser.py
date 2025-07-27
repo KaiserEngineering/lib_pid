@@ -34,6 +34,7 @@ C_FORMULAS = {
     '256_TIMES_A_SIGNED_PLUS_B_OVER_16384'      : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)16384',
     '256_TIMES_A_PLUS_B_OVER_327_DOT_68'        : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)327.68',
     '256_TIMES_A_PLUS_B_OVER_32768'             : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)32768',
+    '256_TIMES_A_PLUS_B_OVER_100'               : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)100',
     '100_OVER_128_TIMES_A_MINUS_100'            : '(((float)100 / (float)128) * (float)(data[OBDII_BYTEA])) - (float)100',
     '256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES': '(((((float)256 * (float)(data[OBDII_BYTEA])) + (float)(data[OBDII_BYTEB])) * (float)2) / (float)65536)',
     'ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B'      : '((float)0.079 * (((float)256 * (float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]))',

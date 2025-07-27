@@ -77,7 +77,6 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
             case MODE1_INTAKE_AIR_TEMP_UUID:
             case MODE22_INTAKE_AIR_TEMP_UUID:
             case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
-            case MODE1_MASS_AIR_FLOW_UUID:
             case MODE1_OIL_TEMP_UUID:
                 return ((float)data[OBDII_BYTEA] - (float)40);
 
@@ -107,6 +106,9 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
 
             case MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UUID:
                 return (((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)1024;
+
+            case MODE1_MASS_AIR_FLOW_UUID:
+                return (((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)100;
 
             case MODE1_O2_SENSOR_2_VOLTS_UUID:
                 return (float)data[OBDII_BYTEA] / (float)255;
