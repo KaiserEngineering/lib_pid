@@ -52,9 +52,6 @@ pid_list = data["Ford_Focus_STRS_2013_2018"]
 # Sort by PID (string), e.g., ascending order
 pid_list.sort(key=lambda pid: pid["desc"])
 
-# Update the dict
-data["Ford_Focus_STRS_2013_2018"] = pid_list
-
 header = open("..\src\pid.h", "w")
 
 length = 0
@@ -62,7 +59,7 @@ length = 0
 def format_pid_desc(pid):
     return pid["desc"].replace(' ', '_').replace('-', '_').replace('(', '').replace(')', '').replace('/', '_').upper()
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
     if len(pid["desc"]) > length:
         length = len(pid["desc"])
 
@@ -77,7 +74,7 @@ print("[CREATE] pid.h")
 header.write( code_header + "\n\n" )
 
 # Iterate through all PIDs
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
 
     # Determine even spacing
     spacing = length - len(pid["desc"])
@@ -175,12 +172,12 @@ get_pid_value.write( "    {\n" )
 
 # Get the formulas for the specific mode
 formulas = []
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
     if pid["formula"] not in formulas:
       formulas.append(pid["formula"])
 
 for eq in formulas:
-  for pid in data["Ford_Focus_STRS_2013_2018"]:
+  for pid in pid_list:
     if pid["formula"] == eq:
       get_pid_value.write("            case ")
       get_pid_value.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
@@ -212,7 +209,7 @@ get_pid_base_unit.write( "{\n" )
 get_pid_base_unit.write( "    switch( pid_uuid )\n" )
 get_pid_base_unit.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
   get_pid_base_unit.write("            case ")
   get_pid_base_unit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_base_unit.write("                return " + pid["mode"] + "_" + format_pid_desc(pid) + "_UNITS;\n\n" )
@@ -243,7 +240,7 @@ get_pid_lower_limit.write( "{\n" )
 get_pid_lower_limit.write( "    switch( pid_uuid )\n" )
 get_pid_lower_limit.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
   get_pid_lower_limit.write("            case ")
   get_pid_lower_limit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_lower_limit.write("                switch( unit )\n" )
@@ -281,7 +278,7 @@ get_pid_upper_limit.write( "{\n" )
 get_pid_upper_limit.write( "    switch( pid_uuid )\n" )
 get_pid_upper_limit.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
   get_pid_upper_limit.write("            case ")
   get_pid_upper_limit.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_upper_limit.write("                switch( unit )\n" )
@@ -319,7 +316,7 @@ get_pid_precision.write( "{\n" )
 get_pid_precision.write( "    switch( pid_uuid )\n" )
 get_pid_precision.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
   get_pid_precision.write("            case ")
   get_pid_precision.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_precision.write("                switch( unit )\n" )
@@ -358,7 +355,7 @@ lookup_payload_length.write( "{\n" )
 lookup_payload_length.write( "    switch( pid_uuid )\n" )
 lookup_payload_length.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
   lookup_payload_length.write("            case ")
   lookup_payload_length.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   lookup_payload_length.write("                return " + pid["mode"] + "_" + format_pid_desc(pid) + "_LEN;\n\n" )
@@ -393,7 +390,7 @@ get_pid_label.write( "        label[i] = '\\0';\n\n" )
 get_pid_label.write( "    switch( pid_uuid )\n" )
 get_pid_label.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
   get_pid_label.write("            case ")
   get_pid_label.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_label.write("                memcpy(label, " + pid["mode"] + "_" + format_pid_desc(pid) + "_LABEL, sizeof(" + pid["mode"] + "_" + format_pid_desc(pid) + "_LABEL));\n" )
@@ -430,7 +427,7 @@ get_pid_desc.write( "        desc[i] = '\\0';\n\n" )
 get_pid_desc.write( "    switch( pid_uuid )\n" )
 get_pid_desc.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
   get_pid_desc.write("            case ")
   get_pid_desc.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
   get_pid_desc.write("                memcpy(desc, " + pid["mode"] + "_" + format_pid_desc(pid) + "_DESC, sizeof(" + pid["mode"] + "_" + format_pid_desc(pid) + "_DESC));\n" )
@@ -460,7 +457,7 @@ get_pid_by_string.write( "#include \"lib_pid.h\"\n\n" )
 # Create the C function
 get_pid_by_string.write( "uint32_t get_pid_by_string(const char *str)\n" )
 get_pid_by_string.write( "{\n" )
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
     get_pid_by_string.write("        if(strcmp(str, ")
     get_pid_by_string.write(pid["mode"] + "_" + format_pid_desc(pid) + "_DESC) == 0) ")
     get_pid_by_string.write("return " + pid["mode"] + "_" + format_pid_desc(pid) + "_UUID;\n\n" )
@@ -487,7 +484,7 @@ get_pid_header.write( "{\n" )
 get_pid_header.write( "    switch( pid_uuid )\n" )
 get_pid_header.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
     get_pid_header.write("            case ")
     get_pid_header.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
     get_pid_header.write("                return " + pid["mode"] + "_" + format_pid_desc(pid) + "_HEADER;\n\n" )
@@ -507,13 +504,9 @@ get_pid_units = open("..\src\get_pid_units.c", "w")
 
 print("[CREATE] get_pid_units.c")
 
-# Load JSON
-with open("digital-dash-firmware.json", "r") as file:
-    data = json.load(file)
-
 # Collect unique unit combinations
 unique_combinations = set()
-for item in data.get("Ford_Focus_STRS_2013_2018", []):
+for item in pid_list:
     units = item.get("units", [])
     if units:
         unique_combinations.add(tuple(units))
@@ -540,7 +533,7 @@ get_pid_units.write( "{\n" )
 get_pid_units.write( "    switch( pid_uuid )\n" )
 get_pid_units.write( "    {\n" )
 
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
     get_pid_units.write("            case ")
     get_pid_units.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
     get_pid_units.write("                *units = " + format_name(pid["units"]) + ";\n" )
@@ -565,7 +558,7 @@ get_pid_list.write( code_header + "\n\n" )
 
 get_pid_list.write( "#include \"lib_pid.h\"\n\n" )
 get_pid_list.write( "const uint32_t pid_list[] = {\n" )
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
   desc = format_pid_desc(pid)
   mode = pid["mode"].upper()
   get_pid_list.write(f'    {mode}_{desc}_UUID,\n')
@@ -581,10 +574,7 @@ readme = open("../readme.md", "w")
 readme.write("| Type | Description |\n")
 readme.write("| :--: | :-- |\n")
 
-with open('digital-dash-firmware.json') as f:
-  data = json.load(f)
-
-for pid in data["Ford_Focus_STRS_2013_2018"]:
+for pid in pid_list:
 
   if pid["vehicles"][0] == "Ford_Focus_STRS_2013_2018":
     if pid["mode"] == "MODE1":
