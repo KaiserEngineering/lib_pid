@@ -79,7 +79,7 @@ uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units )
                 *units = celsius_fahrenheit_list;
                 return sizeof(celsius_fahrenheit_list) / sizeof(PID_UNITS);
 
-            case MODE22_CHARGE_AIR_TEMP_UUID:
+            case MODE22_CHARGE_AIR_TEMP_ST_UUID:
                 *units = celsius_fahrenheit_list;
                 return sizeof(celsius_fahrenheit_list) / sizeof(PID_UNITS);
 
@@ -187,7 +187,7 @@ uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units )
                 *units = volts_list;
                 return sizeof(volts_list) / sizeof(PID_UNITS);
 
-            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
+            case MODE22_MANIFOLD_CHARGE_TEMP_RS_UUID:
                 *units = celsius_fahrenheit_list;
                 return sizeof(celsius_fahrenheit_list) / sizeof(PID_UNITS);
 

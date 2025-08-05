@@ -466,7 +466,7 @@
 		},
 		{
 			"label"    : "CAT",
-			"desc"     : "Charge Air Temp",
+			"desc"     : "Charge Air Temp [ST]",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "0461",
@@ -482,7 +482,7 @@
 		},
 		{
 			"label"    : "MCT",
-			"desc"     : "Manifold Charge Temp",
+			"desc"     : "Manifold Charge Temp [RS]",
 			"id"       : "7E0",
 			"mode"     : "MODE22",
 			"pid"      : "03CA",

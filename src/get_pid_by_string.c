@@ -47,7 +47,7 @@ uint32_t get_pid_by_string(const char *str)
 
         if(strcmp(str, MODE22_CATALYTIC_TEMPERATURE_DESC) == 0) return MODE22_CATALYTIC_TEMPERATURE_UUID;
 
-        if(strcmp(str, MODE22_CHARGE_AIR_TEMP_DESC) == 0) return MODE22_CHARGE_AIR_TEMP_UUID;
+        if(strcmp(str, MODE22_CHARGE_AIR_TEMP_ST_DESC) == 0) return MODE22_CHARGE_AIR_TEMP_ST_UUID;
 
         if(strcmp(str, MODE1_COMMANDED_AIR_FUEL_RATIO_DESC) == 0) return MODE1_COMMANDED_AIR_FUEL_RATIO_UUID;
 
@@ -101,7 +101,7 @@ uint32_t get_pid_by_string(const char *str)
 
         if(strcmp(str, MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_DESC) == 0) return MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UUID;
 
-        if(strcmp(str, MODE22_MANIFOLD_CHARGE_TEMP_DESC) == 0) return MODE22_MANIFOLD_CHARGE_TEMP_UUID;
+        if(strcmp(str, MODE22_MANIFOLD_CHARGE_TEMP_RS_DESC) == 0) return MODE22_MANIFOLD_CHARGE_TEMP_RS_UUID;
 
         if(strcmp(str, MODE1_MASS_AIR_FLOW_DESC) == 0) return MODE1_MASS_AIR_FLOW_UUID;
 

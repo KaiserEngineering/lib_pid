@@ -58,8 +58,8 @@ uint8_t lookup_payload_length( uint32_t pid_uuid )
             case MODE22_CATALYTIC_TEMPERATURE_UUID:
                 return MODE22_CATALYTIC_TEMPERATURE_LEN;
 
-            case MODE22_CHARGE_AIR_TEMP_UUID:
-                return MODE22_CHARGE_AIR_TEMP_LEN;
+            case MODE22_CHARGE_AIR_TEMP_ST_UUID:
+                return MODE22_CHARGE_AIR_TEMP_ST_LEN;
 
             case MODE1_COMMANDED_AIR_FUEL_RATIO_UUID:
                 return MODE1_COMMANDED_AIR_FUEL_RATIO_LEN;
@@ -139,8 +139,8 @@ uint8_t lookup_payload_length( uint32_t pid_uuid )
             case MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UUID:
                 return MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_LEN;
 
-            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
-                return MODE22_MANIFOLD_CHARGE_TEMP_LEN;
+            case MODE22_MANIFOLD_CHARGE_TEMP_RS_UUID:
+                return MODE22_MANIFOLD_CHARGE_TEMP_RS_LEN;
 
             case MODE1_MASS_AIR_FLOW_UUID:
                 return MODE1_MASS_AIR_FLOW_LEN;

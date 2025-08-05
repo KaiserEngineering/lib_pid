@@ -176,22 +176,22 @@
 #define MODE22_CATALYTIC_TEMPERATURE_FAHRENHEIT_PRECISION                  (uint8_t)0
 
 /**
- * Charge Air Temp expressed in CELSIUS
+ * Charge Air Temp [ST] expressed in CELSIUS
  */
-#define MODE22_CHARGE_AIR_TEMP_HEADER                                      (uint16_t)0x7E0
-#define MODE22_CHARGE_AIR_TEMP_PID                                         (uint16_t)0x0461
-#define MODE22_CHARGE_AIR_TEMP_MODE                                        (uint8_t)MODE22
-#define MODE22_CHARGE_AIR_TEMP_UUID                                        (uint32_t)((MODE22_CHARGE_AIR_TEMP_MODE << 16) | MODE22_CHARGE_AIR_TEMP_PID)
-#define MODE22_CHARGE_AIR_TEMP_LEN                                         (uint8_t)0x2
-#define MODE22_CHARGE_AIR_TEMP_UNITS                                       (uint16_t)PID_UNITS_CELSIUS
-#define MODE22_CHARGE_AIR_TEMP_LABEL                                       "CAT"
-#define MODE22_CHARGE_AIR_TEMP_DESC                                        "Charge Air Temp"
-#define MODE22_CHARGE_AIR_TEMP_CELSIUS_LOWER                               (float)-40
-#define MODE22_CHARGE_AIR_TEMP_CELSIUS_UPPER                               (float)200
-#define MODE22_CHARGE_AIR_TEMP_CELSIUS_PRECISION                           (uint8_t)1
-#define MODE22_CHARGE_AIR_TEMP_FAHRENHEIT_LOWER                            (float)-40
-#define MODE22_CHARGE_AIR_TEMP_FAHRENHEIT_UPPER                            (float)400
-#define MODE22_CHARGE_AIR_TEMP_FAHRENHEIT_PRECISION                        (uint8_t)1
+#define MODE22_CHARGE_AIR_TEMP_ST_HEADER                                 (uint16_t)0x7E0
+#define MODE22_CHARGE_AIR_TEMP_ST_PID                                    (uint16_t)0x0461
+#define MODE22_CHARGE_AIR_TEMP_ST_MODE                                   (uint8_t)MODE22
+#define MODE22_CHARGE_AIR_TEMP_ST_UUID                                   (uint32_t)((MODE22_CHARGE_AIR_TEMP_ST_MODE << 16) | MODE22_CHARGE_AIR_TEMP_ST_PID)
+#define MODE22_CHARGE_AIR_TEMP_ST_LEN                                    (uint8_t)0x2
+#define MODE22_CHARGE_AIR_TEMP_ST_UNITS                                  (uint16_t)PID_UNITS_CELSIUS
+#define MODE22_CHARGE_AIR_TEMP_ST_LABEL                                  "CAT"
+#define MODE22_CHARGE_AIR_TEMP_ST_DESC                                   "Charge Air Temp [ST]"
+#define MODE22_CHARGE_AIR_TEMP_ST_CELSIUS_LOWER                          (float)-40
+#define MODE22_CHARGE_AIR_TEMP_ST_CELSIUS_UPPER                          (float)200
+#define MODE22_CHARGE_AIR_TEMP_ST_CELSIUS_PRECISION                      (uint8_t)1
+#define MODE22_CHARGE_AIR_TEMP_ST_FAHRENHEIT_LOWER                       (float)-40
+#define MODE22_CHARGE_AIR_TEMP_ST_FAHRENHEIT_UPPER                       (float)400
+#define MODE22_CHARGE_AIR_TEMP_ST_FAHRENHEIT_PRECISION                   (uint8_t)1
 
 /**
  * Commanded Air-Fuel Ratio expressed in RATIO
@@ -602,22 +602,22 @@
 #define MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_VOLTS_PRECISION            (uint8_t)2
 
 /**
- * Manifold Charge Temp expressed in CELSIUS
+ * Manifold Charge Temp [RS] expressed in CELSIUS
  */
-#define MODE22_MANIFOLD_CHARGE_TEMP_HEADER                                 (uint16_t)0x7E0
-#define MODE22_MANIFOLD_CHARGE_TEMP_PID                                    (uint16_t)0x03CA
-#define MODE22_MANIFOLD_CHARGE_TEMP_MODE                                   (uint8_t)MODE22
-#define MODE22_MANIFOLD_CHARGE_TEMP_UUID                                   (uint32_t)((MODE22_MANIFOLD_CHARGE_TEMP_MODE << 16) | MODE22_MANIFOLD_CHARGE_TEMP_PID)
-#define MODE22_MANIFOLD_CHARGE_TEMP_LEN                                    (uint8_t)0x1
-#define MODE22_MANIFOLD_CHARGE_TEMP_UNITS                                  (uint16_t)PID_UNITS_CELSIUS
-#define MODE22_MANIFOLD_CHARGE_TEMP_LABEL                                  "MCT"
-#define MODE22_MANIFOLD_CHARGE_TEMP_DESC                                   "Manifold Charge Temp"
-#define MODE22_MANIFOLD_CHARGE_TEMP_CELSIUS_LOWER                          (float)-40
-#define MODE22_MANIFOLD_CHARGE_TEMP_CELSIUS_UPPER                          (float)200
-#define MODE22_MANIFOLD_CHARGE_TEMP_CELSIUS_PRECISION                      (uint8_t)0
-#define MODE22_MANIFOLD_CHARGE_TEMP_FAHRENHEIT_LOWER                       (float)-40
-#define MODE22_MANIFOLD_CHARGE_TEMP_FAHRENHEIT_UPPER                       (float)400
-#define MODE22_MANIFOLD_CHARGE_TEMP_FAHRENHEIT_PRECISION                   (uint8_t)1
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_HEADER                            (uint16_t)0x7E0
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_PID                               (uint16_t)0x03CA
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_MODE                              (uint8_t)MODE22
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_UUID                              (uint32_t)((MODE22_MANIFOLD_CHARGE_TEMP_RS_MODE << 16) | MODE22_MANIFOLD_CHARGE_TEMP_RS_PID)
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_LEN                               (uint8_t)0x1
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_UNITS                             (uint16_t)PID_UNITS_CELSIUS
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_LABEL                             "MCT"
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_DESC                              "Manifold Charge Temp [RS]"
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_CELSIUS_LOWER                     (float)-40
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_CELSIUS_UPPER                     (float)200
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_CELSIUS_PRECISION                 (uint8_t)0
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_FAHRENHEIT_LOWER                  (float)-40
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_FAHRENHEIT_UPPER                  (float)400
+#define MODE22_MANIFOLD_CHARGE_TEMP_RS_FAHRENHEIT_PRECISION              (uint8_t)1
 
 /**
  * Mass Air Flow expressed in GRAMSEC

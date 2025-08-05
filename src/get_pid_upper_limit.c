@@ -136,14 +136,14 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit )
                         return LIMIT_ERROR;
 
                 }
-            case MODE22_CHARGE_AIR_TEMP_UUID:
+            case MODE22_CHARGE_AIR_TEMP_ST_UUID:
                 switch( unit )
                 {
                     case PID_UNITS_CELSIUS:
-                        return MODE22_CHARGE_AIR_TEMP_CELSIUS_UPPER;
+                        return MODE22_CHARGE_AIR_TEMP_ST_CELSIUS_UPPER;
 
                     case PID_UNITS_FAHRENHEIT:
-                        return MODE22_CHARGE_AIR_TEMP_FAHRENHEIT_UPPER;
+                        return MODE22_CHARGE_AIR_TEMP_ST_FAHRENHEIT_UPPER;
 
                     default:
                         return LIMIT_ERROR;
@@ -427,14 +427,14 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit )
                         return LIMIT_ERROR;
 
                 }
-            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
+            case MODE22_MANIFOLD_CHARGE_TEMP_RS_UUID:
                 switch( unit )
                 {
                     case PID_UNITS_CELSIUS:
-                        return MODE22_MANIFOLD_CHARGE_TEMP_CELSIUS_UPPER;
+                        return MODE22_MANIFOLD_CHARGE_TEMP_RS_CELSIUS_UPPER;
 
                     case PID_UNITS_FAHRENHEIT:
-                        return MODE22_MANIFOLD_CHARGE_TEMP_FAHRENHEIT_UPPER;
+                        return MODE22_MANIFOLD_CHARGE_TEMP_RS_FAHRENHEIT_UPPER;
 
                     default:
                         return LIMIT_ERROR;

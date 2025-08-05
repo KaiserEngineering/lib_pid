@@ -70,8 +70,8 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 memcpy(desc, MODE22_CATALYTIC_TEMPERATURE_DESC, sizeof(MODE22_CATALYTIC_TEMPERATURE_DESC));
                 break;
 
-            case MODE22_CHARGE_AIR_TEMP_UUID:
-                memcpy(desc, MODE22_CHARGE_AIR_TEMP_DESC, sizeof(MODE22_CHARGE_AIR_TEMP_DESC));
+            case MODE22_CHARGE_AIR_TEMP_ST_UUID:
+                memcpy(desc, MODE22_CHARGE_AIR_TEMP_ST_DESC, sizeof(MODE22_CHARGE_AIR_TEMP_ST_DESC));
                 break;
 
             case MODE1_COMMANDED_AIR_FUEL_RATIO_UUID:
@@ -178,8 +178,8 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
                 memcpy(desc, MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_DESC, sizeof(MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_DESC));
                 break;
 
-            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
-                memcpy(desc, MODE22_MANIFOLD_CHARGE_TEMP_DESC, sizeof(MODE22_MANIFOLD_CHARGE_TEMP_DESC));
+            case MODE22_MANIFOLD_CHARGE_TEMP_RS_UUID:
+                memcpy(desc, MODE22_MANIFOLD_CHARGE_TEMP_RS_DESC, sizeof(MODE22_MANIFOLD_CHARGE_TEMP_RS_DESC));
                 break;
 
             case MODE1_MASS_AIR_FLOW_UUID:

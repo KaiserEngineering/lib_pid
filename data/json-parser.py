@@ -57,7 +57,7 @@ header = open("..\src\pid.h", "w")
 length = 0
 
 def format_pid_desc(pid):
-    return pid["desc"].replace(' ', '_').replace('-', '_').replace('(', '').replace(')', '').replace('/', '_').upper()
+    return pid["desc"].replace(' ', '_').replace('-', '_').replace('(', '').replace(')', '').replace('/', '_').replace(']', '').replace('[', '').upper()
 
 for pid in pid_list:
     if len(pid["desc"]) > length:

@@ -9,7 +9,7 @@
 | Sniff | Brake Pedal Status |
 | Mode 1 | Calc engine load |
 | Mode 22 | Catalytic Temperature |
-| Mode 22 | Charge Air Temp |
+| Mode 22 | Charge Air Temp [ST] |
 | Mode 1 | Commanded Air-Fuel Ratio |
 | Sniff | Cruise Control CAN button |
 | Sniff | Cruise Control OFF button |
@@ -30,7 +30,7 @@
 | Sniff | Longitudinal Acceleration |
 | Mode 1 | Manifold Abs Press |
 | Mode 22 | Manifold Abs Press Sensor 1 Volt |
-| Mode 22 | Manifold Charge Temp |
+| Mode 22 | Manifold Charge Temp [RS] |
 | Mode 1 | O2 Sensor 2 Volts |
 | Mode 22 | Octane Adjust Ratio |
 | Mode 1 | Oil Temp |

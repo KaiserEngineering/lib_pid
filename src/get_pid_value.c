@@ -70,13 +70,13 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
             case MODE22_CATALYTIC_TEMPERATURE_UUID:
                 return ((((float)256 * (float)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)10)-(float)40;
 
-            case MODE22_CHARGE_AIR_TEMP_UUID:
+            case MODE22_CHARGE_AIR_TEMP_ST_UUID:
                 return (((float)256 * (float)(int8_t)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)64;
 
             case MODE1_ENGINE_COOLANT_TEMP_UUID:
             case MODE1_INTAKE_AIR_TEMP_UUID:
             case MODE22_INTAKE_AIR_TEMP_UUID:
-            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
+            case MODE22_MANIFOLD_CHARGE_TEMP_RS_UUID:
             case MODE1_OIL_TEMP_UUID:
                 return ((float)data[OBDII_BYTEA] - (float)40);
 

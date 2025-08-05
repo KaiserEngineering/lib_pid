@@ -58,8 +58,8 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
             case MODE22_CATALYTIC_TEMPERATURE_UUID:
                 return MODE22_CATALYTIC_TEMPERATURE_UNITS;
 
-            case MODE22_CHARGE_AIR_TEMP_UUID:
-                return MODE22_CHARGE_AIR_TEMP_UNITS;
+            case MODE22_CHARGE_AIR_TEMP_ST_UUID:
+                return MODE22_CHARGE_AIR_TEMP_ST_UNITS;
 
             case MODE1_COMMANDED_AIR_FUEL_RATIO_UUID:
                 return MODE1_COMMANDED_AIR_FUEL_RATIO_UNITS;
@@ -139,8 +139,8 @@ PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
             case MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UUID:
                 return MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UNITS;
 
-            case MODE22_MANIFOLD_CHARGE_TEMP_UUID:
-                return MODE22_MANIFOLD_CHARGE_TEMP_UNITS;
+            case MODE22_MANIFOLD_CHARGE_TEMP_RS_UUID:
+                return MODE22_MANIFOLD_CHARGE_TEMP_RS_UNITS;
 
             case MODE1_MASS_AIR_FLOW_UUID:
                 return MODE1_MASS_AIR_FLOW_UNITS;
