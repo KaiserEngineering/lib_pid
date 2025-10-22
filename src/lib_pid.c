@@ -11,6 +11,7 @@ void lib_pid_clear_PID( PTR_PID_DATA ptr_pid )
     ptr_pid->pid_max = INIT_MAX;
     ptr_pid->timestamp = 0;
     ptr_pid->devices = 0;
+    ptr_pid->num_activated = 0;
 }
 
 uint8_t get_mode_by_uuid( uint32_t pid_uuid )

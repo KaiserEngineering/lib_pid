@@ -174,6 +174,9 @@ typedef struct _pid_data {
 	/* Number of attached devices */
 	uint8_t devices;
 
+	/* Number of devices that have enabled the PID */
+	uint8_t num_activated;
+
 } PID_DATA, *PTR_PID_DATA;
 
 
