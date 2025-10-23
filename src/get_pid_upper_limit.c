@@ -73,6 +73,9 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit )
                     case PID_UNITS_PSI:
                         return MODE1_BAROMETRIC_PRESSURE_PSI_UPPER;
 
+                    case PID_UNITS_BAR:
+                        return MODE1_BAROMETRIC_PRESSURE_BAR_UPPER;
+
                     default:
                         return LIMIT_ERROR;
 
@@ -86,6 +89,9 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit )
                     case PID_UNITS_PSI:
                         return MODE1_BOOST_PSI_UPPER;
 
+                    case PID_UNITS_BAR:
+                        return MODE1_BOOST_BAR_UPPER;
+
                     default:
                         return LIMIT_ERROR;
 
@@ -98,6 +104,9 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit )
 
                     case PID_UNITS_PSI:
                         return CALC1_BOOST_VACUUM_PSI_UPPER;
+
+                    case PID_UNITS_BAR:
+                        return CALC1_BOOST_VACUUM_BAR_UPPER;
 
                     default:
                         return LIMIT_ERROR;
@@ -291,6 +300,9 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit )
                     case PID_UNITS_PSI:
                         return MODE1_FUEL_PRESSURE_PSI_UPPER;
 
+                    case PID_UNITS_BAR:
+                        return MODE1_FUEL_PRESSURE_BAR_UPPER;
+
                     default:
                         return LIMIT_ERROR;
 
@@ -303,6 +315,9 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit )
 
                     case PID_UNITS_PSI:
                         return MODE1_FUEL_RAIL_PRESSURE_PSI_UPPER;
+
+                    case PID_UNITS_BAR:
+                        return MODE1_FUEL_RAIL_PRESSURE_BAR_UPPER;
 
                     default:
                         return LIMIT_ERROR;
@@ -412,6 +427,9 @@ float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit )
 
                     case PID_UNITS_PSI:
                         return MODE1_MANIFOLD_ABS_PRESS_PSI_UPPER;
+
+                    case PID_UNITS_BAR:
+                        return MODE1_MANIFOLD_ABS_PRESS_BAR_UPPER;
 
                     default:
                         return LIMIT_ERROR;

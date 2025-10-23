@@ -90,6 +90,9 @@
 #define MODE1_BAROMETRIC_PRESSURE_PSI_LOWER                               (float)0
 #define MODE1_BAROMETRIC_PRESSURE_PSI_UPPER                               (float)36
 #define MODE1_BAROMETRIC_PRESSURE_PSI_PRECISION                           (uint8_t)1
+#define MODE1_BAROMETRIC_PRESSURE_BAR_LOWER                               (float)0
+#define MODE1_BAROMETRIC_PRESSURE_BAR_UPPER                               (float)2.55
+#define MODE1_BAROMETRIC_PRESSURE_BAR_PRECISION                           (uint8_t)2
 
 /**
  * Boost expressed in KPA
@@ -108,6 +111,9 @@
 #define MODE1_BOOST_PSI_LOWER                                             (float)0
 #define MODE1_BOOST_PSI_UPPER                                             (float)36
 #define MODE1_BOOST_PSI_PRECISION                                         (uint8_t)2
+#define MODE1_BOOST_BAR_LOWER                                             (float)0
+#define MODE1_BOOST_BAR_UPPER                                             (float)2.55
+#define MODE1_BOOST_BAR_PRECISION                                         (uint8_t)2
 
 /**
  * Boost/Vacuum expressed in KPA
@@ -126,6 +132,9 @@
 #define CALC1_BOOST_VACUUM_PSI_LOWER                                      (float)-12
 #define CALC1_BOOST_VACUUM_PSI_UPPER                                      (float)24
 #define CALC1_BOOST_VACUUM_PSI_PRECISION                                  (uint8_t)2
+#define CALC1_BOOST_VACUUM_BAR_LOWER                                      (float)-0.82
+#define CALC1_BOOST_VACUUM_BAR_UPPER                                      (float)1.7
+#define CALC1_BOOST_VACUUM_BAR_PRECISION                                  (uint8_t)2
 
 /**
  * Brake Pedal Status expressed in NONE
@@ -408,6 +417,9 @@
 #define MODE1_FUEL_PRESSURE_PSI_LOWER                                     (float)0
 #define MODE1_FUEL_PRESSURE_PSI_UPPER                                     (float)110
 #define MODE1_FUEL_PRESSURE_PSI_PRECISION                                 (uint8_t)1
+#define MODE1_FUEL_PRESSURE_BAR_LOWER                                     (float)0
+#define MODE1_FUEL_PRESSURE_BAR_UPPER                                     (float)7.65
+#define MODE1_FUEL_PRESSURE_BAR_PRECISION                                 (uint8_t)2
 
 /**
  * Fuel Rail Pressure expressed in KPA
@@ -426,6 +438,9 @@
 #define MODE1_FUEL_RAIL_PRESSURE_PSI_LOWER                                (float)0
 #define MODE1_FUEL_RAIL_PRESSURE_PSI_UPPER                                (float)750
 #define MODE1_FUEL_RAIL_PRESSURE_PSI_PRECISION                            (uint8_t)0
+#define MODE1_FUEL_RAIL_PRESSURE_BAR_LOWER                                (float)0
+#define MODE1_FUEL_RAIL_PRESSURE_BAR_UPPER                                (float)51.77
+#define MODE1_FUEL_RAIL_PRESSURE_BAR_PRECISION                            (uint8_t)2
 
 /**
  * Gauge Illum Level expressed in NONE
@@ -585,6 +600,9 @@
 #define MODE1_MANIFOLD_ABS_PRESS_PSI_LOWER                                (float)0
 #define MODE1_MANIFOLD_ABS_PRESS_PSI_UPPER                                (float)36
 #define MODE1_MANIFOLD_ABS_PRESS_PSI_PRECISION                            (uint8_t)1
+#define MODE1_MANIFOLD_ABS_PRESS_BAR_LOWER                                (float)0
+#define MODE1_MANIFOLD_ABS_PRESS_BAR_UPPER                                (float)2.55
+#define MODE1_MANIFOLD_ABS_PRESS_BAR_PRECISION                            (uint8_t)2
 
 /**
  * Manifold Abs Press Sensor 1 Volt expressed in VOLTS

@@ -119,10 +119,10 @@
 			"mode"     : "MODE1",
 			"pid"      : "0A",
 			"dataLen"  : 1,
-			"units"    : [ "KPA", "PSI" ],
-			"min"      : [ 0, 0 ],
-			"max"      : [ 765, 110 ],
-			"decimals" : [ 0, 1 ],
+			"units"    : [ "KPA", "PSI", "BAR" ],
+			"min"      : [ 0, 0, 0 ],
+			"max"      : [ 765, 110, 7.65 ],
+			"decimals" : [ 0, 1, 2 ],
 			"formula"  : "A_TIMES_3",
 			"vehicles" : [
 				"None"
@@ -135,10 +135,10 @@
 			"mode"     : "MODE1",
 			"pid"      : "0B",
 			"dataLen"  : 1,
-			"units"    : [ "KPA", "PSI" ],
-			"min"      : [ 0, 0 ],
-			"max"      : [ 255, 36 ],
-			"decimals" : [ 0, 1 ],
+			"units"    : [ "KPA", "PSI", "BAR" ],
+			"min"      : [ 0, 0, 0 ],
+			"max"      : [ 255, 36, 2.55 ],
+			"decimals" : [ 0, 1, 2 ],
 			"formula"  : "A",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"
@@ -279,10 +279,10 @@
 			"mode"     : "MODE1",
 			"pid"      : "22",
 			"dataLen"  : 2,
-			"units"    : [ "KPA", "PSI" ],
-			"min"      : [ 0, 0 ],
-			"max"      : [ 5177, 750 ],
-			"decimals" : [ 0, 0 ],
+			"units"    : [ "KPA", "PSI", "BAR" ],
+			"min"      : [ 0, 0, 0 ],
+			"max"      : [ 5177, 750, 51.77 ],
+			"decimals" : [ 0, 0, 2 ],
 			"formula"  : "ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"
@@ -295,10 +295,10 @@
 			"mode"     : "MODE1",
 			"pid"      : "33",
 			"dataLen"  : 1,
-			"units"    : [ "KPA", "PSI" ],
-			"min"      : [ 0, 0 ],
-			"max"      : [ 255, 36 ],
-			"decimals" : [ 0, 1 ],
+			"units"    : [ "KPA", "PSI", "BAR" ],
+			"min"      : [ 0, 0, 0 ],
+			"max"      : [ 255, 36, 2.55 ],
+			"decimals" : [ 0, 1, 2 ],
 			"formula"  : "A",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"
@@ -359,10 +359,10 @@
 			"mode"     : "MODE1",
 			"pid"      : "6F",
 			"dataLen"  : 1,
-			"units"    : [ "KPA", "PSI" ],
-			"min"      : [ 0, 0 ],
-			"max"      : [ 255, 36 ],
-			"decimals" : [ 1, 2 ],
+			"units"    : [ "KPA", "PSI", "BAR" ],
+			"min"      : [ 0, 0, 0 ],
+			"max"      : [ 255, 36, 2.55 ],
+			"decimals" : [ 1, 2, 2 ],
 			"formula"  : "UNDEFINED",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"
@@ -759,10 +759,10 @@
 			"mode"     : "CALC1",
 			"pid"      : "6F",
 			"dataLen"  : 0,
-			"units"    : [ "KPA", "PSI" ],
-			"min"      : [ -82, -12 ],
-			"max"      : [ 170, 24 ],
-			"decimals" : [ 1, 2 ],
+			"units"    : [ "KPA", "PSI", "BAR" ],
+			"min"      : [ -82, -12, -0.82 ],
+			"max"      : [ 170, 24, 1.7 ],
+			"decimals" : [ 1, 2, 2 ],
 			"formula"  : "UNDEFINED",
 			"vehicles" : [
 				"Ford_Focus_STRS_2013_2018"

@@ -32,7 +32,7 @@ static const PID_UNITS degrees_list[] = {PID_UNITS_DEGREES};
 static const PID_UNITS gramsec_list[] = {PID_UNITS_GRAMSEC};
 static const PID_UNITS g_force_list[] = {PID_UNITS_G_FORCE};
 static const PID_UNITS kmh_mph_list[] = {PID_UNITS_KMH, PID_UNITS_MPH};
-static const PID_UNITS kpa_psi_list[] = {PID_UNITS_KPA, PID_UNITS_PSI};
+static const PID_UNITS kpa_psi_bar_list[] = {PID_UNITS_KPA, PID_UNITS_PSI, PID_UNITS_BAR};
 static const PID_UNITS none_list[] = {PID_UNITS_NONE};
 static const PID_UNITS percent_list[] = {PID_UNITS_PERCENT};
 static const PID_UNITS ratio_list[] = {PID_UNITS_RATIO};
@@ -56,16 +56,16 @@ uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units )
                 return sizeof(celsius_fahrenheit_list) / sizeof(PID_UNITS);
 
             case MODE1_BAROMETRIC_PRESSURE_UUID:
-                *units = kpa_psi_list;
-                return sizeof(kpa_psi_list) / sizeof(PID_UNITS);
+                *units = kpa_psi_bar_list;
+                return sizeof(kpa_psi_bar_list) / sizeof(PID_UNITS);
 
             case MODE1_BOOST_UUID:
-                *units = kpa_psi_list;
-                return sizeof(kpa_psi_list) / sizeof(PID_UNITS);
+                *units = kpa_psi_bar_list;
+                return sizeof(kpa_psi_bar_list) / sizeof(PID_UNITS);
 
             case CALC1_BOOST_VACUUM_UUID:
-                *units = kpa_psi_list;
-                return sizeof(kpa_psi_list) / sizeof(PID_UNITS);
+                *units = kpa_psi_bar_list;
+                return sizeof(kpa_psi_bar_list) / sizeof(PID_UNITS);
 
             case SNIFF_BRAKE_PEDAL_STATUS_UUID:
                 *units = none_list;
@@ -136,12 +136,12 @@ uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units )
                 return sizeof(rpm_list) / sizeof(PID_UNITS);
 
             case MODE1_FUEL_PRESSURE_UUID:
-                *units = kpa_psi_list;
-                return sizeof(kpa_psi_list) / sizeof(PID_UNITS);
+                *units = kpa_psi_bar_list;
+                return sizeof(kpa_psi_bar_list) / sizeof(PID_UNITS);
 
             case MODE1_FUEL_RAIL_PRESSURE_UUID:
-                *units = kpa_psi_list;
-                return sizeof(kpa_psi_list) / sizeof(PID_UNITS);
+                *units = kpa_psi_bar_list;
+                return sizeof(kpa_psi_bar_list) / sizeof(PID_UNITS);
 
             case SNIFF_GAUGE_ILLUM_LEVEL_UUID:
                 *units = none_list;
@@ -180,8 +180,8 @@ uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units )
                 return sizeof(g_force_list) / sizeof(PID_UNITS);
 
             case MODE1_MANIFOLD_ABS_PRESS_UUID:
-                *units = kpa_psi_list;
-                return sizeof(kpa_psi_list) / sizeof(PID_UNITS);
+                *units = kpa_psi_bar_list;
+                return sizeof(kpa_psi_bar_list) / sizeof(PID_UNITS);
 
             case MODE22_MANIFOLD_ABS_PRESS_SENSOR_1_VOLT_UUID:
                 *units = volts_list;
