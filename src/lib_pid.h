@@ -182,6 +182,7 @@ typedef struct _pid_data {
 
 typedef PTR_PID_DATA (*request_pid_data)( PTR_PID_DATA pid );
 typedef int (*clear_pid_request)( PTR_PID_DATA pid );
+typedef int (*pause_resume_pid)( PTR_PID_DATA pid, uint8_t enable );
 
 
 typedef struct _obdii_pid {
