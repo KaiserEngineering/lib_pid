@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2025 KaiserEngineering, LLC
+ * Copyright (c) 2026 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,6 +58,10 @@ uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units )
             case MODE1_BAROMETRIC_PRESSURE_UUID:
                 *units = kpa_psi_bar_list;
                 return sizeof(kpa_psi_bar_list) / sizeof(PID_UNITS);
+
+            case MODE1_BATTERY_VOLTAGE_UUID:
+                *units = volts_list;
+                return sizeof(volts_list) / sizeof(PID_UNITS);
 
             case MODE1_BOOST_UUID:
                 *units = kpa_psi_bar_list;

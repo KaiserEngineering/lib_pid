@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2025 KaiserEngineering, LLC
+ * Copyright (c) 2026 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,6 +42,9 @@ uint16_t get_pid_header( uint32_t pid_uuid )
 
             case MODE1_BAROMETRIC_PRESSURE_UUID:
                 return MODE1_BAROMETRIC_PRESSURE_HEADER;
+
+            case MODE1_BATTERY_VOLTAGE_UUID:
+                return MODE1_BATTERY_VOLTAGE_HEADER;
 
             case MODE1_BOOST_UUID:
                 return MODE1_BOOST_HEADER;

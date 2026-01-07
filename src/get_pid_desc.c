@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2025 KaiserEngineering, LLC
+ * Copyright (c) 2026 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,6 +48,10 @@ uint8_t get_pid_desc( uint32_t pid_uuid, char* desc )
 
             case MODE1_BAROMETRIC_PRESSURE_UUID:
                 memcpy(desc, MODE1_BAROMETRIC_PRESSURE_DESC, sizeof(MODE1_BAROMETRIC_PRESSURE_DESC));
+                break;
+
+            case MODE1_BATTERY_VOLTAGE_UUID:
+                memcpy(desc, MODE1_BATTERY_VOLTAGE_DESC, sizeof(MODE1_BATTERY_VOLTAGE_DESC));
                 break;
 
             case MODE1_BOOST_UUID:

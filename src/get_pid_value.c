@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2025 KaiserEngineering, LLC
+ * Copyright (c) 2026 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,6 +48,9 @@ float get_pid_value( uint32_t pid_uuid, uint8_t data[] )
             case MODE1_MANIFOLD_ABS_PRESS_UUID:
             case MODE1_VEHICLE_SPEED_UUID:
                 return (float)data[OBDII_BYTEA];
+
+            case MODE1_BATTERY_VOLTAGE_UUID:
+                return (((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)1000;
 
             case MODE1_BOOST_UUID:
             case CALC1_BOOST_VACUUM_UUID:

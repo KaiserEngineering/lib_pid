@@ -4,6 +4,7 @@
 | Mode 1 | Air-Fuel Ratio (Oxygen Sensor 1) |
 | Mode 22 | Ambient Air Temp |
 | Mode 1 | Barometric Pressure |
+| Mode 1 | Battery Voltage |
 | Mode 1 | Boost |
 | Custom | Boost/Vacuum |
 | Sniff | Brake Pedal Status |

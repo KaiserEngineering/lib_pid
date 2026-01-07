@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2025 KaiserEngineering, LLC
+ * Copyright (c) 2026 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,6 +36,8 @@ uint32_t get_pid_by_string(const char *str)
         if(strcmp(str, MODE22_AMBIENT_AIR_TEMP_DESC) == 0) return MODE22_AMBIENT_AIR_TEMP_UUID;
 
         if(strcmp(str, MODE1_BAROMETRIC_PRESSURE_DESC) == 0) return MODE1_BAROMETRIC_PRESSURE_UUID;
+
+        if(strcmp(str, MODE1_BATTERY_VOLTAGE_DESC) == 0) return MODE1_BATTERY_VOLTAGE_UUID;
 
         if(strcmp(str, MODE1_BOOST_DESC) == 0) return MODE1_BOOST_UUID;
 

@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2025 KaiserEngineering, LLC
+ * Copyright (c) 2026 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,6 +32,7 @@ const uint32_t pid_list[] = {
     MODE1_AIR_FUEL_RATIO_OXYGEN_SENSOR_1_UUID,
     MODE22_AMBIENT_AIR_TEMP_UUID,
     MODE1_BAROMETRIC_PRESSURE_UUID,
+    MODE1_BATTERY_VOLTAGE_UUID,
     MODE1_BOOST_UUID,
     CALC1_BOOST_VACUUM_UUID,
     SNIFF_BRAKE_PEDAL_STATUS_UUID,

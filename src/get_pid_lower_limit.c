@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2025 KaiserEngineering, LLC
+ * Copyright (c) 2026 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -78,6 +78,17 @@ float get_pid_lower_limit( uint32_t pid_uuid, PID_UNITS unit )
 
                     case PID_UNITS_BAR:
                         return MODE1_BAROMETRIC_PRESSURE_BAR_LOWER;
+
+                    default:
+                        return LIMIT_ERROR;
+
+                }
+
+            case MODE1_BATTERY_VOLTAGE_UUID:
+                switch( unit )
+                {
+                    case PID_UNITS_VOLTS:
+                        return MODE1_BATTERY_VOLTAGE_VOLTS_LOWER;
 
                     default:
                         return LIMIT_ERROR;

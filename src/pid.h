@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * 
- * Copyright (c) 2025 KaiserEngineering, LLC
+ * Copyright (c) 2026 KaiserEngineering, LLC
  * Author Matthew Kaiser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -93,6 +93,21 @@
 #define MODE1_BAROMETRIC_PRESSURE_BAR_LOWER                               (float)0
 #define MODE1_BAROMETRIC_PRESSURE_BAR_UPPER                               (float)2.55
 #define MODE1_BAROMETRIC_PRESSURE_BAR_PRECISION                           (uint8_t)2
+
+/**
+ * Battery Voltage expressed in VOLTS
+ */
+#define MODE1_BATTERY_VOLTAGE_HEADER                                      (uint16_t)0x7E0
+#define MODE1_BATTERY_VOLTAGE_PID                                         (uint16_t)0x42
+#define MODE1_BATTERY_VOLTAGE_MODE                                        (uint8_t)MODE1
+#define MODE1_BATTERY_VOLTAGE_UUID                                        (uint32_t)((MODE1_BATTERY_VOLTAGE_MODE << 16) | MODE1_BATTERY_VOLTAGE_PID)
+#define MODE1_BATTERY_VOLTAGE_LEN                                         (uint8_t)0x2
+#define MODE1_BATTERY_VOLTAGE_UNITS                                       (uint16_t)PID_UNITS_VOLTS
+#define MODE1_BATTERY_VOLTAGE_LABEL                                       "Battery"
+#define MODE1_BATTERY_VOLTAGE_DESC                                        "Battery Voltage"
+#define MODE1_BATTERY_VOLTAGE_VOLTS_LOWER                                 (float)0
+#define MODE1_BATTERY_VOLTAGE_VOLTS_UPPER                                 (float)24
+#define MODE1_BATTERY_VOLTAGE_VOLTS_PRECISION                             (uint8_t)1
 
 /**
  * Boost expressed in KPA

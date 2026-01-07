@@ -337,6 +337,22 @@
 			]
 		},
 		{
+			"label"    : "Battery",
+			"desc"     : "Battery Voltage",
+			"id"       : "7E0",
+			"mode"     : "MODE1",
+			"pid"      : "42",
+			"dataLen"  : 2,
+			"units"    : [ "VOLTS" ],
+			"min"      : [ 0 ],
+			"max"      : [ 24 ],
+			"decimals" : [ 1 ],
+			"formula"  : "256_TIMES_A_PLUS_B_OVER_1000",
+			"vehicles" : [
+				"Ford_Focus_STRS_2013_2018"
+			]	
+		},
+		{
 			"label"    : "Oil Temp",
 			"desc"     : "Oil Temp",
 			"id"       : "7E0",
