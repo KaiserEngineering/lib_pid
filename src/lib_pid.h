@@ -20,7 +20,7 @@
 
 #include "pid.h"
 #ifdef USE_KE_CONF
-#include "../ke_conf.h"
+#include "ke_conf.h"
 #endif
 
 typedef enum _pid_compare {
