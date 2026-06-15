@@ -14,6 +14,7 @@
 #include "cJSON.h"
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
 #ifdef LIMIT_PIDS
 #include "pids_supported.h"
 #endif
@@ -120,6 +121,8 @@ typedef enum _pid_units {
 
 typedef struct _pid_data {
 
+	bool pid_initialized;
+
 	/* Label for the PID */
 	char label[LABEL_MAX_CHAR];
 
@@ -207,7 +210,8 @@ uint8_t get_unit_desc( PID_UNITS unit, char* label );
 PID_UNITS get_unit_by_string(const char *str);
 uint8_t get_mode_by_uuid( uint32_t pid_uuid );
 uint16_t get_pid_by_uuid( uint32_t pid_uuid );
-uint8_t load_pid_data( PTR_PID_DATA pid );
+void update_pid_data( PTR_PID_DATA pid, float value, uint32_t timestamp );
+bool load_pid_data( PTR_PID_DATA pid );
 float get_pid_lower_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_upper_limit( uint32_t pid_uuid, PID_UNITS unit );
 float get_pid_precision( uint32_t pid_uuid, PID_UNITS unit );
@@ -215,6 +219,7 @@ uint8_t get_pid_units( uint32_t pid_uuid, const PID_UNITS **units );
 uint32_t get_pid_from_list(uint32_t idx);
 uint32_t get_pid_list_size(void);
 uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size);
+PID_UNITS convert_units( PID_UNITS unitsIn, PID_UNITS unitsOut, float *value );
 
 #define OBDII_BYTEA 0
 #define OBDII_BYTEB 1

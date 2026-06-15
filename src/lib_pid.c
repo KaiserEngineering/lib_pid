@@ -2,6 +2,7 @@
 
 void lib_pid_clear_PID( PTR_PID_DATA ptr_pid )
 {
+    ptr_pid->pid_initialized = false;
     ptr_pid->pid_uuid = PID_UNASSIGNED;
     ptr_pid->pid_unit = PID_UNITS_RESERVED;
     ptr_pid->base_unit = PID_UNITS_RESERVED;
@@ -14,6 +15,11 @@ void lib_pid_clear_PID( PTR_PID_DATA ptr_pid )
     ptr_pid->num_activated = 0;
 }
 
+static bool is_pid_initialized( PTR_PID_DATA pid )
+{
+    return (pid != NULL) && pid->pid_initialized;
+}
+
 uint8_t get_mode_by_uuid( uint32_t pid_uuid )
 {
 	return (pid_uuid >> 16) & 0xFF;
@@ -24,11 +30,11 @@ uint16_t get_pid_by_uuid( uint32_t pid_uuid )
 	return pid_uuid & 0xFFFF;
 }
 
-uint8_t load_pid_data(PTR_PID_DATA pid)
+bool load_pid_data(PTR_PID_DATA pid)
 {
     // Verify the pid_uuid is valid
     if (pid->pid_uuid == PID_UNASSIGNED)
-        return 0;
+        return false;
 
     // Load the base unit first
     pid->base_unit = get_pid_base_unit(pid->pid_uuid);
@@ -63,7 +69,36 @@ uint8_t load_pid_data(PTR_PID_DATA pid)
     pid->upper_limit = get_pid_upper_limit(pid->pid_uuid, pid->pid_unit);
     pid->precision = get_pid_precision(pid->pid_uuid, pid->pid_unit);
 
-    return 1;
+    pid->pid_initialized = true;
+
+    return true;
+}
+
+void update_pid_data( PTR_PID_DATA pid, float value, uint32_t timestamp )
+{
+    if (!is_pid_initialized(pid))
+    {
+        if (!load_pid_data(pid)) {
+            // Failed to load PID data, mark as uninitialized and return
+            pid->pid_initialized = false;
+            return;
+        }
+    }
+
+    pid->timestamp = timestamp;
+    pid->pid_value = value;
+
+    convert_units( pid->base_unit, pid->pid_unit, &pid->pid_value );
+
+    // Log min/max if this is not the first data point
+	if( pid->timestamp > 0 ) {
+		if( pid->pid_value > pid->pid_max ) {
+		    pid->pid_max = pid->pid_value;
+		}
+		if( pid->pid_value < pid->pid_min ) {
+		    pid->pid_min = pid->pid_value;
+		}
+    }
 }
 
 uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size) {
