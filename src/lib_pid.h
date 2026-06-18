@@ -19,7 +19,6 @@
 #include "pids_supported.h"
 #endif
 
-#include "pid.h"
 #ifdef USE_KE_CONF
 #include "ke_conf.h"
 #endif
@@ -116,6 +115,16 @@ typedef enum _pid_units {
 #define LABEL_MAX_CHAR 16
 #define DESC_MAX_CHAR 64
 
+#ifndef PID_MAX_DEFINITIONS
+#define PID_MAX_DEFINITIONS 128
+#endif
+
+#ifndef PID_MAX_SUPPORTED_UNITS
+#define PID_MAX_SUPPORTED_UNITS 4
+#endif
+
+#define PID_UUID(mode, pid) (((uint32_t)(mode) << 16) | ((uint32_t)(pid) & 0xFFFFU))
+
 
 typedef struct _pid_data {
 
@@ -185,8 +194,29 @@ typedef PTR_PID_DATA (*request_pid_data)( PTR_PID_DATA pid );
 typedef int (*clear_pid_request)( PTR_PID_DATA pid );
 typedef int (*pause_resume_pid)( PTR_PID_DATA pid, uint8_t enable );
 
+typedef enum _pid_metadata_status {
+    PID_METADATA_ERROR = 0,
+    PID_METADATA_OK = 1
+} PID_METADATA_STATUS, *PPID_METADATA_STATUS;
+
+typedef struct _pid_metadata {
+    char label[LABEL_MAX_CHAR];
+    char desc[DESC_MAX_CHAR];
+    uint8_t precision[PID_MAX_SUPPORTED_UNITS];
+    float lower_limit[PID_MAX_SUPPORTED_UNITS];
+    float upper_limit[PID_MAX_SUPPORTED_UNITS];
+    uint16_t header;
+    uint32_t pid_uuid;
+    PID_UNITS base_unit;
+    PID_UNITS supported_units[PID_MAX_SUPPORTED_UNITS];
+    uint8_t num_supported_units;
+} PID_METADATA, *PPID_METADATA;
+
 
 void lib_pid_clear_PID( PTR_PID_DATA ptr_pid );
+void pid_metadata_clear_all(void);
+PID_METADATA_STATUS pid_metadata_register( const PID_METADATA *metadata );
+PID_METADATA_STATUS pid_metadata_register_json( cJSON *entry, uint16_t default_header );
 PID_UNITS get_pid_base_unit( uint32_t pid_uuid );
 uint16_t get_pid_header( uint32_t pid_uuid );
 uint8_t get_pid_label( uint32_t pid_uuid, char* label );
