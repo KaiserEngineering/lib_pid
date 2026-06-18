@@ -1,4 +1,5 @@
 #include "lib_pid.h"
+#include "cjson_shared.h"
 
 void lib_pid_clear_PID( PTR_PID_DATA ptr_pid )
 {
@@ -102,9 +103,15 @@ void update_pid_data( PTR_PID_DATA pid, float value, uint32_t timestamp )
 }
 
 uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size) {
+    if ((buffer == NULL) || (buffer_size == 0U) || !cjson_shared_acquire())
+        return 0;
+
     cJSON *root = cJSON_CreateArray();  // Root is now an array
 
-    if (!root) return 0;
+    if (!root) {
+        cjson_shared_release();
+        return 0;
+    }
 
     uint32_t pid_count = get_pid_list_size();
     PID_DATA pid_json;
@@ -155,19 +162,13 @@ uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size) {
         cJSON_AddItemToArray(root, entry);
     }
 
-    // Serialize JSON
-    char *json = cJSON_PrintUnformatted(root);
     uint32_t actual_len = 0;
 
-    if (json) {
-        size_t len = strlen(json);
-        if (len < buffer_size) {
-            memcpy(buffer, json, len + 1);  // include null terminator
-            actual_len = (uint32_t)len;
-        }
-        free(json);
+    if (cJSON_PrintPreallocated(root, buffer, (int)buffer_size, false)) {
+        actual_len = (uint32_t)strlen(buffer);
     }
 
     cJSON_Delete(root);
+    cjson_shared_release();
     return actual_len;  // 0 if failed
 }

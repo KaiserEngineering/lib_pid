@@ -15,34 +15,6 @@ code_header = open('header.h', 'r').read()
 code_header = code_header.replace("<today>", today.strftime("%b-%d-%Y"))
 code_header = code_header.replace("<year>", today.strftime("%Y"))
 
-C_FORMULAS = {
-    'UNDEFINED'                                 : '0',
-    '100_TIMES_A_OVER_255'                      : '(((float)data[OBDII_BYTEA]) * (float)100) / (float)255',
-    'A_OVER_200'                                : '(float)data[OBDII_BYTEA] / (float)255',
-    'A_MINUS_40'                                : '((float)data[OBDII_BYTEA] - (float)40)',
-    '256_TIMES_A_PLUS_B_OVER_4'                 : '(((float)256 * (float)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)4',
-    '256_TIMES_A_PLUS_B_OVER_10_MINUS_40'       : '((((float)256 * (float)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)10)-(float)40',
-    'A'                                         : '(float)data[OBDII_BYTEA]',
-    '256_TIMES_A_SIGNED_PLUS_B_OVER_64'         : '(((float)256 * (float)(int8_t)data[OBDII_BYTEA] ) + (float)data[OBDII_BYTEB] ) / (float)64',
-    'A_TIMES_3'                                 : '(float)data[OBDII_BYTEA] * (float)3',
-    'A_OVER_2_MINUS_64'                         : '((float)data[OBDII_BYTEA] / (float)2) - (float)64',
-    'A_OVER_2_MINUS_40'                         : '((float)data[OBDII_BYTEA] / (float)2) - (float)40',
-    'A_OVER_3_MINUS_40'                         : '((float)data[OBDII_BYTEA] / (float)3) - (float)40',
-    '256_TIMES_A_SIGNED_PLUS_B_OVER_NEG_512'    : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)-512',
-    '256_TIMES_A_SIGNED_PLUS_B_OVER_1024'       : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)1024',
-    '256_TIMES_A_SIGNED_PLUS_B_OVER_16384'      : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)16384',
-    '256_TIMES_A_PLUS_B_OVER_327_DOT_68'        : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)327.68',
-    '256_TIMES_A_PLUS_B_OVER_32768'             : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)32768',
-    '256_TIMES_A_PLUS_B_OVER_100'               : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)100',
-    '256_TIMES_A_PLUS_B_OVER_1000'              : '(((float)256 * (float)(data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) / (float)1000',
-    '100_OVER_128_TIMES_A_MINUS_100'            : '(((float)100 / (float)128) * (float)(data[OBDII_BYTEA])) - (float)100',
-    '256_TIMES_A_PLUS_B_TIMES_2_OVER_65536_TIMES': '(((((float)256 * (float)(data[OBDII_BYTEA])) + (float)(data[OBDII_BYTEB])) * (float)2) / (float)65536)',
-    'ZERO_DOT_079_TIMES_256_TIMES_A_PLUS_B'      : '((float)0.079 * (((float)256 * (float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]))',
-    '256_TIMES_A_SIGNED_PLUS_B_TIMES_0_DOT_002'  : '(((float)256 * (float)((int8_t)data[OBDII_BYTEA]) ) + (float)data[OBDII_BYTEB] ) * (float)0.002',
-    '256_TIMES_A_PLUS_B_OVER_3_PLUS_22_OVER_3'   : '((((float)256 *(float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]) + ((float)22 / (float)3))',
-    '29D4_OVER_65536_TIMES_256_A_PLUS_B'         : '((((float)256 *(float)data[OBDII_BYTEA]) + (float)data[OBDII_BYTEB]) * (float)29.4) / (float)65536'
-}
-
 with open('digital-dash-firmware.json') as f:
   data = json.load(f)
 
@@ -151,44 +123,6 @@ for pid in pid_list:
     print("[ADDED] " + pid["desc"])
 
 header.close()
-
-############################################
-#          get_pid_value.c                 #
-############################################
-
-get_pid_value = open("..\src\get_pid_value.c", "w")
-
-print("[CREATE] get_pid_value.c")
-
-get_pid_value.write( code_header + "\n\n" )
-
-get_pid_value.write( "#include \"lib_pid.h\"\n\n" )
-
-# Create the C function
-get_pid_value.write( "float get_pid_value( uint32_t pid_uuid, uint8_t data[] )\n" )
-get_pid_value.write( "{\n" )
-get_pid_value.write( "    switch( pid_uuid )\n" )
-get_pid_value.write( "    {\n" )
-
-# Get the formulas for the specific mode
-formulas = []
-for pid in pid_list:
-    if pid["formula"] not in formulas:
-      formulas.append(pid["formula"])
-
-for eq in formulas:
-  for pid in pid_list:
-    if pid["formula"] == eq:
-      get_pid_value.write("            case ")
-      get_pid_value.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
-  get_pid_value.write("                return " + C_FORMULAS[eq] + ";\n\n")
-
-get_pid_value.write("        default:\n")
-get_pid_value.write("             return 0;\n")
-get_pid_value.write( "    }\n" )
-get_pid_value.write( "}" )
-
-get_pid_value.close()
 
 ############################################
 #        get_pid_base_unit.c               #
@@ -333,39 +267,6 @@ get_pid_precision.write( "    }\n" )
 get_pid_precision.write( "}" )
 
 get_pid_precision.close()
-
-############################################
-#      lookup_payload_length.c             #
-############################################
-
-lookup_payload_length = open("..\src\lookup_payload_length.c", "w")
-
-print("[CREATE] lookup_payload_length.c")
-
-lookup_payload_length.write( code_header + "\n\n" )
-
-lookup_payload_length.write( "#include \"lib_pid.h\"\n\n" )
-
-
-# Create the C function
-lookup_payload_length.write( "uint8_t lookup_payload_length( uint32_t pid_uuid )\n" )
-lookup_payload_length.write( "{\n" )
-
-# Parse through each mode and add the case statement
-lookup_payload_length.write( "    switch( pid_uuid )\n" )
-lookup_payload_length.write( "    {\n" )
-
-for pid in pid_list:
-  lookup_payload_length.write("            case ")
-  lookup_payload_length.write(pid["mode"] + "_" + format_pid_desc(pid) + "_UUID:\n")
-  lookup_payload_length.write("                return " + pid["mode"] + "_" + format_pid_desc(pid) + "_LEN;\n\n" )
-
-lookup_payload_length.write("            default:\n")
-lookup_payload_length.write("                return 0;\n")
-lookup_payload_length.write( "    }\n" )
-lookup_payload_length.write( "}" )
-
-lookup_payload_length.close()
 
 ############################################
 #          get_pid_label.c                 #

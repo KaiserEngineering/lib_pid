@@ -33,8 +33,6 @@ typedef enum _pid_compare {
 #define INIT_MIN 99999
 #define INIT_MAX -99999
 
-typedef float (*obdii_conversion)(uint8_t A, uint8_t B, uint8_t C, uint8_t D);
-
 #define PID_UNITS_PERCENT_LABEL "%"
 #define PID_UNITS_CELSIUS_LABEL "°C"
 #define PID_UNITS_FAHRENHEIT_LABEL "°F"
@@ -188,18 +186,7 @@ typedef int (*clear_pid_request)( PTR_PID_DATA pid );
 typedef int (*pause_resume_pid)( PTR_PID_DATA pid, uint8_t enable );
 
 
-typedef struct _obdii_pid {
-
-    uint16_t pid;
-    uint8_t data_bytes;
-    PID_UNITS units;
-    obdii_conversion formula;
-
-} OBDII_PID, *POBDII_PID;
-
 void lib_pid_clear_PID( PTR_PID_DATA ptr_pid );
-float get_pid_value( uint32_t pid_uuid, uint8_t data[] );
-uint8_t lookup_payload_length( uint32_t pid_uuid );
 PID_UNITS get_pid_base_unit( uint32_t pid_uuid );
 uint16_t get_pid_header( uint32_t pid_uuid );
 uint8_t get_pid_label( uint32_t pid_uuid, char* label );
@@ -220,11 +207,6 @@ uint32_t get_pid_from_list(uint32_t idx);
 uint32_t get_pid_list_size(void);
 uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size);
 PID_UNITS convert_units( PID_UNITS unitsIn, PID_UNITS unitsOut, float *value );
-
-#define OBDII_BYTEA 0
-#define OBDII_BYTEB 1
-#define OBDII_BYTEC 2
-#define OBDII_BYTED 3
 
 #define MODE1                                           (uint8_t)0x01    // Show current data
 #define MODE2                                           (uint8_t)0x02    // Show freeze frame data
