@@ -15,6 +15,48 @@ static PPID_METADATA find_pid_metadata( uint32_t pid_uuid )
     return NULL;
 }
 
+static int compare_pid_desc( uint32_t left_uuid, uint32_t right_uuid )
+{
+    PPID_METADATA left = find_pid_metadata(left_uuid);
+    PPID_METADATA right = find_pid_metadata(right_uuid);
+    int result = 0;
+
+    if( (left == NULL) || (right == NULL) )
+        return 0;
+
+    result = strcmp(left->desc, right->desc);
+    if( result != 0 )
+        return result;
+
+    result = strcmp(left->label, right->label);
+    if( result != 0 )
+        return result;
+
+    if( left_uuid < right_uuid )
+        return -1;
+    if( left_uuid > right_uuid )
+        return 1;
+
+    return 0;
+}
+
+static void sort_pid_list_by_desc( uint32_t *pid_list, uint32_t pid_count )
+{
+    for( uint32_t i = 1; i < pid_count; i++ )
+    {
+        uint32_t current = pid_list[i];
+        uint32_t j = i;
+
+        while( (j > 0U) && (compare_pid_desc(current, pid_list[j - 1U]) < 0) )
+        {
+            pid_list[j] = pid_list[j - 1U];
+            j--;
+        }
+
+        pid_list[j] = current;
+    }
+}
+
 static bool parse_pid_u32_json( cJSON *item, uint32_t *value )
 {
     char *end = NULL;
@@ -468,11 +510,21 @@ uint32_t pid_list_to_json(char *buffer, uint32_t buffer_size) {
     }
 
     uint32_t pid_count = get_pid_list_size();
+    uint32_t sorted_pid_list[PID_MAX_DEFINITIONS];
     PID_DATA pid_json;
+
+    if( pid_count > PID_MAX_DEFINITIONS )
+        pid_count = PID_MAX_DEFINITIONS;
+
+    for( uint32_t i = 0; i < pid_count; i++ )
+        sorted_pid_list[i] = get_pid_from_list(i);
+
+    sort_pid_list_by_desc(sorted_pid_list, pid_count);
 
     for (uint32_t i = 0; i < pid_count; i++) {
         // Load the base PID data
-        pid_json.pid_uuid = get_pid_from_list(i);
+        memset(&pid_json, 0, sizeof(pid_json));
+        pid_json.pid_uuid = sorted_pid_list[i];
         pid_json.pid_unit = get_pid_base_unit(pid_json.pid_uuid);
         load_pid_data(&pid_json);
 
