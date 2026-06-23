@@ -112,11 +112,15 @@ typedef enum _pid_units {
 #define PID_ASSIGNED_TO_VEHICLE_DATA 0x03
 #endif
 
+#ifdef USE_LIB_DEVICE_DATA
+#define PID_ASSIGNED_TO_DEVICE_DATA 0x04
+#endif
+
 #define LABEL_MAX_CHAR 16
 #define DESC_MAX_CHAR 64
 
 #ifndef PID_MAX_DEFINITIONS
-#define PID_MAX_DEFINITIONS 128
+#define PID_MAX_DEFINITIONS 255
 #endif
 
 #ifndef PID_MAX_SUPPORTED_UNITS
