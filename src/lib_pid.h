@@ -221,6 +221,7 @@ void lib_pid_clear_PID( PTR_PID_DATA ptr_pid );
 void pid_metadata_clear_all(void);
 PID_METADATA_STATUS pid_metadata_register( const PID_METADATA *metadata );
 PID_METADATA_STATUS pid_metadata_register_json( cJSON *entry, uint16_t default_header );
+bool is_pid_supported( uint32_t pid_uuid );
 PID_UNITS get_pid_base_unit( uint32_t pid_uuid );
 uint16_t get_pid_header( uint32_t pid_uuid );
 uint8_t get_pid_label( uint32_t pid_uuid, char* label );

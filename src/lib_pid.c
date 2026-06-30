@@ -304,6 +304,11 @@ uint16_t get_pid_by_uuid( uint32_t pid_uuid )
 	return pid_uuid & 0xFFFF;
 }
 
+bool is_pid_supported( uint32_t pid_uuid )
+{
+    return find_pid_metadata(pid_uuid) != NULL;
+}
+
 PID_UNITS get_pid_base_unit( uint32_t pid_uuid )
 {
     PPID_METADATA metadata = find_pid_metadata(pid_uuid);
@@ -465,6 +470,9 @@ bool load_pid_data(PTR_PID_DATA pid)
     pid->lower_limit = get_pid_lower_limit(pid->pid_uuid, pid->pid_unit);
     pid->upper_limit = get_pid_upper_limit(pid->pid_uuid, pid->pid_unit);
     pid->precision = get_pid_precision(pid->pid_uuid, pid->pid_unit);
+    if(pid->precision > 2) {
+    	pid->precision = 2;
+    }
 
     pid->pid_initialized = true;
 
