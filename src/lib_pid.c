@@ -285,6 +285,7 @@ void lib_pid_clear_PID( PTR_PID_DATA ptr_pid )
     ptr_pid->pid_min = INIT_MIN;
     ptr_pid->pid_max = INIT_MAX;
     ptr_pid->timestamp = 0;
+    ptr_pid->refresh_rate = 0;
     ptr_pid->devices = 0;
     ptr_pid->num_activated = 0;
 }
@@ -488,6 +489,11 @@ void update_pid_data( PTR_PID_DATA pid, float value, uint32_t timestamp )
             pid->pid_initialized = false;
             return;
         }
+    }
+
+    if( (timestamp > 0) & (timestamp > pid->timestamp) )
+    {
+    	pid->refresh_rate = 1000.0/((float)timestamp - (float)pid->timestamp);
     }
 
     pid->timestamp = timestamp;

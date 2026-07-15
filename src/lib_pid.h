@@ -182,6 +182,9 @@ typedef struct _pid_data {
 	/* When the data was acquired */
 	uint32_t timestamp;
 
+	/* Refresh rate in Hz */
+	float refresh_rate;
+
 	/* How the data was acquired */
 	uint8_t acquisition_type;
 
